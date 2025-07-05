@@ -116,23 +116,3 @@ class ConvolutionFrontEnd(nn.Module):
     def forward(self, x):
         x = self.model(x)
         return x # batch, channels, time, features
-
-device = 'cuda'
-x = torch.randn(8, 256, 80).to(device)  # [batch, time, features]
-x = x.unsqueeze(1)  # [batch, channels, time, features]
-
-print("Input shape:", x.shape)
-
-model = ConvolutionFrontEnd(
-    in_channels=1,
-    num_blocks=2,
-    num_layers_per_block=1,
-    out_channels=[64, 32],
-    kernel_sizes=[3, 3],
-    strides=[2, 2],
-    residuals=[False, False]
-).to(device)
-
-out = model(x)
-print(out.shape)
-
