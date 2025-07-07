@@ -1,7 +1,68 @@
 import torch
 from torch import nn
-from modules import ConvolutionFrontEnd, FeedForwardBlock
-from attention import TASA_attention
+from .modules import ConvolutionFrontEnd, FeedForwardBlock
+from .attention import TASA_attention
+
+def calc_data_len(
+    result_len: int,
+    pad_len,
+    data_len,
+    kernel_size: int,
+    stride: int,
+):
+    """Calculates the new data portion size after applying convolution on a padded tensor
+
+    Args:
+
+        result_len (int): The length after the convolution is applied.
+
+        pad_len Union[Tensor, int]: The original padding portion length.
+
+        data_len Union[Tensor, int]: The original data portion legnth.
+
+        kernel_size (int): The convolution kernel size.
+
+        stride (int): The convolution stride.
+
+    Returns:
+
+        Union[Tensor, int]: The new data portion length.
+
+    """
+    if type(pad_len) != type(data_len):
+        raise ValueError(
+            f"""expected both pad_len and data_len to be of the same type
+            but {type(pad_len)}, and {type(data_len)} passed"""
+        )
+    inp_len = data_len + pad_len
+    new_pad_len = 0
+    # if padding size less than the kernel size
+    # then it will be convolved with the data.
+    convolved_pad_mask = pad_len >= kernel_size
+    # calculating the size of the discarded items (not convolved)
+    unconvolved = (inp_len - kernel_size) % stride
+    undiscarded_pad_mask = unconvolved < pad_len
+    convolved = pad_len - unconvolved
+    new_pad_len = (convolved - kernel_size) // stride + 1
+    # setting any condition violation to zeros using masks
+    new_pad_len *= convolved_pad_mask
+    new_pad_len *= undiscarded_pad_mask
+    return result_len - new_pad_len
+
+def get_mask_from_lens(lengths, max_len: int):
+    """Creates a mask tensor from lengths tensor.
+
+    Args:
+        lengths (Tensor): The lengths of the original tensors of shape [B].
+
+        max_len (int): the maximum lengths.
+
+    Returns:
+        Tensor: The mask of shape [B, max_len] and True whenever the index in the data portion.
+    """
+    indices = torch.arange(max_len).to(lengths.device)
+    indices = indices.expand(len(lengths), max_len)
+    return indices < lengths.unsqueeze(dim=1)
 
 class TASA_layers(nn.Module):
     def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout):
@@ -42,12 +103,16 @@ class TASA_layers(nn.Module):
 class TASA_encoder(nn.Module):
     def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout):
         super().__init__()
+        self.input_embed = nn.Embedding(num_embeddings=in_features, embedding_dim=d_model)
         self.in_features = in_features
         self.n_layers = n_layers
         self.d_model = d_model
         self.d_ff = d_ff
         self.h = h
         self.p_dropout = p_dropout
+
+        self.num_blocks = 2
+        self.num_layers_per_block = 1
 
         self.frontend = ConvolutionFrontEnd(
             in_channels=1,
@@ -72,59 +137,29 @@ class TASA_encoder(nn.Module):
             ]
         )
 
-        self.linear_proj = nn.Linear(640, d_model)
+        self.projection = nn.Linear(320, d_model)
+
     
     def forward(self, x, mask=None, previous_attention_scores=None):
-        
         x = x.unsqueeze(1)  # [batch, channels, time, features]
-        x = self.frontend(x)  # [batch, channels, time, features]
+        x, mask = self.frontend(x, mask)  # [batch, channels, time, features]
 
         x = x.transpose(1, 2).contiguous()   # batch, time, channels, features
-        x = x.reshape(x.shape[0], x.shape[1], -1) # [batch, time, features]
+        x = x.reshape(x.shape[0], x.shape[1], -1) # [batch, time, C * features]
 
-        print("Input shape:", x.shape)
+        
+        
 
-        x = self.linear_proj(x)  # [batch, time, d_model]
+        # print("x shape after frontend:", x.shape)  # [batch, time, C * features]
+        # print("mask shape after frontend:", mask.shape)  # [batch, time]
+        x = self.projection(x)  # [batch, time, d_model]
 
         for layer in self.layers:
             
             x, previous_attention_scores = layer(x, mask, previous_attention_scores)
+            # print("previous_attention_scores shape:", previous_attention_scores.shape)  # [batch, h, time, time]
         
-        return x 
+        # x shape : # [batch, time', d_model]
+        return x , mask
 
-# Các tham số mô hình
-in_features = 80     # số feature đầu vào
-n_layers = 4         # số tầng attention
-d_model = 256        # chiều không gian attention
-d_ff = 512           # hidden size FFN
-h = 4                # số head
-p_dropout = 0.1
 
-# Khởi tạo mô hình
-model = TASA_encoder(
-    in_features=in_features,
-    n_layers=n_layers,
-    d_model=d_model,
-    d_ff=d_ff,
-    h=h,
-    p_dropout=p_dropout
-)
-
-# Đưa mô hình lên GPU nếu có
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = model.to(device)
-
-# Dữ liệu giả
-batch_size = 8
-time_steps = 100
-x = torch.randn(batch_size, time_steps, in_features).to(device)  # [B, T, F]
-
-# Mặt nạ (mask) và attention scores giả (tuỳ chọn)
-mask = torch.ones(batch_size, time_steps // 4, dtype=torch.bool).to(device)
-previous_attention_scores = None  # hoặc: torch.zeros(batch_size, h, time_steps, time_steps).to(device)
-
-# Forward pass
-with torch.no_grad():
-    output = model(x, mask=mask, previous_attention_scores=previous_attention_scores)
-
-print("✅ Test passed. Output shape:", output.shape)
