@@ -31,7 +31,7 @@ class TASA_attention(nn.Module):
         )
 
     def attention(self, query, key, value, mask, dropout, previous_attention_scores):
-        M = torch.matmul(query, key.transpose(-2, -1))  # [B, H, T, T]
+        M = torch.matmul(query, key.transpose(-2, -1))  # [B, H, T , d] @ [B, H, d, T] --> [B, H, T, T]
 
         if previous_attention_scores is not None:
             Mt = self.transmit_module(previous_attention_scores)  # CNNᵗ
@@ -46,8 +46,8 @@ class TASA_attention(nn.Module):
         # print("Attention shape:", A.shape)  # [B, H, T, T]
 
         if mask is not None:
-            print("Mask shape:", mask.shape)  # [B, T]
-            print("Attention shape before mask:", A.shape)  # [B, H, T
+            # print("Mask shape:", mask.shape)  # [B, T]
+            # print("Attention shape before mask:", A.shape)  # [B, H, T
             mask = mask.unsqueeze(1).unsqueeze(2)  # [B, 1, 1, T]
             A = A.masked_fill(mask == 0, -1e9)
 

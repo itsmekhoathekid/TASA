@@ -154,7 +154,7 @@ class ConvBlock(nn.Module):
                 d = layer.dilation[0]
                 p = layer.padding[0]
 
-                print(f"Layer: {layer.__class__.__name__}, k: {k}, s: {s}, d: {d}, p: {p}")
+                # print(f"Layer: {layer.__class__.__name__}, k: {k}, s: {s}, d: {d}, p: {p}")
 
                 # Tính chiều dài mới
                 out_T = (T + 2 * p - d * (k - 1) - 1) // s + 1
@@ -171,8 +171,8 @@ class ConvBlock(nn.Module):
                     stride=s,
                 )
 
-                print(out_T)
-                print(new_len.shape)
+                # print(out_T)
+                # print(new_len.shape)
                 mask = get_mask_from_lens(new_len, out_T)  # [B, out_T]
                 T = out_T  # cập nhật T để dùng tiếp
 

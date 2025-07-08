@@ -1,8 +1,7 @@
 import torch
 from utils.dataset import Speech2Text, speech_collate_fn
-from models.model import TransformerTransducer
+from models import R_TASA_Transformer, CTCLoss, CrossEntropyLoss
 from tqdm import tqdm
-from models.loss import RNNTLoss
 import argparse
 import yaml
 import os 
@@ -10,17 +9,10 @@ from models.optim import Optimizer
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 import datetime
 import logging
+from utils import logg
 
 # Cấu hình logger
-log_file = "transformer_transducer_log.txt"
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(message)s",
-    handlers=[
-        logging.FileHandler(log_file),
-        logging.StreamHandler()  # vẫn in ra màn hình
-    ]
-)
+
 
 def reload_model(model, optimizer, checkpoint_path):
     """
@@ -42,7 +34,7 @@ def reload_model(model, optimizer, checkpoint_path):
     return past_epoch+1, model, optimizer
 
 
-def train_one_epoch(model, dataloader, optimizer, criterion, device):
+def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight):
     model.train()
     total_loss = 0.0
 
@@ -50,24 +42,28 @@ def train_one_epoch(model, dataloader, optimizer, criterion, device):
 
     for batch_idx, batch in enumerate(progress_bar):
         speech = batch["fbank"].to(device)
-        target_text = batch["text"].to(device)
+        tokens_eos = batch["text"].to(device)
         speech_mask = batch["fbank_mask"].to(device)
         text_mask = batch["text_mask"].to(device)
-        fbank_len = batch["fbank_len"].to(device)
-        text_len = batch["text_len"].to(device)
         decoder_input = batch["decoder_input"].to(device)
+        text_len = batch["text_len"].to(device)
+        tokens = batch["tokens"].to(device)
+        tokens_lens = batch["tokens_lens"].to(device)
 
         optimizer.zero_grad()
 
-        output, fbank_len, text_len = model(
-            speech=speech,
-            speech_mask=speech_mask,
-            text=decoder_input,
-            text_mask=text_mask,
-        )
+        enc_out , dec_out, enc_input_lengths   = model(
+            src = speech, 
+            tgt = decoder_input,
+            src_mask = speech_mask,
+            tgt_mask = text_mask
+        )  # [B, T_text, vocab_size]
         
         # Bỏ <s> ở đầu nếu có
-        loss = criterion(output, target_text, fbank_len, text_len)
+        loss_ctc = criterion_ctc(enc_out, tokens, enc_input_lengths, tokens_lens)
+        loss_ep = criterion_ep(dec_out, tokens_eos)
+        
+        loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
         loss.backward()
         optimizer.step()
 
@@ -83,7 +79,7 @@ def train_one_epoch(model, dataloader, optimizer, criterion, device):
 
 from torchaudio.functional import rnnt_loss
 
-def evaluate(model, dataloader, criterion, device):
+def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight):
     model.eval()
     total_loss = 0.0
 
@@ -92,24 +88,28 @@ def evaluate(model, dataloader, criterion, device):
     with torch.no_grad():
         for batch in progress_bar:
             speech = batch["fbank"].to(device)
-            target_text = batch["text"].to(device)
+            tokens_eos = batch["text"].to(device)
             speech_mask = batch["fbank_mask"].to(device)
             text_mask = batch["text_mask"].to(device)
-            fbank_len = batch["fbank_len"].to(device)
-            text_len = batch["text_len"].to(device)
             decoder_input = batch["decoder_input"].to(device)
+            text_len = batch["text_len"].to(device)
+            tokens = batch["tokens"].to(device)
+            tokens_lens = batch["tokens_lens"].to(device)
 
+            optimizer.zero_grad()
 
-
-            output, fbank_len, text_len = model(
-                speech=speech,
-                speech_mask=speech_mask,
-                text=decoder_input,
-                text_mask=text_mask,
-            )
+            enc_out , dec_out, enc_input_lengths   = model(
+                src = speech, 
+                tgt = decoder_input,
+                src_mask = speech_mask,
+                tgt_mask = text_mask
+            )  # [B, T_text, vocab_size]
             
             # Bỏ <s> ở đầu nếu có
-            loss = criterion(output, target_text, fbank_len, text_len)
+            loss_ctc = criterion_ctc(enc_out, tokens, enc_input_lengths, tokens_lens)
+            loss_ep = criterion_ep(dec_out, tokens_eos)
+            
+            loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
 
             total_loss += loss.item()
             progress_bar.set_postfix(batch_loss=loss.item())
@@ -131,8 +131,7 @@ def main():
 
     config = load_config(args.config)
     training_cfg = config['training']
-    # optimizer_cfg = config['optimizer']
-
+    logg(training_cfg['logg'])
 
     # ==== Load Dataset ====
     train_dataset = Speech2Text(
@@ -160,19 +159,14 @@ def main():
     )
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = TransformerTransducer(
-        in_features=config['model']['in_features'],
-        n_classes=len(train_dataset.vocab),
-        n_layers=config['model']['n_layers'],
+    model = R_TASA_Transformer(
+        in_features=config['model']['in_features'], 
+        vocab_size=len(train_dataset.vocab),
+        n_enc_layers=config['model']['n_enc_layers'],
         n_dec_layers=config['model']['n_dec_layers'],
         d_model=config['model']['d_model'],
         ff_size=config['model']['ff_size'],
         h=config['model']['h'],
-        joint_size=config['model']['joint_size'],
-        enc_left_size=config['model']['enc_left_size'],
-        enc_right_size=config['model']['enc_right_size'],
-        dec_left_size=config['model']['dec_left_size'],
-        dec_right_size=config['model']['dec_right_size'],
         p_dropout=config['model']['p_dropout']
     ).to(device)
 
@@ -181,10 +175,19 @@ def main():
 
     # === Khởi tạo loss ===
     # Giả sử <blank> = 0, và bạn chưa dùng reduction 'mean' toàn bộ batch
-    criterion = RNNTLoss(config["rnnt_loss"]["blank"] , config["rnnt_loss"]["reduction"])  # hoặc "sum" nếu bạn custom average
+    criterion_ctc = CTCLoss(
+        blank = train_dataset.vocab.get_pad_token(),
+        reduction='mean',
+        zero_infinity=True
+    ).to(device)
 
-    # === Optimizer ===
-    # optimizer = Adam(model.parameters(), lr=optimizer_cfg['lr'])
+    criterion_pe = CrossEntropyLoss(
+        ignore_index=train_dataset.vocab.get_pad_token(),
+        reduction='mean'
+    ).to(device)
+
+    ctc_weight = config['training']['ctc_weight']
+
     optimizer = Optimizer(model.parameters(), config['optim'])
 
     # ===Scheduler===
@@ -193,7 +196,6 @@ def main():
         mode='min',
         factor=0.5,
         patience=2,
-        # verbose=True
     )
 
     # === Huấn luyện ===
@@ -206,15 +208,15 @@ def main():
 
     
     for epoch in range(start_epoch, num_epochs + 1):
-        train_loss = train_one_epoch(model, train_loader, optimizer, criterion, device)
-        val_loss = evaluate(model,  dev_loader, criterion, device)
+        train_loss = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight)
+        val_loss = evaluate(model, dev_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight)
 
         logging.info(f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Val Loss = {val_loss:.4f}")
         # Save model checkpoint
 
         model_filename = os.path.join(
             config['training']['save_path'],
-            f"transformer_transducer_epoch_{epoch}"
+            f"R_TRANS_TASA_epoch_{epoch}"
         )
 
         torch.save({

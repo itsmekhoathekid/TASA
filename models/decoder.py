@@ -26,8 +26,8 @@ class TransformerDecoderLayer(nn.Module):
         enc_len = encoder_out.shape[1] 
         dec_len = x.shape[1]
         enc_mask = torch.tril(torch.ones((dec_len, enc_len))).unsqueeze(0).unsqueeze(0)
-        enc_mask = enc_mask.expand(x.shape[0], 1, dec_len, enc_len)  # [B, 1, M, T]
-        
+        enc_mask = enc_mask.expand(x.shape[0], 1, dec_len, enc_len).to(x.device)  # [B, 1, M, T]
+        # print("Encoder out shape:", encoder_out.shape)  # [B, 1, M, T]
         # tril mask & mask bth 
 
         x = self.cross_attention(x, encoder_out, encoder_out, enc_mask)
