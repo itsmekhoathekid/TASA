@@ -32,5 +32,5 @@ This improves context modeling and allows deeper interactions between layers in 
 
 ```bash
 git clone https://github.com/itsmekhoathekid/TASA.git
-cd tasa-asr
+cd TASA
 pip install -r requirements.txt

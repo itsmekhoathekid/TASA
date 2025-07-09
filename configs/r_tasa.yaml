@@ -1,7 +1,7 @@
 training:
   epochs: 100
   batch_size: 4
-  save_path: "/home/anhkhoa/transformer_transducer_speeQ/save_folder"
+  save_path: "/home/anhkhoa/TASA/saves"
   train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train.json"
   dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/dev.json"
   test_path : "/home/anhkhoa/transformer_transducer_speeQ/data/dev.json"
