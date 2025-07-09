@@ -1,6 +1,6 @@
 import torch
 from utils.dataset import Speech2Text, speech_collate_fn
-from models import R_TASA_Transformer, CTCLoss, CrossEntropyLoss
+from models import R_TASA_Transformer, CTCLoss, CrossEntropyLoss, add_nan_hook
 from tqdm import tqdm
 import argparse
 import yaml
@@ -60,11 +60,21 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
         )  # [B, T_text, vocab_size]
         
         # Bỏ <s> ở đầu nếu có
-        loss_ctc = criterion_ctc(enc_out, tokens, enc_input_lengths, tokens_lens)
-        loss_ep = criterion_ep(dec_out, tokens_eos)
+        loss = criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
+        # loss = criterion_ep(dec_out, tokens_eos)
         
-        loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
+        # print(f"Loss CTC: {loss_ctc.item()}, Loss EP: {loss_ep.item()}")
+        # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
         loss.backward()
+
+        # nan_grad = False
+        # for name, param in model.named_parameters():
+        #     if param.grad is not None and torch.isnan(param.grad).any():
+        #         print(f"❌ NaN in gradient of: {name}")
+        #         nan_grad = True
+
+        # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+
         optimizer.step()
 
         total_loss += loss.item()
@@ -172,18 +182,20 @@ def main():
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
+    # add_nan_hook(model)  # Thêm hook để kiểm tra NaN trong model
 
     # === Khởi tạo loss ===
     # Giả sử <blank> = 0, và bạn chưa dùng reduction 'mean' toàn bộ batch
     criterion_ctc = CTCLoss(
-        blank = train_dataset.vocab.get_pad_token(),
+        blank = train_dataset.vocab.get_blank_token(),
         reduction='mean',
         zero_infinity=True
     ).to(device)
 
     criterion_pe = CrossEntropyLoss(
         ignore_index=train_dataset.vocab.get_pad_token(),
-        reduction='mean'
+        reduction='mean',
+
     ).to(device)
 
     ctc_weight = config['training']['ctc_weight']

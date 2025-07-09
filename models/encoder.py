@@ -116,12 +116,15 @@ class TASA_encoder(nn.Module):
 
         self.frontend = ConvolutionFrontEnd(
             in_channels=1,
-            num_blocks=2,
-            num_layers_per_block=1,
-            out_channels=[64, 32],
-            kernel_sizes=[3, 3],
-            strides=[2, 2],
-            residuals=[False, False],
+            num_blocks=3,
+            num_layers_per_block=2,
+            out_channels=[8, 16, 32],
+            kernel_sizes=[3, 3, 3],
+            strides=[1, 2, 2],
+            residuals=[True, True, True],
+            activation=nn.ReLU,        # 👈 Thêm LeakyReLU
+            norm=nn.BatchNorm2d,            # 👈 Hoặc thay bằng nn.LayerNorm nếu bạn thích
+            dropout=0.1,
         )
 
         self.layers = nn.ModuleList(

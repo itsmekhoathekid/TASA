@@ -32,6 +32,8 @@ class Vocab:
         return self.stoi["<pad>"]
     def get_unk_token(self):
         return self.stoi["<unk>"]
+    def get_blank_token(self):
+        return self.stoi["<blank>"]
     def __len__(self):
         return len(self.vocab)
 
@@ -50,14 +52,6 @@ class Speech2Text(Dataset):
         self.unk_token = self.vocab.get_unk_token()
         self.apply_spec_augment = apply_spec_augment
 
-        self.mel_extractor = T.MelSpectrogram(
-            sample_rate=16000,
-            n_fft=512,
-            win_length=int(0.032 * 16000),  # 32ms
-            hop_length=int(0.010 * 16000),  # 10ms hop
-            n_mels=128,
-            power=2.0
-        )
         self.db_transform = T.AmplitudeToDB(top_db=80)
 
         # SpecAugment transforms
@@ -150,7 +144,10 @@ def speech_collate_fn(batch):
     padded_tokens = pad_sequence(tokens, batch_first=True, padding_value=0)      # [B, T_text]
 
     speech_mask=calculate_mask(fbank_lens, padded_fbanks.size(1))      # [B, T]
-    text_mask= calculate_mask(text_lens, padded_texts.size(1)) & causal_mask(padded_texts.size(0), padded_texts.size(1))  # [B, T_text, T_text]
+    # print(calculate_mask(text_lens, padded_texts.size(1)).shape)
+    # print(causal_mask(padded_texts.size(0), padded_texts.size(1)).shape)
+    
+    text_mask= calculate_mask(text_lens, padded_texts.size(1)).unsqueeze(1) & causal_mask(padded_texts.size(0), padded_texts.size(1))  # [B, T_text, T_text]
 
     return {
         "decoder_input": padded_decoder_inputs,

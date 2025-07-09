@@ -22,6 +22,7 @@ class R_TASA_Transformer(nn.Module):
             h=h,
             p_dropout=p_dropout
         )
+        self.ctc_lin = nn.Linear(d_model, vocab_size)
 
     def forward(self, src, tgt, src_mask, tgt_mask):
         enc_out, mask = self.encoder(src.float(), src_mask)  # [B, T, d_model]
@@ -31,4 +32,5 @@ class R_TASA_Transformer(nn.Module):
         # print("Encoder mask shape:", src_mask.shape)  # [B, T]
 
         dec_out = self.decoder(tgt, enc_out, src_mask, tgt_mask)
+        enc_out = self.ctc_lin(enc_out)  # [B, T, vocab_size]
         return enc_out, dec_out, enc_input_lengths 

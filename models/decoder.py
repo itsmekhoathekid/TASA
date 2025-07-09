@@ -9,7 +9,7 @@ class TransformerDecoderLayer(nn.Module):
         self.ffn = FeedForwardBlock(d_model=d_model, d_ff=ff_size, dropout=dropout)
         self.self_attention = MultiHeadAttentionBlock(d_model=d_model, h=h, dropout=dropout)
         self.cross_attention = MultiHeadAttentionBlock(d_model=d_model, h=h, dropout=dropout)
-        self.risidual_connection =  nn.ModuleList([
+        self.residual_connections =  nn.ModuleList([
             ResidualConnection(features=d_model, dropout=dropout),
             ResidualConnection(features=d_model, dropout=dropout),
             ResidualConnection(features=d_model, dropout=dropout)
@@ -20,20 +20,17 @@ class TransformerDecoderLayer(nn.Module):
     
     def forward(self, x, encoder_out, enc_mask, dec_mask):
         
-        x = self.self_attention(x, x, x, dec_mask)
-        x = self.risidual_connection[0](x)
+        x = self.residual_connections[0](x, lambda x: self.self_attention(x, x, x, dec_mask))
 
         enc_len = encoder_out.shape[1] 
         dec_len = x.shape[1]
         enc_mask = torch.tril(torch.ones((dec_len, enc_len))).unsqueeze(0).unsqueeze(0)
         enc_mask = enc_mask.expand(x.shape[0], 1, dec_len, enc_len).to(x.device)  # [B, 1, M, T]
-        # print("Encoder out shape:", encoder_out.shape)  # [B, 1, M, T]
-        # tril mask & mask bth 
 
-        x = self.cross_attention(x, encoder_out, encoder_out, enc_mask)
-        x = self.risidual_connection[1](x)
-        x = self.ffn(x)
-        x = self.risidual_connection[2](x)
+
+        x = self.residual_connections[1](x, lambda x: self.cross_attention(x, encoder_out, encoder_out, enc_mask))
+        
+        x = self.residual_connections[1](x, lambda x: self.ffn(x))
 
         return x
 

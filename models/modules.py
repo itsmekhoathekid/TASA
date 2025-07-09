@@ -101,7 +101,7 @@ class ConvBlock(nn.Module):
         dilation: int = 1,
         residual: bool = False,
         conv_module: Type[nn.Module] = nn.Conv2d,
-        activation: Callable = nn.ReLU,
+        activation: Callable = nn.LeakyReLU,  # 👉 Dùng LeakyReLU
         norm: Optional[Type[nn.Module]] = nn.BatchNorm2d,
         dropout: float = 0.1
     ):
@@ -115,11 +115,11 @@ class ConvBlock(nn.Module):
                 kernel_size=kernel_size,
                 stride=conv_stride,
                 dilation=dilation,
-                padding=(kernel_size // 2)  # mimic "same" padding
+                padding=(kernel_size // 2)
             )
             layers.append(conv)
             if norm:
-                layers.append(norm(out_channels))
+                layers.append(norm(out_channels))  # Gọi instance
             layers.append(activation())
             layers.append(nn.Dropout(dropout))
 
@@ -138,47 +138,38 @@ class ConvBlock(nn.Module):
             self.shortcut = None
 
     def forward(self, x, mask):
-        """
-        x: [B, C, T, F]
-        mask: [B, T]
-        """
         B, C, T, F = x.shape
-        
+        residual_input = x  
 
         for layer in self.main:
             x = layer(x)
-            # Nếu là Conv2d thì cập nhật mask
-            if isinstance(layer, nn.Conv2d):
-                k = layer.kernel_size[0]
-                s = layer.stride[0]
-                d = layer.dilation[0]
-                p = layer.padding[0]
+            # if isinstance(layer, nn.Conv2d):
+            #     print(f"👉 Kiểm tra trọng số conv: {layer}")
+            #     print(f"   max weight: {layer.weight.max().item()}, min: {layer.weight.min().item()}")
+            #     print(f"   contains NaN: {torch.isnan(layer.weight).any().item()}")
+            #     print(f"   contains Inf: {torch.isinf(layer.weight).any().item()}")
+            # if torch.isnan(x).any():
+            #     print(f"❌ NaN xuất hiện trong layer: {layer}")
+            #     raise ValueError(f"NaN detected at layer {layer}")
+            k = layer.kernel_size[0]
+            s = layer.stride[0]
+            d = layer.dilation[0]
+            p = layer.padding[0]
+            out_T = (T + 2 * p - d * (k - 1) - 1) // s + 1
+            pad_len = T - mask.sum(dim=1)
+            data_len = mask.sum(dim=1)
+            new_len = calc_data_len(
+                result_len=out_T,
+                pad_len=pad_len,
+                data_len=data_len,
+                kernel_size=k,
+                stride=s,
+            )
+            mask = get_mask_from_lens(new_len, out_T)
+            T = out_T
 
-                # print(f"Layer: {layer.__class__.__name__}, k: {k}, s: {s}, d: {d}, p: {p}")
-
-                # Tính chiều dài mới
-                out_T = (T + 2 * p - d * (k - 1) - 1) // s + 1
-
-
-                pad_len = T - mask.sum(dim=1)  # [B]
-                data_len = mask.sum(dim=1)     # [B]
-
-                new_len = calc_data_len(
-                    result_len=out_T,
-                    pad_len=pad_len,
-                    data_len=data_len,
-                    kernel_size=k,
-                    stride=s,
-                )
-
-                # print(out_T)
-                # print(new_len.shape)
-                mask = get_mask_from_lens(new_len, out_T)  # [B, out_T]
-                T = out_T  # cập nhật T để dùng tiếp
-
-        # Nếu residual thì xử lý shortcut
         if self.residual:
-            shortcut = self.shortcut(x)
+            shortcut = self.shortcut(residual_input)  # 👉 fix chỗ này
             x = x + shortcut
 
         return x, mask
@@ -187,15 +178,15 @@ class ConvBlock(nn.Module):
 class ConvolutionFrontEnd(nn.Module):
     def __init__(
         self,
-        in_channels : int, 
+        in_channels: int,
         num_blocks: int,
         num_layers_per_block: int,
         out_channels: List[int],
         kernel_sizes: List[int],
         strides: List[int],
         residuals: List[bool],
-        activation: Callable = nn.ReLU,
-        norm: Optional[Callable] = nn.BatchNorm2d,
+        activation: Callable = nn.LeakyReLU,  # 👈 LeakyReLU
+        norm: Optional[Callable] = nn.BatchNorm2d,  # 👈 hoặc nn.LayerNorm
         dropout: float = 0.1,
     ):
         super().__init__()
@@ -214,15 +205,15 @@ class ConvolutionFrontEnd(nn.Module):
                 dropout=dropout
             )
             blocks.append(block)
-            in_channels = out_channels[i]  # cập nhật cho block sau
+            in_channels = out_channels[i]
 
-        self.model = nn.Sequential(*blocks)
+        self.model = nn.ModuleList(blocks)
 
     def forward(self, x, mask):
-
-        for i, layer in enumerate(self.model):
-            x, mask = layer(x, mask)
+        for i, block in enumerate(self.model):
+            x, mask = block(x, mask)
         return x, mask
+
 
 
 class LayerNormalization(nn.Module):
@@ -250,8 +241,8 @@ class ResidualConnection(nn.Module):
             self.dropout = nn.Dropout(dropout)
             self.norm = LayerNormalization(features)
     
-        def forward(self, x):
-            return x + self.dropout(self.norm(x))
+        def forward(self, x, sublayer):
+            return x + self.dropout(sublayer(self.norm(x)))
 
 class ProjectionLayer(nn.Module):
     def __init__(self, d_model : int, vocab_size : int):
