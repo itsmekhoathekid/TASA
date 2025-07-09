@@ -60,11 +60,11 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
         )  # [B, T_text, vocab_size]
         
         # Bỏ <s> ở đầu nếu có
-        loss = criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
-        # loss = criterion_ep(dec_out, tokens_eos)
+        loss_ctc = criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
+        loss_ep = criterion_ep(dec_out, tokens_eos)
         
         # print(f"Loss CTC: {loss_ctc.item()}, Loss EP: {loss_ep.item()}")
-        # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
+        loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
         loss.backward()
 
         # nan_grad = False
