@@ -91,6 +91,8 @@ class MultiHeadAttentionBlock(nn.Module):
         if mask is not None:
             # print("Mask shape:", mask.shape)  # [B, T]
             # print("attention_scores shape:", attention_scores.shape)  # [B, h, T    , T]
+            if mask.dim() != 4:
+                mask = mask.unsqueeze(1)
             attention_scores.masked_fill_(mask == 0, -1e9)
         attention_scores = attention_scores.softmax(dim=-1) # (batch, h, seq_len, seq_len) # Apply softmax
         if dropout is not None:
