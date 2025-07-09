@@ -151,22 +151,23 @@ class ConvBlock(nn.Module):
             # if torch.isnan(x).any():
             #     print(f"❌ NaN xuất hiện trong layer: {layer}")
             #     raise ValueError(f"NaN detected at layer {layer}")
-            k = layer.kernel_size[0]
-            s = layer.stride[0]
-            d = layer.dilation[0]
-            p = layer.padding[0]
-            out_T = (T + 2 * p - d * (k - 1) - 1) // s + 1
-            pad_len = T - mask.sum(dim=1)
-            data_len = mask.sum(dim=1)
-            new_len = calc_data_len(
-                result_len=out_T,
-                pad_len=pad_len,
-                data_len=data_len,
-                kernel_size=k,
-                stride=s,
-            )
-            mask = get_mask_from_lens(new_len, out_T)
-            T = out_T
+            if isinstance(layer, nn.Conv2d):
+                k = layer.kernel_size[0]
+                s = layer.stride[0]
+                d = layer.dilation[0]
+                p = layer.padding[0]
+                out_T = (T + 2 * p - d * (k - 1) - 1) // s + 1
+                pad_len = T - mask.sum(dim=1)
+                data_len = mask.sum(dim=1)
+                new_len = calc_data_len(
+                    result_len=out_T,
+                    pad_len=pad_len,
+                    data_len=data_len,
+                    kernel_size=k,
+                    stride=s,
+                )
+                mask = get_mask_from_lens(new_len, out_T)
+                T = out_T
 
         if self.residual:
             shortcut = self.shortcut(residual_input)  # 👉 fix chỗ này
