@@ -22,12 +22,6 @@ class TransformerDecoderLayer(nn.Module):
         
         x = self.residual_connections[0](x, lambda x: self.self_attention(x, x, x, dec_mask))
 
-        enc_len = encoder_out.shape[1] 
-        dec_len = x.shape[1]
-        enc_mask = torch.tril(torch.ones((dec_len, enc_len))).unsqueeze(0).unsqueeze(0)
-        enc_mask = enc_mask.expand(x.shape[0], 1, dec_len, enc_len).to(x.device)  # [B, 1, M, T]
-
-
         x = self.residual_connections[1](x, lambda x: self.cross_attention(x, encoder_out, encoder_out, enc_mask))
         
         x = self.residual_connections[1](x, lambda x: self.ffn(x))

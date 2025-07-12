@@ -31,7 +31,7 @@ class R_TASA_Transformer(nn.Module):
         # print("Encoder output shape:", enc_out.shape)  # [B, T, d_model]
         # print("Encoder mask shape:", src_mask.shape)  # [B, T]
 
-        dec_out = self.decoder(tgt, enc_out, src_mask, tgt_mask)
+        dec_out = self.decoder(tgt, enc_out, mask, tgt_mask)
         enc_out = self.ctc_lin(enc_out)  # [B, T, vocab_size]
         return enc_out, dec_out, enc_input_lengths 
     
