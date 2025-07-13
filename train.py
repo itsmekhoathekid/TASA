@@ -1,6 +1,6 @@
 import torch
 from utils.dataset import Speech2Text, speech_collate_fn
-from models import R_TASA_Transformer, CTCLoss, CrossEntropyLoss, add_nan_hook
+from models import R_TASA_Transformer, CTCLoss, Kldiv_Loss, add_nan_hook
 from tqdm import tqdm
 import argparse
 import yaml
@@ -10,6 +10,7 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau
 import datetime
 import logging
 from utils import logg
+from speechbrain.nnet.losses import kldiv_loss, ctc_loss
 
 # Cấu hình logger
 
@@ -24,7 +25,7 @@ def reload_model(model, optimizer, checkpoint_path):
         for path in path_list:
             past_epoch = max(int(path.split("_")[-1]), past_epoch)
         
-        load_path = os.path.join(checkpoint_path, f"transformer_transducer_epoch_{past_epoch}")
+        load_path = os.path.join(checkpoint_path, f"{model.model_name}_epoch_{past_epoch}")
         checkpoint = torch.load(load_path)
         model.load_state_dict(checkpoint['model_state_dict'])
         optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
@@ -59,21 +60,12 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
             tgt_mask = text_mask
         )  # [B, T_text, vocab_size]
         
-        # Bỏ <s> ở đầu nếu có
-        loss_ctc = criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
+        loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
         loss_ep = criterion_ep(dec_out, tokens_eos)
         
         # print(f"Loss CTC: {loss_ctc.item()}, Loss EP: {loss_ep.item()}")
         loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
         loss.backward()
-
-        # nan_grad = False
-        # for name, param in model.named_parameters():
-        #     if param.grad is not None and torch.isnan(param.grad).any():
-        #         print(f"❌ NaN in gradient of: {name}")
-        #         nan_grad = True
-
-        # torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
 
         optimizer.step()
 
@@ -116,7 +108,7 @@ def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, 
             )  # [B, T_text, vocab_size]
             
             # Bỏ <s> ở đầu nếu có
-            loss_ctc = criterion_ctc(enc_out, tokens, enc_input_lengths, tokens_lens)
+            loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
             loss_ep = criterion_ep(dec_out, tokens_eos)
             
             loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
@@ -188,15 +180,10 @@ def main():
     # Giả sử <blank> = 0, và bạn chưa dùng reduction 'mean' toàn bộ batch
     criterion_ctc = CTCLoss(
         blank = train_dataset.vocab.get_blank_token(),
-        reduction='mean',
-        zero_infinity=True
+        reduction='batchmean',
     ).to(device)
 
-    criterion_pe = CrossEntropyLoss(
-        ignore_index=train_dataset.vocab.get_pad_token(),
-        reduction='mean',
-
-    ).to(device)
+    criterion_pe = Kldiv_Loss(pad_idx=train_dataset.vocab.get_pad_token(), reduction='batchmean')
 
     ctc_weight = config['training']['ctc_weight']
 
