@@ -11,6 +11,7 @@ import datetime
 import logging
 from utils import logg
 from speechbrain.nnet.losses import kldiv_loss, ctc_loss
+from speechbrain.nnet.schedulers import NoamScheduler
 
 # Cấu hình logger
 
@@ -35,7 +36,7 @@ def reload_model(model, optimizer, checkpoint_path):
     return past_epoch+1, model, optimizer
 
 
-def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight):
+def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight, scheduler):
     model.train()
     total_loss = 0.0
 
@@ -68,6 +69,8 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
         loss.backward()
 
         optimizer.step()
+
+        scheduler(optimizer.optimizer)
 
         total_loss += loss.item()
 
@@ -183,6 +186,8 @@ def main():
         reduction='batchmean',
     ).to(device)
 
+
+
     criterion_pe = Kldiv_Loss(pad_idx=train_dataset.vocab.get_pad_token(), reduction='batchmean')
 
     ctc_weight = config['training']['ctc_weight']
@@ -190,11 +195,16 @@ def main():
     optimizer = Optimizer(model.parameters(), config['optim'])
 
     # ===Scheduler===
-    scheduler = ReduceLROnPlateau(
-        optimizer.optimizer,  # because you're using a wrapper class
-        mode='min',
-        factor=0.5,
-        patience=2,
+    # scheduler = ReduceLROnPlateau(
+    #     optimizer.optimizer,  # because you're using a wrapper class
+    #     mode='min',
+    #     factor=0.5,
+    #     patience=2,
+    # )
+
+    scheduler = NoamScheduler(
+        n_warmup_steps=config['scheduler']['n_warmup_steps'],
+        lr_initial=config['scheduler']['lr_initial']
     )
 
     # === Huấn luyện ===
@@ -207,7 +217,7 @@ def main():
 
     
     for epoch in range(start_epoch, num_epochs + 1):
-        train_loss = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight)
+        train_loss = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight, scheduler)
         val_loss = evaluate(model, dev_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight)
 
         logging.info(f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Val Loss = {val_loss:.4f}")

@@ -14,10 +14,13 @@ training:
 
 optim:
   type: adam
-  lr: 0.0001
+  lr: 0.001
   weight_decay: 0.0001
   decay_rate: 0.5
 
+scheduler:
+  lr_initial: 0.001
+  n_warmup_steps: 15000
 
 model:
    in_features: 640
