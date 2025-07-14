@@ -70,7 +70,7 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
 
         optimizer.step()
 
-        scheduler(optimizer.optimizer)
+        curr_lr, _ = scheduler(optimizer.optimizer)
 
         total_loss += loss.item()
 
@@ -79,7 +79,7 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
 
     avg_loss = total_loss / len(dataloader)
     logging.info(f"Average training loss: {avg_loss:.4f}")
-    return avg_loss
+    return avg_loss, curr_lr
 
 
 from torchaudio.functional import rnnt_loss
@@ -186,7 +186,7 @@ def main():
         reduction='batchmean',
     ).to(device)
 
-    
+
 
     criterion_pe = Kldiv_Loss(pad_idx=train_dataset.vocab.get_pad_token(), reduction='batchmean')
 
@@ -202,10 +202,14 @@ def main():
     #     patience=2,
     # )
 
-    scheduler = NoamScheduler(
-        n_warmup_steps=config['scheduler']['n_warmup_steps'],
-        lr_initial=config['scheduler']['lr_initial']
-    )
+
+    if not os.path.exists(config['training']['save_path'] + '/scheduler.ckpt'):
+        scheduler = NoamScheduler(
+            n_warmup_steps=config['scheduler']['n_warmup_steps'],
+            lr_initial=config['scheduler']['lr_initial']
+        )
+    else:
+        scheduler = NoamScheduler.load(config['training']['save_path'] + '/scheduler.ckpt')
 
     # === Huấn luyện ===
 
@@ -217,10 +221,10 @@ def main():
 
     
     for epoch in range(start_epoch, num_epochs + 1):
-        train_loss = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight, scheduler)
+        train_loss, curr_lr = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight, scheduler)
         val_loss = evaluate(model, dev_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight)
 
-        logging.info(f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Val Loss = {val_loss:.4f}")
+        logging.info(f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Val Loss = {val_loss:.4f}, LR = {curr_lr:.6f}")
         # Save model checkpoint
 
         model_filename = os.path.join(
@@ -234,14 +238,8 @@ def main():
             'optimizer_state_dict': optimizer.state_dict(),
         }, model_filename)
 
-        # Step scheduler with validation loss
-        scheduler.step(val_loss)
+        scheduler.save(config['training']['save_path'] + '/scheduler.ckpt')
 
-        # Early stopping nếu lr quá nhỏ
-        current_lr = optimizer.optimizer.param_groups[0]["lr"]
-        if current_lr < 1e-6:
-            logging.info('Learning rate quá thấp. Kết thúc training.')
-            break
 
 
 if __name__ == "__main__":
