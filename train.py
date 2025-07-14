@@ -186,7 +186,7 @@ def main():
         reduction='batchmean',
     ).to(device)
 
-
+    
 
     criterion_pe = Kldiv_Loss(pad_idx=train_dataset.vocab.get_pad_token(), reduction='batchmean')
 
