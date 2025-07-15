@@ -20,7 +20,7 @@ optim:
 
 
 model:
-   in_features: 640
+   in_features: 672
    n_enc_layers: 12
    n_dec_layers: 6
    d_model: 256
@@ -29,14 +29,6 @@ model:
    p_dropout: 0.1
    model_name: "transformer_transducer"
 
-# optim:
-#   type: sgd
-#   lr: 0.0001
-#   momentum: 0.9
-#   weight_decay: 0
-#   begin_to_adjust_lr: 60
-#   nesterov: None
-#   decay_rate: 0.5
 
 rnnt_loss:
   blank: 4
