@@ -122,8 +122,8 @@ class TASA_encoder(nn.Module):
             kernel_sizes=[3, 3, 3],
             strides=[1, 2, 2],
             residuals=[True, True, True],
-            activation=nn.ReLU,        # 👈 Thêm LeakyReLU
-            norm=nn.BatchNorm2d,            # 👈 Hoặc thay bằng nn.LayerNorm nếu bạn thích
+            activation=nn.ReLU,        
+            norm=nn.BatchNorm2d,            
             dropout=0.1,
         )
 

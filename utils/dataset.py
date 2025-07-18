@@ -65,53 +65,19 @@ class Speech2Text(Dataset):
         return len(self.data)
 
     def get_fbank(self, waveform, sample_rate=16000):
-        waveform_np = waveform.numpy()
-
-        # Step 1: 80-dim log-Mel filterbank
         mel_extractor = T.MelSpectrogram(
             sample_rate=sample_rate,
             n_fft=512,
-            win_length=int(0.025 * sample_rate),  # 25ms
-            hop_length=int(0.010 * sample_rate),  # 10ms
-            n_mels=80,
+            win_length=int(0.032 * sample_rate),
+            hop_length=int(0.010 * sample_rate),
+            n_mels=80,  
             power=2.0
         )
-        log_mel = mel_extractor(waveform.unsqueeze(0))  # [1, 80, T]
-        log_mel = torchaudio.functional.amplitude_to_DB(log_mel, multiplier=10.0, amin=1e-10, db_multiplier=0.0)
-        log_mel = log_mel.squeeze(0)  # [80, T]
 
-        # Step 2: Extract pitch (F0) using librosa.yin
-        f0 = librosa.yin(
-            y=waveform_np,
-            fmin=50,
-            fmax=400,
-            sr=sample_rate,
-            frame_length=int(0.025 * sample_rate),
-            hop_length=int(0.010 * sample_rate)
-        )  # shape: [T_pitch]
+        log_mel = mel_extractor(waveform.unsqueeze(0))
+        log_mel = torchaudio.functional.amplitude_to_DB(log_mel, multiplier=10.0, amin=1e-10, db_multiplier=0)
 
-        f0 = np.nan_to_num(f0, nan=0.0)  # Replace NaNs with 0
-
-        # Optional: create dummy NCCF & prob_voiced (for 3-dim pitch)
-        nccf = np.ones_like(f0) * 0.9  # Giả sử độ tin cậy cao
-        prob_voiced = (f0 > 0).astype(np.float32)  # voiced if f0 > 0
-
-        pitch_feat = np.stack([f0, nccf, prob_voiced], axis=1)  # [T_pitch, 3]
-        pitch_feat = torch.tensor(pitch_feat, dtype=torch.float).transpose(0, 1)  # [3, T]
-
-        # Step 3: Đồng bộ chiều (truncate nếu lệch)
-        T_fbank = log_mel.shape[1]
-        T_pitch = pitch_feat.shape[1]
-        T_min = min(T_fbank, T_pitch)
-        log_mel = log_mel[:, :T_min]         # [80, T]
-        pitch_feat = pitch_feat[:, :T_min]   # [3, T]
-
-        # Step 4: Ghép thành 83-dim
-        feat = torch.cat([log_mel, pitch_feat], dim=0)  # [83, T]
-        feat = feat.transpose(0, 1)  # [T, 83]
-
-        return feat  # [T, 83]
-
+        return log_mel.squeeze(0).transpose(0, 1)  # [T, 80]
 
     def extract_from_path(self, wave_path):
         waveform, sr = torchaudio.load(wave_path)

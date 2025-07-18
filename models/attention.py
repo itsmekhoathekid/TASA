@@ -72,7 +72,6 @@ class MultiHeadAttentionBlock(nn.Module):
         super().__init__()
         self.d_model = d_model # Embedding vector size
         self.h = h # Number of heads
-        # Make sure d_model is divisible by h
         assert d_model % h == 0, "d_model is not divisible by h"
 
         self.d_k = d_model // h # Dimension of vector seen by each head
@@ -98,7 +97,6 @@ class MultiHeadAttentionBlock(nn.Module):
         if dropout is not None:
             attention_scores = dropout(attention_scores)
         # (batch, h, seq_len, seq_len) --> (batch, h, seq_len, d_k)
-        # return attention scores which can be used for visualization
         return (attention_scores @ value), attention_scores
 
     def forward(self, q, k, v, mask):

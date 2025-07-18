@@ -143,14 +143,6 @@ class ConvBlock(nn.Module):
 
         for layer in self.main:
             x = layer(x)
-            # if isinstance(layer, nn.Conv2d):
-            #     print(f"👉 Kiểm tra trọng số conv: {layer}")
-            #     print(f"   max weight: {layer.weight.max().item()}, min: {layer.weight.min().item()}")
-            #     print(f"   contains NaN: {torch.isnan(layer.weight).any().item()}")
-            #     print(f"   contains Inf: {torch.isinf(layer.weight).any().item()}")
-            # if torch.isnan(x).any():
-            #     print(f"❌ NaN xuất hiện trong layer: {layer}")
-            #     raise ValueError(f"NaN detected at layer {layer}")
             if isinstance(layer, nn.Conv2d):
                 k = layer.kernel_size[0]
                 s = layer.stride[0]
@@ -186,8 +178,8 @@ class ConvolutionFrontEnd(nn.Module):
         kernel_sizes: List[int],
         strides: List[int],
         residuals: List[bool],
-        activation: Callable = nn.LeakyReLU,  # 👈 LeakyReLU
-        norm: Optional[Callable] = nn.BatchNorm2d,  # 👈 hoặc nn.LayerNorm
+        activation: Callable = nn.LeakyReLU, 
+        norm: Optional[Callable] = nn.BatchNorm2d, 
         dropout: float = 0.1,
     ):
         super().__init__()
