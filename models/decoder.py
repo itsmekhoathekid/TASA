@@ -24,7 +24,7 @@ class TransformerDecoderLayer(nn.Module):
 
         x = self.residual_connections[1](x, lambda x: self.cross_attention(x, encoder_out, encoder_out, enc_mask))
         
-        x = self.residual_connections[1](x, lambda x: self.ffn(x))
+        x = self.residual_connections[2](x, lambda x: self.ffn(x))
 
         return x
 
@@ -32,7 +32,7 @@ class TransformerDecoder(nn.Module):
     def __init__(self, vocab_size: int, n_layers: int, d_model: int, ff_size: int, h: int, p_dropout: float) -> None:
         super().__init__()
         self.emb = nn.Embedding(num_embeddings=vocab_size, embedding_dim=d_model)
-        self.pe = PositionalEncoding(d_model=d_model, seq_len=5000, dropout=p_dropout) 
+        self.pe = PositionalEncoding(d_model=d_model) 
         self.layers = nn.ModuleList(
             [TransformerDecoderLayer(d_model=d_model, h=h, ff_size=ff_size, dropout=p_dropout) for _ in range(n_layers)]
         )
