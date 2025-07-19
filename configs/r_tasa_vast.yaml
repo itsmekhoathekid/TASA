@@ -8,7 +8,7 @@ training:
   vocab_path : "workspace/dataset/vocab_w2i.json"
   reload: False
   logg : "workspace/TASA/logs/r_tasa.log"
-  ctc_weight: 0.4
+  ctc_weight: 0.3
   
 
 
@@ -24,10 +24,10 @@ scheduler:
 
 model:
    in_features: 640
-   n_enc_layers: 12
-   n_dec_layers: 6
+   n_enc_layers: 6
+   n_dec_layers: 3
    d_model: 256
-   ff_size: 2048
+   ff_size: 1024
    h: 4
    p_dropout: 0.1
    model_name: "transformer_transducer"

@@ -203,7 +203,7 @@ def main():
     # )
 
 
-    if not os.path.exists(config['training']['save_path'] + '/scheduler.ckpt'):
+    if not config['training']['reload']:
         scheduler = NoamScheduler(
             n_warmup_steps=config['scheduler']['n_warmup_steps'],
             lr_initial=config['scheduler']['lr_initial']
