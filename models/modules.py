@@ -67,28 +67,16 @@ def get_mask_from_lens(lengths, max_len: int):
     return indices < lengths.unsqueeze(dim=1)
 
 class FeedForwardBlock(nn.Module):
-    """
-    A feed-forward block with two linear layers and a ReLU activation in between.
-    """
 
     def __init__(self, d_model: int, d_ff: int, dropout: float) -> None:
         super().__init__()
-        self.ln = nn.LayerNorm(d_model)
-        self.w_1 = nn.Linear(d_model, d_ff)
-        self.relu = nn.ReLU()
+        self.linear_1 = nn.Linear(d_model, d_ff) # w1 and b1
         self.dropout = nn.Dropout(dropout)
-        self.w_2 = nn.Linear(d_ff, d_model)
+        self.linear_2 = nn.Linear(d_ff, d_model) # w2 and b2
 
-
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x = self.ln(x)
-        residual = x
-        x = self.w_1(x)
-        x = self.relu(x)
-        x = self.dropout(x)
-        x = self.w_2(x)
-        x = self.dropout(x)
-        return x + residual  # Add the residual connection
+    def forward(self, x):
+        # (batch, seq_len, d_model) --> (batch, seq_len, d_ff) --> (batch, seq_len, d_model)
+        return self.linear_2(self.dropout(torch.relu(self.linear_1(x))))
 
 class ConvBlock(nn.Module):
     def __init__(
