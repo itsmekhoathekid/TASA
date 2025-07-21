@@ -29,6 +29,12 @@ class TASA_attention(nn.Module):
             kernel_size=(3, 3),
             padding=1
         )
+        self._init_conv_weights()
+
+    def _init_conv_weights(self):
+        # Use small initial weights for stability
+        nn.init.normal_(self.transmit_module.weight, mean=0.0, std=0.01)
+        nn.init.normal_(self.aggregate_module.weight, mean=0.0, std=0.01)
 
     def attention(self, query, key, value, mask, dropout, previous_attention_scores):
         M = torch.matmul(query, key.transpose(-2, -1))  # [B, H, T , d] @ [B, H, d, T] --> [B, H, T, T]
@@ -41,7 +47,8 @@ class TASA_attention(nn.Module):
             Ma = M  # No aggregation in the first layer
 
         # Normalize then apply mask
-        A = torch.softmax(Ma / torch.sqrt(torch.tensor(self.d_model, dtype=torch.float32, device=Ma.device)), dim=-1)
+        A = Ma / math.sqrt(self.d_k)  
+        A = A.softmax(dim=-1)  # [B, H, T, T]
 
         # print("Attention shape:", A.shape)  # [B, H, T, T]
 
@@ -51,6 +58,8 @@ class TASA_attention(nn.Module):
             mask = mask.unsqueeze(1).unsqueeze(2)  # [B, 1, 1, T]
             A = A.masked_fill(mask == 0, -1e9)
 
+        if dropout is not None:
+            A = dropout(A)
         return A
 
     def forward(self, q, k, v, mask=None, previous_attention_scores=None):
