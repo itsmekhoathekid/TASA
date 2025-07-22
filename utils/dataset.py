@@ -134,7 +134,7 @@ def speech_collate_fn(batch):
     # print(causal_mask(padded_texts.size(0), padded_texts.size(1)).shape)
     
     text_mask= calculate_mask(text_lens, padded_texts.size(1)).unsqueeze(1) & causal_mask(padded_texts.size(0), padded_texts.size(1))  # [B, T_text, T_text]
-
+    text_mask = text_mask.unsqueeze(1)  # [B, 1, T_text, T_text]
     return {
         "decoder_input": padded_decoder_inputs,
         "text": padded_texts,
