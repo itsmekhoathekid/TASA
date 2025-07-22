@@ -48,7 +48,7 @@ class TASA_attention(nn.Module):
 
         # Normalize then apply mask
         A = Ma / math.sqrt(self.d_k)  
-        A = A.softmax(dim=-1)  # [B, H, T, T]
+        
 
         # print("Attention shape:", A.shape)  # [B, H, T, T]
 
@@ -58,6 +58,7 @@ class TASA_attention(nn.Module):
             mask = mask.unsqueeze(1).unsqueeze(2)  # [B, 1, 1, T]
             A = A.masked_fill(mask == 0, -1e9)
 
+        A = A.softmax(dim=-1)  # [B, H, T, T]
         if dropout is not None:
             A = dropout(A)
         return A

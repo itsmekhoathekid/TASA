@@ -1,6 +1,6 @@
 training:
   epochs: 100
-  batch_size: 1
+  batch_size: 2
   save_path: "/home/anhkhoa/TASA/saves"
   train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train.json"
   dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/dev.json"
@@ -24,8 +24,8 @@ scheduler:
 
 model:
    in_features: 640
-   n_enc_layers: 2
-   n_dec_layers: 2
+   n_enc_layers: 1
+   n_dec_layers: 1
    d_model: 256
    ff_size: 2048
    h: 4
