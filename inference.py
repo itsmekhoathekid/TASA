@@ -1,14 +1,10 @@
 import torch
 from utils.dataset import Speech2Text, speech_collate_fn
-from models import R_TASA_Transformer, CTCLoss, CrossEntropyLoss, add_nan_hook
+from models import R_TASA_Transformer
 from tqdm import tqdm
 import argparse
 import yaml
 import os 
-from models.optim import Optimizer
-from torch.optim.lr_scheduler import ReduceLROnPlateau
-import datetime
-import logging
 from utils import logg, causal_mask
 
 

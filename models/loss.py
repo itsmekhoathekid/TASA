@@ -59,4 +59,6 @@ class Kldiv_Loss(nn.Module):
             logits (Tensor): Logits of shape (N, C) where N is the batch size and C is the number of classes.
             targets (Tensor): Target indices of shape (N,).
         """
+        logits = logits.log_softmax(dim=-1)
+        
         return kldiv_loss(log_probabilities= logits, targets=targets, pad_idx = self.pad_idx, reduction = self.reduction)
