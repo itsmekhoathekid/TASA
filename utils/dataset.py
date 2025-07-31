@@ -7,6 +7,9 @@ import torchaudio.transforms as T
 import torchaudio.functional as F
 import numpy as np
 import librosa
+from speechbrain.lobes.features import Fbank
+import speechbrain as sb
+
 
 # [{idx : {encoded_text : Tensor, wav_path : text} }]
 
@@ -54,35 +57,38 @@ class Speech2Text(Dataset):
         self.pad_token = self.vocab.get_pad_token()
         self.unk_token = self.vocab.get_unk_token()
         self.apply_spec_augment = apply_spec_augment
+        self.fbank = Fbank(
+            sample_rate=16000,
+            n_mels=80,
+            n_fft=512,
+            win_length=25,
+        )
 
-        self.db_transform = T.AmplitudeToDB(top_db=80)
-
-        # SpecAugment transforms
-        self.freq_mask = T.FrequencyMasking(freq_mask_param=50)
-        self.time_mask = T.TimeMasking(time_mask_param=30)
 
     def __len__(self):
         return len(self.data)
 
     def get_fbank(self, waveform, sample_rate=16000):
-        mel_extractor = T.MelSpectrogram(
-            sample_rate=sample_rate,
-            n_fft=512,
-            win_length=int(0.025 * sample_rate),
-            hop_length=int(0.010 * sample_rate),
-            n_mels=80,  
-            power=2.0
-        )
 
-        log_mel = mel_extractor(waveform.unsqueeze(0))
-        log_mel = torchaudio.functional.amplitude_to_DB(log_mel, multiplier=10.0, amin=1e-10, db_multiplier=0)
+        # mel_extractor = T.MelSpectrogram(
+        #     sample_rate=sample_rate,
+        #     n_fft=512,
+        #     win_length=int(0.025 * sample_rate),
+        #     hop_length=int(0.010 * sample_rate),
+        #     n_mels=80,  
+        #     power=2.0
+        # )
 
-        return log_mel.squeeze(0).transpose(0, 1)  # [T, 80]
+        # log_mel = mel_extractor(waveform.unsqueeze(0))
+        # log_mel = torchaudio.functional.amplitude_to_DB(log_mel, multiplier=10.0, amin=1e-10, db_multiplier=0)
+
+        # return log_mel.squeeze(0).transpose(0, 1)  # [T, 80]
+        fbank = self.fbank(waveform)
+        return fbank.squeeze(0)  # [T, 80]
 
     def extract_from_path(self, wave_path):
-        waveform, sr = torchaudio.load(wave_path)
-        waveform = waveform.squeeze(0)  # [samples]
-        return self.get_fbank(waveform, sample_rate=sr)
+        sig  = sb.dataio.dataio.read_audio(wave_path)
+        return self.get_fbank(sig.unsqueeze(0))
 
     def __getitem__(self, idx):
         current_item = self.data[idx]
