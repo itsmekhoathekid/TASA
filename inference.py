@@ -15,7 +15,7 @@ def load_config(config_path: str) -> dict:
 def load_model(config: dict, vocab_len: int, device: torch.device) -> R_TASA_Transformer:
     checkpoint_path = os.path.join(
         config['training']['save_path'],
-        f"R_TRANS_TASA_epoch_1"
+        f"R_TRANS_TASA_epoch_85"
     )
     print(f"Loading checkpoint from: {checkpoint_path}")
     model = R_TASA_Transformer(
@@ -43,11 +43,13 @@ class GreedyPredictor:
         self.device = device
         self.max_len = max_len
     def greedy_decode(self, src, src_mask):
-        enc_out, _ = self.model.encode(src, src_mask)
+        enc_out, src_mask = self.model.encode(src, src_mask)
         decoder_input = torch.tensor([[self.sos]], dtype=torch.long).to(self.device)
 
         for _ in range(self.max_len):
             decoder_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
+            # print("decoder mask : ", decoder_mask.shape)
+            # print("enc out shape : ", enc_out.shape)
             dec_out = self.model.decode(decoder_input, enc_out, src_mask, decoder_mask)
             prob = dec_out[:, -1, :]  # [B, vocab_size]
 
@@ -95,10 +97,16 @@ def main():
         for batch in tqdm(test_loader, desc="Testing"):
             src = batch['fbank'].to(device)
             src_mask = batch['fbank_mask'].to(device)
+            tokens = batch["tokens"].to(device)
+            # print("src shape : ", src.shape)
+            # print("src mask : ", src_mask.shape)
 
             predicted_tokens = predictor.greedy_decode(src, src_mask)
             predicted_text = [predictor.tokenizer[token] for token in predicted_tokens]
-            print("Predicted text:", ' '.join(predicted_text))
+            print("Predicted text: ", ' '.join(predicted_text))
+            tokens_cpu = tokens.cpu().tolist() 
+            gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0]]
+            print("Gold Text: ", ' '.join(gold_text))
 
 if __name__ == "__main__":
     main()
