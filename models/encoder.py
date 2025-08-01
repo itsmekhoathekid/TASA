@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from .modules import ConvolutionFrontEnd, FeedForwardBlock, ResidualConnection
+from .modules import ConvolutionFrontEnd, FeedForwardBlock, ResidualConnection, ResidualForTASA
 from .attention import TASA_attention
 
 def calc_data_len(
@@ -86,23 +86,22 @@ class TASA_layers(nn.Module):
             dropout=p_dropout
         )
 
-        self.residual = ResidualConnection(
-            features=d_model,
-            dropout=p_dropout
-        )
+        self.residual_attn = ResidualForTASA(features=d_model, dropout=p_dropout)
+        self.residual_ffn = ResidualConnection(features=d_model, dropout=p_dropout)
     def forward(self, x, mask=None, previous_attention_scores=None):
         """
         x: [batch, time, features]
         mask: [batch, time]
         previous_attention_scores: [batch, h, time, time]
         """
+
+        residual, atten_score = self.attention(x, x, x, mask, previous_attention_scores)
+        x = self.residual_attn(x, residual)  # Residual connection cho attention
         
-
-        x, atten_score = self.attention(x, x, x, mask, previous_attention_scores)
-        x = self.residual(x, lambda x: self.ffn(x))  # Residual connection
-        # x = self.ffn(x)
-
-        return x, atten_score
+        # Residual connection cho FFN
+        x = self.residual_ffn(x, self.ffn)
+        
+        return x, atten_score  # Giữ nguyên
     
 
 class TASA_encoder(nn.Module):
