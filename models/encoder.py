@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from .modules import ConvolutionFrontEnd, FeedForwardBlock
+from .modules import ConvolutionFrontEnd, FeedForwardBlock, ResidualConnection
 from .attention import TASA_attention
 
 def calc_data_len(
@@ -85,7 +85,11 @@ class TASA_layers(nn.Module):
             d_ff=d_ff,
             dropout=p_dropout
         )
-    
+
+        self.residual = ResidualConnection(
+            features=d_model,
+            dropout=p_dropout
+        )
     def forward(self, x, mask=None, previous_attention_scores=None):
         """
         x: [batch, time, features]
@@ -95,7 +99,8 @@ class TASA_layers(nn.Module):
         
 
         x, atten_score = self.attention(x, x, x, mask, previous_attention_scores)
-        x = self.ffn(x)
+        x = self.residual(x, lambda x: self.ffn(x))  # Residual connection
+        # x = self.ffn(x)
 
         return x, atten_score
     
