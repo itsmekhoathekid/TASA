@@ -6,6 +6,7 @@ import argparse
 import yaml
 import os 
 from utils import logg, causal_mask
+from jiwer import wer, cer
 
 
 def load_config(config_path: str) -> dict:
@@ -15,7 +16,7 @@ def load_config(config_path: str) -> dict:
 def load_model(config: dict, vocab_len: int, device: torch.device) -> R_TASA_Transformer:
     checkpoint_path = os.path.join(
         config['training']['save_path'],
-        f"R_TRANS_TASA_epoch_85"
+        f"R_TRANS_TASA_epoch_100"
     )
     print(f"Loading checkpoint from: {checkpoint_path}")
     model = R_TASA_Transformer(
@@ -54,8 +55,10 @@ class GreedyPredictor:
             prob = dec_out[:, -1, :]  # [B, vocab_size]
 
             _, next_token = torch.max(prob, dim=1)  # [B]
-            next_token_tensor = torch.tensor([[next_token.item()]], dtype=torch.long).to(self.device)
-            decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+
+            if next_token not in (0, 1, 2, 4):
+                next_token_tensor = torch.tensor([[next_token.item()]], dtype=torch.long).to(self.device)
+                decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
 
             if next_token == self.eos:
                 break
@@ -77,7 +80,7 @@ def main():
         vocab_path=config['training']['vocab_path']
     )
     test_dataset = Speech2Text(
-        json_path=config['training']['train_path'],
+        json_path=config['training']['test_path'],
         vocab_path=config['training']['vocab_path']
     )
     test_loader = torch.utils.data.DataLoader(
@@ -92,21 +95,60 @@ def main():
     model = load_model(config, vocab_len, device)
 
     predictor = GreedyPredictor(model, train_dataset.vocab, device)
+    all_gold_texts = []
+    all_predicted_texts = []
+    result_path = 'workspace/TASA/result.txt'
+    with open(result_path, "w", encoding="utf-8") as f_out:
+        with torch.no_grad():
+            for batch in tqdm(test_loader, desc="Testing"):
+                src = batch['fbank'].to(device)
+                src_mask = batch['fbank_mask'].to(device)
+                tokens = batch["tokens"].to(device)
+                # print("src shape : ", src.shape)
+                # print("src mask : ", src_mask.shape)
+    
+                predicted_tokens = predictor.greedy_decode(src, src_mask)
+                # predicted_text = [predictor.tokenizer[token] for token in predicted_tokens]
+                # print("Predicted text: ", ' '.join(predicted_text))
+                # tokens_cpu = tokens.cpu().tolist() 
+                # gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0]]
+                # print("Gold Text: ", ' '.join(gold_text))
+    
+                predicted_tokens_clean = [
+                    token for token in predicted_tokens
+                    if token != predictor.sos and token != predictor.eos and token != predictor.blank
+                ]
+                predicted_text = [predictor.tokenizer[token] for token in predicted_tokens_clean]
+    
+                tokens_cpu = tokens.cpu().tolist() 
+                gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank]
+                predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                gold_text_str = ' '.join(gold_text)
+                
+                all_gold_texts.append(gold_text_str)
+                all_predicted_texts.append(predicted_text_str)
+                print("Predicted text: ", predicted_text_str)
+                print("Gold Text: ", gold_text_str)
+                
+                wer_score = wer(gold_text_str, predicted_text_str)
+                cer_score = cer(gold_text_str, predicted_text_str)
+                print(f"WER: {wer_score:.4f}, CER: {cer_score:.4f}")
+                
+                # Ghi ra file
+                f_out.write(f"Gold: {gold_text_str}\n")
+                f_out.write(f"Pred: {predicted_text_str}\n")
+                f_out.write(f"WER: {wer_score:.4f}, CER: {cer_score:.4f}\n")
+                f_out.write("="*50 + "\n")
+            
+            total_wer = wer(all_gold_texts, all_predicted_texts)
+            total_cer = cer(all_gold_texts, all_predicted_texts)
+            
+            print(f"Total WER: {total_wer:.4f}")
+            print(f"Total CER: {total_cer:.4f}")
+            f_out.write(f"\n=== Tổng kết ===\n")
+            f_out.write(f"Total WER: {total_wer:.4f}\n")
+            f_out.write(f"Total CER: {total_cer:.4f}\n")
 
-    with torch.no_grad():
-        for batch in tqdm(test_loader, desc="Testing"):
-            src = batch['fbank'].to(device)
-            src_mask = batch['fbank_mask'].to(device)
-            tokens = batch["tokens"].to(device)
-            # print("src shape : ", src.shape)
-            # print("src mask : ", src_mask.shape)
-
-            predicted_tokens = predictor.greedy_decode(src, src_mask)
-            predicted_text = [predictor.tokenizer[token] for token in predicted_tokens]
-            print("Predicted text: ", ' '.join(predicted_text))
-            tokens_cpu = tokens.cpu().tolist() 
-            gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0]]
-            print("Gold Text: ", ' '.join(gold_text))
 
 if __name__ == "__main__":
     main()
