@@ -25,7 +25,7 @@ class TransformerDecoderLayer(nn.Module):
         x = self.residual_connections[1](x, lambda x: self.cross_attention(x, encoder_out, encoder_out, enc_mask))
         
         x = self.residual_connections[2](x, lambda x: self.ffn(x))
-
+        
         return x
 
 class TransformerDecoder(nn.Module):

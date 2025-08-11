@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from .modules import ConvolutionFrontEnd, FeedForwardBlock, ResidualConnection, ResidualForTASA
+from .modules import ConvolutionFrontEnd, FeedForwardBlock, ResidualConnection, ResidualForTASA, PositionalEncoding
 from .attention import TASA_attention
 
 def calc_data_len(
@@ -102,12 +102,12 @@ class TASA_layers(nn.Module):
         x = self.residual_ffn(x, self.ffn)
         
         return x, atten_score  # Giữ nguyên
-    
+
+
 
 class TASA_encoder(nn.Module):
     def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout):
         super().__init__()
-        self.input_embed = nn.Embedding(num_embeddings=in_features, embedding_dim=d_model)
         self.in_features = in_features
         self.n_layers = n_layers
         self.d_model = d_model
@@ -145,6 +145,7 @@ class TASA_encoder(nn.Module):
         )
 
         self.projection = nn.Linear(in_features, d_model)
+        self.pe = PositionalEncoding(d_model)
 
     
     def forward(self, x, mask=None, previous_attention_scores=None):
@@ -162,6 +163,7 @@ class TASA_encoder(nn.Module):
         # print("x shape after frontend:", x.shape)  # [batch, time, C * features]
         # print("mask shape after frontend:", mask.shape)  # [batch, time]
         x = self.projection(x)  # [batch, time, d_model]
+        x = self.pe(x)  # [batch, time, d_model]
 
         for layer in self.layers:
             

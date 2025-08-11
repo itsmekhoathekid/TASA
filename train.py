@@ -209,7 +209,11 @@ def main():
             lr_initial=config['scheduler']['lr_initial']
         )
     else:
-        scheduler = NoamScheduler.load(config['training']['save_path'] + '/scheduler.ckpt')
+        scheduler = NoamScheduler(
+            n_warmup_steps=config['scheduler']['n_warmup_steps'],
+            lr_initial=config['scheduler']['lr_initial']
+        )
+        scheduler.load(config['training']['save_path'] + '/scheduler.ckpt')
 
     # === Huấn luyện ===
 
