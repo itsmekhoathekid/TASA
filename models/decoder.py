@@ -58,39 +58,4 @@ class TransformerDecoder(nn.Module):
         return out
 
 
-# # === Hyperparameters ===
-# vocab_size = 100
-# n_layers = 2
-# d_model = 32
-# ff_size = 64
-# h = 4
-# p_dropout = 0.1
-# batch_size = 2
-# seq_len_dec = 6
-# seq_len_enc = 8
 
-# # === Khởi tạo model ===
-# model = TransformerDecoder(
-#     vocab_size=vocab_size,
-#     n_layers=n_layers,
-#     d_model=d_model,
-#     ff_size=ff_size,
-#     h=h,
-#     p_dropout=p_dropout
-# )
-
-# # === Input tensor ===
-# x = torch.randint(0, vocab_size, (batch_size, seq_len_dec))            # [B, M]
-# encoder_out = torch.randn(batch_size, seq_len_enc, d_model)            # [B, T, D]
-
-# # === Masks ===
-# enc_mask = torch.ones(batch_size, 1, 1, seq_len_enc)         # [B, 1, M, T]
-# dec_mask = torch.ones(batch_size, 1, seq_len_dec, seq_len_dec)         # [B, 1, M, M]
-
-# # === Forward pass ===
-# output = model(x, encoder_out, enc_mask, dec_mask)
-
-# # === Kết quả ===
-# print("Input shape:", x.shape)
-# print("Encoder output shape:", encoder_out.shape)
-# print("Decoder output shape:", output.shape)  # Expect: [B, M, vocab_size]

@@ -149,28 +149,20 @@ class TASA_encoder(nn.Module):
 
     
     def forward(self, x, mask=None, previous_attention_scores=None):
-        x = x.unsqueeze(1)  # [batch, channels, time, features]
-        # print("x shape before frontend:", x.shape)  # [batch, 1, time, features]
+        x = x.unsqueeze(1)  # [batch, channels, time, features
         x, mask = self.frontend(x, mask)  # [batch, channels, time, features]
-        # print("x shape after frontend:", x.shape)
         x = x.transpose(1, 2).contiguous()   # batch, time, channels, features
         x = x.reshape(x.shape[0], x.shape[1], -1) # [batch, time, C * features]
-        # print("x shape after reshape:", x.shape)
         
         
         
-
-        # print("x shape after frontend:", x.shape)  # [batch, time, C * features]
-        # print("mask shape after frontend:", mask.shape)  # [batch, time]
         x = self.projection(x)  # [batch, time, d_model]
         x = self.pe(x)  # [batch, time, d_model]
 
         for layer in self.layers:
             
             x, previous_attention_scores = layer(x, mask, previous_attention_scores)
-            # print("previous_attention_scores shape:", previous_attention_scores.shape)  # [batch, h, time, time]
-        
-        # x shape : # [batch, time', d_model]
+
         return x , mask
 
 
