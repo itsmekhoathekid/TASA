@@ -13,10 +13,10 @@ def load_config(config_path: str) -> dict:
     with open(config_path, 'r') as f:
         return yaml.safe_load(f)
 
-def load_model(config: dict, vocab_len: int, device: torch.device) -> Transformer:
+def load_model(config: dict, vocab_len: int, device: torch.device, epoch : int) -> Transformer:
     checkpoint_path = os.path.join(
         config['training']['save_path'],
-        f"{config['model']['model_name']}_epoch_100"
+        f"{config['model']['model_name']}_epoch_{epoch}"
     )
     print(f"Loading checkpoint from: {checkpoint_path}")
     model = Transformer(
@@ -64,6 +64,7 @@ def main():
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=str, required=True, help="Path to YAML config file")
+    parser.add_argument("--epoch", type=int, default=1, help="Epoch to load the model from")
     args = parser.parse_args()
 
     config = load_config(args.config)
@@ -86,7 +87,7 @@ def main():
     vocab = test_dataset.vocab.stoi
     vocab_len = len(vocab)
 
-    model = load_model(config, vocab_len, device)
+    model = load_model(config, vocab_len, device, epoch = args.epoch)
 
     predictor = GreedyPredictor(model, train_dataset.vocab, device)
     all_gold_texts = []
