@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 from .modules import ConvolutionFrontEnd, FeedForwardBlock, ResidualConnection, ResidualForTASA, PositionalEncoding
-from .attention import TASA_attention
+from .attention import TASA_attention, MultiHeadAttentionBlock
 
 def calc_data_len(
     result_len: int,
@@ -165,4 +165,95 @@ class TASA_encoder(nn.Module):
 
         return x , mask
 
+class TransformerEncoderLayer(nn.Module):
+    def __init__(
+        self,
+        d_model: int,
+        ff_size: int,
+        h: int,
+        p_dropout: float,
+    ) -> None:
+        super().__init__()
 
+        self.attention = MultiHeadAttentionBlock(d_model, h, p_dropout)
+        self.feed_forward = FeedForwardBlock(d_model, ff_size,  p_dropout)
+        self.dropout = nn.Dropout(p_dropout)
+        self.residual_connections = nn.ModuleList(
+            ResidualConnection(d_model, p_dropout) for _ in range(2)
+        )
+
+    def forward(
+        self,
+        x: torch.Tensor,
+        mask: torch.Tensor = None,
+    ) -> torch.Tensor:
+
+        x = self.residual_connections[0](x, lambda x: self.attention(x, x, x, mask))
+        x = self.residual_connections[1](x, lambda x : self.feed_forward(x))
+        self.dropout(x)
+        return x
+
+
+class TransformerEncoder(nn.Module):
+    def __init__(
+        self,
+        in_features: int,
+        n_layers: int,
+        d_model: int,
+        ff_size: int,
+        h: int,
+        p_dropout: float
+    ):
+        super().__init__()
+        self.linear = nn.Linear(in_features=in_features, out_features=d_model)
+        self.pe = PositionalEncoding(d_model)
+        # self.pe = PositionalEmbedding(d_model)
+        
+
+        self.layers = nn.ModuleList(
+            [
+                TransformerEncoderLayer(
+                    d_model=d_model,
+                    ff_size=ff_size,
+                    h=h,
+                    p_dropout=p_dropout
+                )
+                for _ in range(n_layers)
+            ]
+        )
+
+        self.frontend = ConvolutionFrontEnd(
+            in_channels=1,
+            num_blocks=3,
+            num_layers_per_block=2,
+            out_channels=[8, 16, 32],
+            kernel_sizes=[3, 3, 3],
+            strides=[1, 2, 2],
+            residuals=[True, True, True],
+            activation=nn.ReLU,        
+            norm=nn.BatchNorm2d,            
+            dropout=0.1,
+        )
+
+    def forward(
+        self,
+        x: torch.Tensor,
+        mask: torch.Tensor = None,
+    ) -> torch.Tensor:
+        
+        x = x.unsqueeze(1)  # [batch, channels, time, features]
+        # print("x shape before frontend:", x.shape)  # [batch, 1, time, features]
+        x, mask = self.frontend(x, mask)  # [batch, channels, time, features]
+        # print("x shape after frontend:", x.shape)
+        x = x.transpose(1, 2).contiguous()   # batch, time, channels, features
+        x = x.reshape(x.shape[0], x.shape[1], -1) # [batch, time, C * features]
+
+
+        out = self.linear(x)
+        out = self.pe(out)
+        mask_atten = mask.unsqueeze(1).unsqueeze(1)
+
+        for layer in self.layers:
+            out = layer(out, mask_atten)
+        
+        return out, mask

@@ -1,6 +1,6 @@
 import torch
 from utils.dataset import Speech2Text, speech_collate_fn
-from models import R_TASA_Transformer
+from models import Transformer
 from tqdm import tqdm
 import argparse
 import yaml
@@ -13,21 +13,15 @@ def load_config(config_path: str) -> dict:
     with open(config_path, 'r') as f:
         return yaml.safe_load(f)
 
-def load_model(config: dict, vocab_len: int, device: torch.device) -> R_TASA_Transformer:
+def load_model(config: dict, vocab_len: int, device: torch.device) -> Transformer:
     checkpoint_path = os.path.join(
         config['training']['save_path'],
-        f"R_TRANS_TASA_epoch_100"
+        f"{config['model']['model_name']}_epoch_100"
     )
     print(f"Loading checkpoint from: {checkpoint_path}")
-    model = R_TASA_Transformer(
-        in_features=config['model']['in_features'], 
-        vocab_size=vocab_len,
-        n_enc_layers=config['model']['n_enc_layers'],
-        n_dec_layers=config['model']['n_dec_layers'],
-        d_model=config['model']['d_model'],
-        ff_size=config['model']['ff_size'],
-        h=config['model']['h'],
-        p_dropout=config['model']['p_dropout']
+    model = Transformer(
+        config = config['model'],
+        vocab_size=vocab_len
     ).to(device)
     checkpoint = torch.load(checkpoint_path, map_location=device)
     model.load_state_dict(checkpoint['model_state_dict'])
@@ -56,7 +50,7 @@ class GreedyPredictor:
 
             _, next_token = torch.max(prob, dim=1)  # [B]
 
-            if next_token not in (0, 1, 2, 4):
+            if next_token not in [self.sos, self.eos, self.blank]:
                 next_token_tensor = torch.tensor([[next_token.item()]], dtype=torch.long).to(self.device)
                 decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
 

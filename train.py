@@ -1,6 +1,12 @@
 import torch
 from utils.dataset import Speech2Text, speech_collate_fn
-from models import R_TASA_Transformer, CTCLoss, Kldiv_Loss, add_nan_hook
+from models import (
+    Transformer, 
+    CTCLoss,
+    Kldiv_Loss, 
+    add_nan_hook
+)
+
 from tqdm import tqdm
 import argparse
 import yaml
@@ -164,15 +170,9 @@ def main():
     )
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = R_TASA_Transformer(
-        in_features=config['model']['in_features'], 
-        vocab_size=len(train_dataset.vocab),
-        n_enc_layers=config['model']['n_enc_layers'],
-        n_dec_layers=config['model']['n_dec_layers'],
-        d_model=config['model']['d_model'],
-        ff_size=config['model']['ff_size'],
-        h=config['model']['h'],
-        p_dropout=config['model']['p_dropout']
+    model = Transformer(
+        config=config['model'],
+        vocab_size=len(train_dataset.vocab)
     ).to(device)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -194,13 +194,6 @@ def main():
 
     optimizer = Optimizer(model.parameters(), config['optim'])
 
-    # ===Scheduler===
-    # scheduler = ReduceLROnPlateau(
-    #     optimizer.optimizer,  # because you're using a wrapper class
-    #     mode='min',
-    #     factor=0.5,
-    #     patience=2,
-    # )
 
 
     if not config['training']['reload']:
@@ -233,7 +226,7 @@ def main():
 
         model_filename = os.path.join(
             config['training']['save_path'],
-            f"R_TRANS_TASA_epoch_{epoch}"
+            f"{config['model']['model_name']}_epoch_{epoch}"
         )
 
         torch.save({

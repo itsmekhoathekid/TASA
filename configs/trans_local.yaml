@@ -23,7 +23,7 @@ scheduler:
   n_warmup_steps: 15000
 
 model:
-  attention_type: "r_tasa" # "r_tasa" or "mha"
+  attention_type: "mha" # "r_tasa" or "mha"
   in_features: 640
   n_enc_layers: 1
   n_dec_layers: 1
@@ -31,7 +31,7 @@ model:
   ff_size: 2048
   h: 4
   p_dropout: 0.1
-  model_name: "r_tasa"
+  model_name: "SpeechTransformer"
 
 # optim:
 #   type: sgd

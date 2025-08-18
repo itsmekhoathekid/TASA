@@ -1,36 +1,43 @@
-from .encoder import TASA_encoder
+from .encoder import TASA_encoder, TransformerEncoder
 from .decoder import TransformerDecoder
 from torch import nn
 import torch
 
-class R_TASA_Transformer(nn.Module):
-    def __init__(self, in_features, n_enc_layers, n_dec_layers, d_model, ff_size, h, p_dropout, vocab_size):
+class Transformer(nn.Module):
+    def __init__(self, config, vocab_size):
         super().__init__()
-        self.encoder = TASA_encoder(
-            in_features=in_features,
-            n_layers=n_enc_layers,
-            d_model=d_model,
-            d_ff=ff_size,
-            h=h,
-            p_dropout=p_dropout
-        )
+        if config['attention_type'] == 'r_tasa':
+            self.encoder = TASA_encoder(
+                in_features=config['in_features'],
+                n_layers=config['n_enc_layers'],
+                d_model=config['d_model'],
+                d_ff=config['ff_size'],
+                h=config['h'],
+                p_dropout=config['p_dropout']
+            )
+        else:
+            self.encoder = TransformerEncoder(
+                in_features=config['in_features'],
+                n_layers=config['n_enc_layers'],
+                d_model=config['d_model'],
+                ff_size=config['ff_size'],
+                h=config['h'],
+                p_dropout=config['p_dropout']
+            )
         self.decoder = TransformerDecoder(
             vocab_size=vocab_size,
-            n_layers=n_dec_layers,
-            d_model=d_model,
-            ff_size=ff_size,
-            h=h,
-            p_dropout=p_dropout
+            n_layers=config['n_dec_layers'],
+            d_model=config['d_model'],
+            ff_size=config['ff_size'],
+            h=config['h'],
+            p_dropout=config['p_dropout']
         )
-        self.ctc_lin = nn.Linear(d_model, vocab_size)
-        self.model_name = 'R_TASA'
+        self.ctc_lin = nn.Linear(config['d_model'], vocab_size)
+        self.model_name = config['model_name']
 
     def forward(self, src, tgt, src_mask, tgt_mask):
         enc_out, mask = self.encoder(src.float(), src_mask)  # [B, T, d_model]
         enc_input_lengths = torch.sum(mask, dim=1) # [B]
-        
-        # print("Encoder output shape:", enc_out.shape)  # [B, T, d_model]
-        # print("Encoder mask shape:", src_mask.shape)  # [B, T]
 
         dec_out = self.decoder(tgt, enc_out, mask, tgt_mask)
         enc_out = self.ctc_lin(enc_out)  # [B, T, vocab_size]
@@ -62,3 +69,6 @@ class R_TASA_Transformer(nn.Module):
         """
         dec_out = self.decoder(tgt, enc_out, src_mask, tgt_mask)
         return dec_out
+
+
+
