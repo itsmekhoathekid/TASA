@@ -7,7 +7,7 @@ training:
   test_path : "workspace/dataset/test_w2i.json"
   vocab_path : "workspace/dataset/vocab_w2i.json"
   reload: False
-  logg : "workspace/TASA/logs/r_tasa.log"
+  logg : "workspace/TASA/logs/SpeechTransformer.log"
   ctc_weight: 0.3
   
 
