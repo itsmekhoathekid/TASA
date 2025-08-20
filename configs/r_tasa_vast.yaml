@@ -9,7 +9,7 @@ training:
   reload: False
   logg : "workspace/TASA/logs/r_tasa.log"
   ctc_weight: 0.3
-  
+  result: "workspace/TASA/result.txt"
 
 
 optim:

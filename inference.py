@@ -92,22 +92,14 @@ def main():
     predictor = GreedyPredictor(model, train_dataset.vocab, device)
     all_gold_texts = []
     all_predicted_texts = []
-    result_path = 'workspace/TASA/result.txt'
+    result_path = config['training']['result']
     with open(result_path, "w", encoding="utf-8") as f_out:
         with torch.no_grad():
             for batch in tqdm(test_loader, desc="Testing"):
                 src = batch['fbank'].to(device)
                 src_mask = batch['fbank_mask'].to(device)
                 tokens = batch["tokens"].to(device)
-                # print("src shape : ", src.shape)
-                # print("src mask : ", src_mask.shape)
-    
                 predicted_tokens = predictor.greedy_decode(src, src_mask)
-                # predicted_text = [predictor.tokenizer[token] for token in predicted_tokens]
-                # print("Predicted text: ", ' '.join(predicted_text))
-                # tokens_cpu = tokens.cpu().tolist() 
-                # gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0]]
-                # print("Gold Text: ", ' '.join(gold_text))
     
                 predicted_tokens_clean = [
                     token for token in predicted_tokens

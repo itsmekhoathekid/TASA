@@ -270,3 +270,42 @@ class PositionalEncoding(nn.Module):
 
         x = x + pe
         return x
+
+class ConvDecBlock(nn.Module):
+    def __init__(self, in_channels: int, out_channels: int, kernel_size: int = 3, dropout: float = 0.1):
+        super().__init__()
+        self.conv = nn.Conv1d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size, padding=kernel_size // 2)
+        self.norm = nn.LayerNorm(out_channels)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(dropout)
+
+    def forward(self, x):
+        x = self.conv(x.float())  # (batch, out_channels, new_seq_len)
+        x = x.transpose(1, 2)  # (batch, new_seq_len, out_channels)
+        x = self.norm(x)  # (batch, new_seq_len, out_channels)
+        x = self.relu(x)  # (batch, new_seq_len, out_channels)
+        x = self.dropout(x)  # (batch, new_seq_len, out_channels)
+        x = x.transpose(1, 2)
+        return x
+
+
+class ConvDec(nn.Module):
+    def __init__(self, num_blocks, in_channels, out_channels, kernel_sizes, dropout=0.1):
+        super().__init__()
+        blocks = []
+        for i in range(num_blocks):
+            conv_block = ConvDecBlock(
+                in_channels, 
+                out_channels[i], 
+                kernel_sizes[i], 
+                dropout)
+            blocks.append(conv_block)
+            in_channels = out_channels[i]
+        self.blocks = nn.ModuleList(blocks)
+
+    def forward(self, x):
+        for block in self.blocks:
+            x = block(x)
+        x = x.transpose(1, 2)  # (batch, seq_len, out_channels)
+        return x
+

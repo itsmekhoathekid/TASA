@@ -1,0 +1,105 @@
+2025-08-18 06:33:25,476 - Average training loss: 118.0768
+2025-08-18 06:33:35,357 - Average validation loss: 73.9275
+2025-08-18 06:33:35,357 - Epoch 1: Train Loss = 118.0768, Val Loss = 73.9275, LR = 0.000049
+2025-08-18 06:38:24,977 - Average training loss: 150.0147
+2025-08-18 06:38:35,055 - Average validation loss: 75.2262
+2025-08-18 06:38:35,055 - Epoch 1: Train Loss = 150.0147, Val Loss = 75.2262, LR = 0.000049
+2025-08-18 06:41:04,055 - Average training loss: 93.4406
+2025-08-18 06:41:13,771 - Average validation loss: 71.2200
+2025-08-18 06:41:13,771 - Epoch 2: Train Loss = 93.4406, Val Loss = 71.2200, LR = 0.000097
+2025-08-18 06:43:41,751 - Average training loss: 88.9388
+2025-08-18 06:43:51,829 - Average validation loss: 68.2793
+2025-08-18 06:43:51,830 - Epoch 3: Train Loss = 88.9388, Val Loss = 68.2793, LR = 0.000146
+2025-08-18 06:46:19,742 - Average training loss: 85.6470
+2025-08-18 06:46:29,539 - Average validation loss: 67.4306
+2025-08-18 06:46:29,540 - Epoch 4: Train Loss = 85.6470, Val Loss = 67.4306, LR = 0.000194
+2025-08-18 06:48:56,848 - Average training loss: 83.1403
+2025-08-18 06:49:06,904 - Average validation loss: 65.9840
+2025-08-18 06:49:06,904 - Epoch 5: Train Loss = 83.1403, Val Loss = 65.9840, LR = 0.000243
+2025-08-18 06:51:35,064 - Average training loss: 81.0790
+2025-08-18 06:51:45,192 - Average validation loss: 65.1829
+2025-08-18 06:51:45,193 - Epoch 6: Train Loss = 81.0790, Val Loss = 65.1829, LR = 0.000292
+2025-08-18 06:54:12,758 - Average training loss: 79.2510
+2025-08-18 06:54:22,737 - Average validation loss: 64.2476
+2025-08-18 06:54:22,737 - Epoch 7: Train Loss = 79.2510, Val Loss = 64.2476, LR = 0.000340
+2025-08-18 06:56:50,063 - Average training loss: 77.5447
+2025-08-18 06:56:59,902 - Average validation loss: 64.8166
+2025-08-18 06:56:59,903 - Epoch 8: Train Loss = 77.5447, Val Loss = 64.8166, LR = 0.000389
+2025-08-18 06:59:27,733 - Average training loss: 75.6225
+2025-08-18 06:59:37,944 - Average validation loss: 62.5935
+2025-08-18 06:59:37,944 - Epoch 9: Train Loss = 75.6225, Val Loss = 62.5935, LR = 0.000437
+2025-08-18 07:02:05,550 - Average training loss: 72.6970
+2025-08-18 07:02:16,034 - Average validation loss: 60.4243
+2025-08-18 07:02:16,035 - Epoch 10: Train Loss = 72.6970, Val Loss = 60.4243, LR = 0.000486
+2025-08-18 07:04:43,532 - Average training loss: 67.9983
+2025-08-18 07:04:51,733 - Average validation loss: 55.7513
+2025-08-18 07:04:51,733 - Epoch 11: Train Loss = 67.9983, Val Loss = 55.7513, LR = 0.000535
+2025-08-18 07:07:19,753 - Average training loss: 60.9352
+2025-08-18 07:07:30,028 - Average validation loss: 50.3314
+2025-08-18 07:07:30,028 - Epoch 12: Train Loss = 60.9352, Val Loss = 50.3314, LR = 0.000583
+2025-08-18 07:09:57,155 - Average training loss: 52.7858
+2025-08-18 07:10:07,374 - Average validation loss: 44.4823
+2025-08-18 07:10:07,374 - Epoch 13: Train Loss = 52.7858, Val Loss = 44.4823, LR = 0.000632
+2025-08-18 07:12:35,176 - Average training loss: 46.3113
+2025-08-18 07:12:45,508 - Average validation loss: 38.5996
+2025-08-18 07:12:45,508 - Epoch 14: Train Loss = 46.3113, Val Loss = 38.5996, LR = 0.000680
+2025-08-18 07:15:13,171 - Average training loss: 41.4116
+2025-08-18 07:15:23,328 - Average validation loss: 36.8351
+2025-08-18 07:15:23,328 - Epoch 15: Train Loss = 41.4116, Val Loss = 36.8351, LR = 0.000729
+2025-08-18 07:17:50,661 - Average training loss: 37.7922
+2025-08-18 07:18:01,003 - Average validation loss: 33.2771
+2025-08-18 07:18:01,003 - Epoch 16: Train Loss = 37.7922, Val Loss = 33.2771, LR = 0.000778
+2025-08-18 07:20:28,766 - Average training loss: 34.7588
+2025-08-18 07:20:38,558 - Average validation loss: 31.1415
+2025-08-18 07:20:38,558 - Epoch 17: Train Loss = 34.7588, Val Loss = 31.1415, LR = 0.000826
+2025-08-18 07:23:06,058 - Average training loss: 32.7047
+2025-08-18 07:23:16,022 - Average validation loss: 28.8238
+2025-08-18 07:23:16,023 - Epoch 18: Train Loss = 32.7047, Val Loss = 28.8238, LR = 0.000875
+2025-08-18 07:25:43,393 - Average training loss: 31.1178
+2025-08-18 07:25:53,333 - Average validation loss: 27.5311
+2025-08-18 07:25:53,333 - Epoch 19: Train Loss = 31.1178, Val Loss = 27.5311, LR = 0.000923
+2025-08-18 07:28:21,243 - Average training loss: 30.1208
+2025-08-18 07:28:31,601 - Average validation loss: 26.3833
+2025-08-18 07:28:31,601 - Epoch 20: Train Loss = 30.1208, Val Loss = 26.3833, LR = 0.000972
+2025-08-18 07:30:59,551 - Average training loss: 29.1937
+2025-08-18 07:31:09,955 - Average validation loss: 26.2656
+2025-08-18 07:31:09,955 - Epoch 21: Train Loss = 29.1937, Val Loss = 26.2656, LR = 0.000990
+2025-08-18 07:33:37,435 - Average training loss: 27.4748
+2025-08-18 07:33:47,144 - Average validation loss: 24.8941
+2025-08-18 07:33:47,144 - Epoch 22: Train Loss = 27.4748, Val Loss = 24.8941, LR = 0.000967
+2025-08-18 07:36:14,841 - Average training loss: 25.6170
+2025-08-18 07:36:25,170 - Average validation loss: 24.0059
+2025-08-18 07:36:25,170 - Epoch 23: Train Loss = 25.6170, Val Loss = 24.0059, LR = 0.000946
+2025-08-18 07:38:52,363 - Average training loss: 23.7953
+2025-08-18 07:39:02,806 - Average validation loss: 25.5592
+2025-08-18 07:39:02,806 - Epoch 24: Train Loss = 23.7953, Val Loss = 25.5592, LR = 0.000926
+2025-08-18 07:41:30,044 - Average training loss: 22.5540
+2025-08-18 07:41:40,258 - Average validation loss: 22.7533
+2025-08-18 07:41:40,258 - Epoch 25: Train Loss = 22.5540, Val Loss = 22.7533, LR = 0.000907
+2025-08-18 07:44:07,860 - Average training loss: 21.4041
+2025-08-18 07:44:17,711 - Average validation loss: 22.9048
+2025-08-18 07:44:17,711 - Epoch 26: Train Loss = 21.4041, Val Loss = 22.9048, LR = 0.000890
+2025-08-18 07:46:45,142 - Average training loss: 20.2474
+2025-08-18 07:46:55,445 - Average validation loss: 22.9441
+2025-08-18 07:46:55,445 - Epoch 27: Train Loss = 20.2474, Val Loss = 22.9441, LR = 0.000873
+2025-08-18 07:49:22,578 - Average training loss: 19.4341
+2025-08-18 07:49:32,596 - Average validation loss: 21.6965
+2025-08-18 07:49:32,596 - Epoch 28: Train Loss = 19.4341, Val Loss = 21.6965, LR = 0.000857
+2025-08-18 07:51:59,862 - Average training loss: 18.4629
+2025-08-18 07:52:10,113 - Average validation loss: 20.9268
+2025-08-18 07:52:10,113 - Epoch 29: Train Loss = 18.4629, Val Loss = 20.9268, LR = 0.000842
+2025-08-18 07:54:38,257 - Average training loss: 17.7423
+2025-08-18 07:54:48,254 - Average validation loss: 21.8278
+2025-08-18 07:54:48,254 - Epoch 30: Train Loss = 17.7423, Val Loss = 21.8278, LR = 0.000828
+2025-08-18 07:57:16,138 - Average training loss: 17.0135
+2025-08-18 07:57:25,827 - Average validation loss: 20.2174
+2025-08-18 07:57:25,827 - Epoch 31: Train Loss = 17.0135, Val Loss = 20.2174, LR = 0.000815
+2025-08-18 07:59:53,051 - Average training loss: 16.3037
+2025-08-18 08:00:02,249 - Average validation loss: 20.3032
+2025-08-18 08:00:02,249 - Epoch 32: Train Loss = 16.3037, Val Loss = 20.3032, LR = 0.000802
+2025-08-18 08:02:30,182 - Average training loss: 15.8723
+2025-08-18 08:02:40,498 - Average validation loss: 20.4520
+2025-08-18 08:02:40,498 - Epoch 33: Train Loss = 15.8723, Val Loss = 20.4520, LR = 0.000790
+2025-08-18 08:05:08,548 - Average training loss: 15.2836
+2025-08-18 08:05:18,627 - Average validation loss: 19.1947
+2025-08-18 08:05:18,627 - Epoch 34: Train Loss = 15.2836, Val Loss = 19.1947, LR = 0.000778
