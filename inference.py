@@ -68,6 +68,7 @@ def main():
     args = parser.parse_args()
 
     config = load_config(args.config)
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     train_dataset = Speech2Text(
@@ -109,8 +110,20 @@ def main():
     
                 tokens_cpu = tokens.cpu().tolist() 
                 gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank]
-                predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
                 gold_text_str = ' '.join(gold_text)
+
+                predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+
+                if config['training']['type'] == "phoneme":
+                    predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                    space_token = vocab.get("<space>")
+                    predicted_text_str = predicted_text_str.replace(predictor.tokenizer[space_token], ' ')
+
+                    gold_text = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
+                    gold_text_str = gold_text.replace(predictor.tokenizer[space_token], ' ')
+                   
+                
+                
                 
                 all_gold_texts.append(gold_text_str)
                 all_predicted_texts.append(predicted_text_str)

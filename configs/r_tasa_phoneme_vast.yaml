@@ -10,6 +10,7 @@ training:
   logg : "workspace/TASA/logs/r_tasa.log"
   ctc_weight: 0.3
   result: "workspace/TASA/result.txt"
+  type: "phoneme"
 
 
 optim:
@@ -23,14 +24,15 @@ scheduler:
   n_warmup_steps: 15000
 
 model:
-   in_features: 640
-   n_enc_layers: 6
-   n_dec_layers: 3
-   d_model: 256
-   ff_size: 1024
-   h: 4
-   p_dropout: 0.1
-   model_name: "transformer_transducer"
+  attention_type: "r_tasa"
+  in_features: 640
+  n_enc_layers: 6
+  n_dec_layers: 3
+  d_model: 256
+  ff_size: 1024
+  h: 4
+  p_dropout: 0.1
+  model_name: "transformer_transducer"
 
 # optim:
 #   type: sgd

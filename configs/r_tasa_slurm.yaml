@@ -20,14 +20,15 @@ optim:
 
 
 model:
-   in_features: 672
-   n_enc_layers: 12
-   n_dec_layers: 6
-   d_model: 256
-   ff_size: 2048
-   h: 4
-   p_dropout: 0.1
-   model_name: "transformer_transducer"
+  attention_type: "r_tasa"
+  in_features: 672
+  n_enc_layers: 12
+  n_dec_layers: 6
+  d_model: 256
+  ff_size: 2048
+  h: 4
+  p_dropout: 0.1
+  model_name: "transformer_transducer"
 
 
 rnnt_loss:

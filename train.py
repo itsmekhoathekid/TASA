@@ -30,7 +30,8 @@ def reload_model(model, optimizer, checkpoint_path):
     path_list = [path for path in os.listdir(checkpoint_path)]
     if len(path_list) > 0:
         for path in path_list:
-            past_epoch = max(int(path.split("_")[-1]), past_epoch)
+            if ".ckpt" not in path:
+                past_epoch = max(int(path.split("_")[-1]), past_epoch)
         
         load_path = os.path.join(checkpoint_path, f"{model.model_name}_epoch_{past_epoch}")
         checkpoint = torch.load(load_path)
