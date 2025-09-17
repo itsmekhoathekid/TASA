@@ -1,0 +1,48 @@
+training:
+  epochs: 100
+  batch_size: 16
+  save_path: "workspace/TASA/saves"
+  train_path : "workspace/dataset/train_w2i.json"
+  dev_path : "workspace/dataset/test_w2i.json"
+  test_path : "workspace/dataset/test_w2i.json"
+  vocab_path : "workspace/dataset/vocab_w2i.json"
+  reload: False
+  logg : "workspace/TASA/logs/r_tasa.log"
+  ctc_weight: 0.3
+  result: "workspace/TASA/result.txt"
+
+
+optim:
+  type: adam
+  lr: 0.001
+  weight_decay: 0.0001
+  decay_rate: 0.5
+
+scheduler:
+  lr_initial: 0.001
+  n_warmup_steps: 15000
+
+model:
+   in_features: 640
+   n_enc_layers: 6
+   n_dec_layers: 3
+   d_model: 256
+   ff_size: 1024
+   h: 4
+   p_dropout: 0.1
+   model_name: "transformer_transducer"
+
+# optim:
+#   type: sgd
+#   lr: 0.0001
+#   momentum: 0.9
+#   weight_decay: 0
+#   begin_to_adjust_lr: 60
+#   nesterov: None
+#   decay_rate: 0.5
+
+rnnt_loss:
+  blank: 5
+  reduction: "mean"  
+
+
