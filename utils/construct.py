@@ -2,7 +2,7 @@ import json
 import re
 def normalize_transcript(text):
     text = text.lower()
-    text = re.sub(r"[\'\"(),.!?]", " ", text)
+    text = re.sub(r"[\'\"(),.!?]", " ", text) # dang le la phai them dau : vao
     text = re.sub(r"\s+", " ", text)  # loại bỏ khoảng trắng dư
     return text.strip()
 
