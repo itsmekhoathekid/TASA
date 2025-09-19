@@ -30,7 +30,7 @@ model:
    ff_size: 1024
    h: 4
    p_dropout: 0.1
-   model_name: "transformer_transducer"
+   model_name: "r_tasa"
 
 # optim:
 #   type: sgd
