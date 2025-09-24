@@ -121,7 +121,9 @@ def main():
 
                     gold_text = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
                     gold_text_str = gold_text.replace(predictor.tokenizer[space_token], ' ')
-                   
+                elif config['training']['type'] == "char":
+                    predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                    gold_text_str = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
                 
                 
                 
