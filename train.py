@@ -139,7 +139,7 @@ def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, 
             # Bỏ <s> ở đầu nếu có
             # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
             tokens_eos = make_block_targets(tokens_eos, len(alpha_k), pad_id=0).to(device)  # [B, T_text, 3]
-            loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos[i]) for i in range(len(dec_out)))
+            loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos[:,:,i]) for i in range(len(dec_out)))
             
             # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
 
