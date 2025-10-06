@@ -10,7 +10,7 @@ training:
   logg : "workspace/TASA/logs/SpeechTransformer.log"
   ctc_weight: 0.3
   result: "workspace/TASA/result.txt"
-
+  
 
 optim:
   type: adam
@@ -32,6 +32,7 @@ model:
   h: 4
   p_dropout: 0.1
   model_name: "SpeechTransformer"
+  k: 3
 
 # optim:
 #   type: sgd

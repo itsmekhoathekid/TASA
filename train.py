@@ -44,7 +44,7 @@ def reload_model(model, optimizer, checkpoint_path):
     return past_epoch+1, model, optimizer
 
 
-def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight, scheduler):
+def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight, scheduler, alpha_k):
     model.train()
     total_loss = 0.0
 
@@ -70,7 +70,7 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
         )  # [B, T_text, vocab_size]
 
         # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
-        loss_ep = criterion_ep(dec_out, tokens_eos)
+        loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos) for i in range(len(dec_out)))
 
         # print(f"Loss CTC: {loss_ctc.item()}, Loss EP: {loss_ep.item()}")
         # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
@@ -92,7 +92,7 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
 
 from torchaudio.functional import rnnt_loss
 
-def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight):
+def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight, alpha_k):
     model.eval()
     total_loss = 0.0
 
@@ -120,7 +120,7 @@ def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, 
             
             # Bỏ <s> ở đầu nếu có
             # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
-            loss_ep = criterion_ep(dec_out, tokens_eos)
+            loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos) for i in range(len(dec_out)))
             
             # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
 
@@ -199,6 +199,8 @@ def main():
 
     optimizer = Optimizer(model.parameters(), config['optim'])
 
+    k = config['model']['k']
+    alpha_k = [1.0] if k == 1 else [0.2 for _ in range(k)]
 
 
     if not config['training']['reload']:
@@ -223,8 +225,8 @@ def main():
 
     
     for epoch in range(start_epoch, num_epochs + 1):
-        train_loss, curr_lr = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight, scheduler)
-        val_loss = evaluate(model, dev_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight)
+        train_loss, curr_lr = train_one_epoch(model, train_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight, scheduler, alpha_k)
+        val_loss = evaluate(model, dev_loader, optimizer, criterion_ctc, criterion_pe, device, ctc_weight, alpha_k)
 
         logging.info(f"Epoch {epoch}: Train Loss = {train_loss:.4f}, Val Loss = {val_loss:.4f}, LR = {curr_lr:.6f}")
         # Save model checkpoint

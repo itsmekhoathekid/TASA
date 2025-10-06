@@ -28,13 +28,26 @@ class TransformerDecoderLayer(nn.Module):
         
         return x
 
+class LatentHead(nn.Module):
+    def __init__(self, d_model: int, latent_dim: int, dropout : float) -> None:
+        super().__init__()
+        self.linear = nn.Linear(d_model, latent_dim)
+        self.residual = ResidualConnection(features=d_model, dropout = dropout)
+        self.tanh = nn.Tanh()
+    
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.residual(x, lambda x : self.tanh(self.linear(x)))
+
 class TransformerDecoder(nn.Module):
-    def __init__(self, vocab_size: int, n_layers: int, d_model: int, ff_size: int, h: int, p_dropout: float) -> None:
+    def __init__(self, vocab_size: int, n_layers: int, d_model: int, ff_size: int, h: int, p_dropout: float, k : int) -> None:
         super().__init__()
         self.emb = nn.Embedding(num_embeddings=vocab_size, embedding_dim=d_model)
         self.pe = PositionalEncoding(d_model=d_model) 
         self.layers = nn.ModuleList(
             [TransformerDecoderLayer(d_model=d_model, h=h, ff_size=ff_size, dropout=p_dropout) for _ in range(n_layers)]
+        )
+        self.heads = nn.ModuleList(
+            [LatentHead(d_model=d_model, latent_dim=d_model, dropout=p_dropout) for _ in range(k)]
         )
         self.projection = ProjectionLayer(d_model=d_model, vocab_size=vocab_size)
     
@@ -54,7 +67,10 @@ class TransformerDecoder(nn.Module):
         out = self.pe(out)
         for layer in self.layers:
             out = layer(out, encoder_out, enc_mask, dec_mask)
-        out = self.projection(out)
+
+        latent = [head(out) for head in self.heads]
+        out = [self.projection(l) for l in latent]  # List of [B, M, vocab_size]
+
         return out
 
 

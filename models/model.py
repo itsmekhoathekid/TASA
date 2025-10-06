@@ -30,7 +30,8 @@ class Transformer(nn.Module):
             d_model=config['d_model'],
             ff_size=config['ff_size'],
             h=config['h'],
-            p_dropout=config['p_dropout']
+            p_dropout=config['p_dropout'],
+            k = config['k']
         )
         self.ctc_lin = nn.Linear(config['d_model'], vocab_size)
         self.model_name = config['model_name']
