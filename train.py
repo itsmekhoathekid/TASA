@@ -4,7 +4,8 @@ from models import (
     Transformer, 
     CTCLoss,
     Kldiv_Loss, 
-    add_nan_hook
+    add_nan_hook,
+    CELoss
 )
 
 from tqdm import tqdm
@@ -67,22 +68,22 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
             src_mask = speech_mask,
             tgt_mask = text_mask
         )  # [B, T_text, vocab_size]
-        
-        loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
+
+        # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
         loss_ep = criterion_ep(dec_out, tokens_eos)
-        
+
         # print(f"Loss CTC: {loss_ctc.item()}, Loss EP: {loss_ep.item()}")
-        loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
-        loss.backward()
+        # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
+        loss_ep.backward()
 
         optimizer.step()
 
         curr_lr, _ = scheduler(optimizer.optimizer)
 
-        total_loss += loss.item()
+        total_loss += loss_ep.item()
 
         # === In loss từng batch ===
-        progress_bar.set_postfix(batch_loss=loss.item())
+        progress_bar.set_postfix(batch_loss=loss_ep.item())
 
     avg_loss = total_loss / len(dataloader)
     logging.info(f"Average training loss: {avg_loss:.4f}")
@@ -118,13 +119,13 @@ def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, 
             )  # [B, T_text, vocab_size]
             
             # Bỏ <s> ở đầu nếu có
-            loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
+            # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
             loss_ep = criterion_ep(dec_out, tokens_eos)
             
-            loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
+            # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
 
-            total_loss += loss.item()
-            progress_bar.set_postfix(batch_loss=loss.item())
+            total_loss += loss_ep.item()
+            progress_bar.set_postfix(batch_loss=loss_ep.item())
 
     avg_loss = total_loss / len(dataloader)
     logging.info(f"Average validation loss: {avg_loss:.4f}")
@@ -155,7 +156,8 @@ def main():
         train_dataset,
         batch_size= training_cfg['batch_size'],
         shuffle=True,
-        collate_fn = speech_collate_fn
+        collate_fn = speech_collate_fn,
+        num_workers=2
     )
 
     dev_dataset = Speech2Text(
@@ -167,7 +169,8 @@ def main():
         dev_dataset,
         batch_size= training_cfg['batch_size'],
         shuffle=True,
-        collate_fn = speech_collate_fn
+        collate_fn = speech_collate_fn,
+        num_workers=2
     )
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -189,8 +192,9 @@ def main():
 
     
 
-    criterion_pe = Kldiv_Loss(pad_idx=train_dataset.vocab.get_pad_token(), reduction='batchmean')
-
+    # criterion_pe = Kldiv_Loss(pad_idx=train_dataset.vocab.get_pad_token(), reduction='batchmean')
+    criterion_pe = CELoss(ignore_index=train_dataset.vocab.get_pad_token(), reduction='mean')
+    
     ctc_weight = config['training']['ctc_weight']
 
     optimizer = Optimizer(model.parameters(), config['optim'])

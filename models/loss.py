@@ -62,3 +62,25 @@ class Kldiv_Loss(nn.Module):
         logits = logits.log_softmax(dim=-1)
         
         return kldiv_loss(log_probabilities= logits, targets=targets, pad_idx = self.pad_idx, reduction = self.reduction)
+
+class CELoss(nn.Module):
+    def __init__(self, ignore_index=None, reduction='mean'):
+        super(CELoss, self).__init__()
+        self.ignore_index = ignore_index
+        self.reduction = reduction
+
+    def forward(self, logits, targets):
+        """
+        Args:
+            logits (Tensor): Logits shape (N, C)/(N,T,C)
+        """
+        if logits.dim() == 3:
+            logits = logits.transpose(1,2)
+ 
+        loss = F.cross_entropy(
+            logits,
+            targets,
+            ignore_index=self.ignore_index,
+            reduction=self.reduction,
+        )
+        return loss
