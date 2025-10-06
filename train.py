@@ -43,6 +43,23 @@ def reload_model(model, optimizer, checkpoint_path):
     
     return past_epoch+1, model, optimizer
 
+def make_block_targets(target, k, pad_id=-100, device='cpu'):
+    """
+    target: (B, T)
+    k: block size
+    return: (B, T, k) block targets
+    """
+    B, T = target.size()
+    block_targets = torch.full((B, T, k), pad_id, dtype=target.dtype).to(device)
+
+    for j in range(k):
+        if j == 0:
+            # p1 giữ nguyên target gốc
+            block_targets[:,:,j] = target
+        else:
+            block_targets[:,:-j,j] = target[:,j:]
+            block_targets[:,-j:,j] = pad_id
+    return block_targets
 
 def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, ctc_weight, scheduler, alpha_k):
     model.train()
@@ -70,7 +87,8 @@ def train_one_epoch(model, dataloader, optimizer, criterion_ctc, criterion_ep, d
         )  # [B, T_text, vocab_size]
 
         # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
-        loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos) for i in range(len(dec_out)))
+        tokens_eos = make_block_targets(tokens_eos, len(alpha_k), pad_id=0).to(device)  # [B, T_text, 3]
+        loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos[:, : ,i]) for i in range(len(dec_out)))
 
         # print(f"Loss CTC: {loss_ctc.item()}, Loss EP: {loss_ep.item()}")
         # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
@@ -120,7 +138,8 @@ def evaluate(model, dataloader, optimizer, criterion_ctc, criterion_ep, device, 
             
             # Bỏ <s> ở đầu nếu có
             # loss_ctc =  criterion_ctc(enc_out, tokens_eos, enc_input_lengths, text_len)
-            loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos) for i in range(len(dec_out)))
+            tokens_eos = make_block_targets(tokens_eos, len(alpha_k), pad_id=0).to(device)  # [B, T_text, 3]
+            loss_ep = sum(alpha_k[i] * criterion_ep(dec_out[i], tokens_eos[i]) for i in range(len(dec_out)))
             
             # loss = loss_ctc * ctc_weight + loss_ep * (1- ctc_weight)
 

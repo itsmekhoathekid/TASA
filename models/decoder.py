@@ -69,8 +69,7 @@ class TransformerDecoder(nn.Module):
             out = layer(out, encoder_out, enc_mask, dec_mask)
 
         latent = [head(out) for head in self.heads]
-        out = [self.projection(l) for l in latent]  # List of [B, M, vocab_size]
-
+        out = [self.projection(l) for l in latent]  
         return out
 
 

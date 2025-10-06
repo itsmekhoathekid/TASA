@@ -76,7 +76,8 @@ class CELoss(nn.Module):
         """
         if logits.dim() == 3:
             logits = logits.transpose(1,2)
-
+        
+        # print(logits.shape, targets.shape)
         loss = F.cross_entropy(
             logits,
             targets,
