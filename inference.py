@@ -180,10 +180,18 @@ class GreedyMutiplePredictor:
             p1_probs = torch.softmax(p1_logits, dim=-1)
 
             # ====== 4️⃣ Accept tokens ======
+            # verified_tokens = []
+            # for i, tok in enumerate(predicted_tokens[1:]):  # bỏ head1
+            #     prob = p1_probs[i, tok].item()
+            #     if prob >= self.tau:
+            #         verified_tokens.append(tok)
+            #     else:
+            #         break
+
             verified_tokens = []
             for i, tok in enumerate(predicted_tokens[1:]):  # bỏ head1
-                prob = p1_probs[i, tok].item()
-                if prob >= self.tau:
+                p1_pred = torch.argmax(p1_probs[i]).item()
+                if tok == p1_pred:
                     verified_tokens.append(tok)
                 else:
                     break
