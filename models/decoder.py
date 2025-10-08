@@ -72,5 +72,27 @@ class TransformerDecoder(nn.Module):
         out = [self.projection(l) for l in latent]  
         return out
 
+    def verify(self, x: torch.Tensor, encoder_out: torch.Tensor, enc_mask: torch.Tensor, dec_mask: torch.Tensor) -> torch.Tensor:
+        """Passes the input `x` through the decoder layers.
+
+        Args:
+            x (Tensor): The input tensor of shape [B, M]
+            encoder_out (Tensor): The output from the encoder of shape [B, T, d_model]
+            enc_mask (Tensor): The mask for the encoder output of shape [B, T]
+            dec_mask (Tensor): The mask for the decoder input of shape [B, M]
+
+        Returns:
+            Tensor: The decoded output of shape [B, M, d_model].
+        """
+        out = self.emb(x)
+        out = self.pe(out)
+        for layer in self.layers:
+            out = layer(out, encoder_out, enc_mask, dec_mask)
+
+        latent = self.heads[0](out)
+        out = self.projection(latent)  
+        return out
+
+
 
 

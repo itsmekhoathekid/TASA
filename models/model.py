@@ -71,5 +71,18 @@ class Transformer(nn.Module):
         dec_out = self.decoder(tgt, enc_out, src_mask, tgt_mask)
         return dec_out
 
+    def verify(self, tgt, enc_out, src_mask, tgt_mask):
+        """
+        Verify the target sequence.
+        Args:
+            tgt (Tensor): Target sequence tensor of shape (B, U).
+            enc_out (Tensor): Encoded output from the encoder of shape (B, T, d_model).
+            src_mask (Tensor): Mask for the input sequence of shape (B, T).
+            tgt_mask (Tensor): Mask for the target sequence of shape (B, U).
+        Returns:
+            Tensor: Verified output of shape (B, U, vocab_size).
+        """
+        dec_out = self.decoder.verify(tgt, enc_out, src_mask, tgt_mask)
+        return dec_out
 
 
