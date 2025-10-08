@@ -4,7 +4,7 @@ from word_decomposation import analyse_Vietnamese
 
 def normalize_transcript(text):
     text = text.lower()
-    text = re.sub(r"[\'\"(),.!?:]", " ", text)
+    text = re.sub(r"[\'\"(),.!?]", " ", text)
     text = re.sub(r"\s+", " ", text)  # loại bỏ khoảng trắng dư
     return text.strip()
 
@@ -62,8 +62,9 @@ def save_data(data, data_path):
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 import os
-def process_data(data_path, vocab, default_data_path, save_path):
+def process_data(data_path, vocab, default_data_path, save_path, type = "stack"):
     data = load_json(data_path)
+
 
     res = []
     for idx, item in data.items():
@@ -71,24 +72,23 @@ def process_data(data_path, vocab, default_data_path, save_path):
         data_res = {}
         text = normalize_transcript(item['script'])
         unk_id = vocab["<unk>"]
-        space_id = vocab["<space>"]
+        # tokens = [vocab.get(word, unk_id) for word in text.split()]
 
         tokens = []
-        words = text.split()
-        for i, word in enumerate(words):
+        for word in text.split():
             try:
                 initial, rhyme, tone = analyse_Vietnamese(word)
-                tokens.append(vocab.get(initial, unk_id))
-                tokens.append(vocab.get(rhyme, unk_id))
-                tokens.append(vocab.get(tone, unk_id))
-                
-                # Thêm token <space> sau mỗi từ, trừ từ cuối cùng
-                if i < len(words) - 1:
-                    tokens.append(space_id)
+                word_list = [vocab.get(initial, unk_id), vocab.get(rhyme, unk_id), vocab.get(tone, unk_id)]
+                if type == "stack":
+                    tokens.append(word_list)
+                else:
+                    tokens += word_list
+                    tokens += [vocab["<space>"]]
             except:
                 continue
 
-        data_res['encoded_text'] = tokens
+
+        data_res['encoded_text'] = tokens[:-1] if type != "stack" else tokens
         data_res['text'] = text
         data_res['wav_path'] = os.path.join(default_data_path, item['voice'])
         res.append(data_res)
