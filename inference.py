@@ -59,6 +59,41 @@ class GreedyPredictor:
         
         return decoder_input.squeeze(0).cpu().numpy()
 
+class GreedyMPStackPredictor:
+    def __init__(self, model, vocab, device, max_len=100):
+        self.model = model
+        self.sos = vocab.get_sos_token()
+        self.eos = vocab.get_eos_token()
+        self.blank = vocab.get_blank_token()
+        self.space = vocab.get_space_token()
+        self.tokenizer = vocab.itos
+        self.device = device
+        self.max_len = max_len
+    def greedy_decode(self, src, src_mask):
+        enc_out, src_mask = self.model.encode(src, src_mask)
+        decoder_input = torch.tensor([[[self.sos, self.sos, self.sos]]], dtype=torch.long).to(self.device)
+        
+        for _ in range(self.max_len):
+            decoder_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
+            # print("decoder mask : ", decoder_mask.shape)
+            # print("enc out shape : ", enc_out.shape)
+            dec_out = self.model.decode(decoder_input, enc_out, src_mask, decoder_mask)
+            initial = dec_out[0][:, -1, :]  # [B, vocab_size]
+            rhyme = dec_out[1][:, -1, :]  # [B, vocab_size]
+            tone = dec_out[2][:, -1, :]  # [B, vocab_size]
+
+            _, initial_tokens =  torch.max(initial, dim=1)  # [B]
+            _, rhyme_tokens =  torch.max(rhyme, dim=1)  # [B]
+            _, tone_tokens =  torch.max(tone, dim=1)  # [
+
+            # if next_token not in [self.sos, self.eos, self.blank]:
+            next_token_tensor = torch.tensor([[[initial_tokens.item(), rhyme_tokens.item(), tone_tokens.item()]]], dtype=torch.long).to(self.device)
+            decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+
+            if self.eos in [initial_tokens, rhyme_tokens, tone_tokens]:
+                break
+        
+        return decoder_input.squeeze(0).cpu().numpy()
 
 import torch
 
@@ -186,7 +221,13 @@ def main():
 
     model = load_model(config, vocab_len, device, epoch = args.epoch)
 
-    predictor = GreedyMutiplePredictor(model, train_dataset.vocab, device, tau=args.tau) if args.type_decode == "mtp" else GreedyPredictor(model, train_dataset.vocab, device)
+    if args.type_decode == "mtp_stack":
+        predictor = GreedyMPStackPredictor(model, train_dataset.vocab, device)
+    elif args.type_decode == "mtp":
+        predictor = GreedyMutiplePredictor(model, train_dataset.vocab, device, tau=args.tau)
+    else:
+        predictor = GreedyPredictor(model, train_dataset.vocab, device)
+    # predictor = GreedyMutiplePredictor(model, train_dataset.vocab, device, tau=args.tau) if args.type_decode == "mtp" else GreedyPredictor(model, train_dataset.vocab, device)
     # predictor = GreedyPredictor(model, train_dataset.vocab, device)
     all_gold_texts = []
     all_predicted_texts = []
@@ -199,17 +240,42 @@ def main():
                 tokens = batch["tokens"].to(device)
                 predicted_tokens = predictor.greedy_decode(src, src_mask)
 
-                predicted_tokens_clean = [
-                    token for token in predicted_tokens
-                    if token != predictor.sos and token != predictor.eos and token != predictor.blank
-                ]
-                predicted_text = [predictor.tokenizer[token] for token in predicted_tokens_clean]
-    
-                tokens_cpu = tokens.cpu().tolist() 
-                gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank]
-                gold_text_str = ' '.join(gold_text)
+                if args.type_decode != "mtp_stack":
+                    predicted_tokens_clean = [
+                        token for token in predicted_tokens
+                        if token != predictor.sos and token != predictor.eos and token != predictor.blank
+                    ]
+                    predicted_text = [predictor.tokenizer[token] for token in predicted_tokens_clean]
 
-                predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                    tokens_cpu = tokens.cpu().tolist() 
+                    gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank]
+                    gold_text_str = ' '.join(gold_text)
+
+                    predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                else:
+                    # Chuyển từ dạng [[i1, r1, t1], [i2, r2, t2], ...] sang [i1, r1, t1, i2, r2, t2, ...]
+                    predicted_tokens_flat = []
+                    for triplet in predicted_tokens:
+                        predicted_tokens_flat.extend(triplet)
+                        predicted_tokens_flat += [predictor.space]
+                    
+                    predicted_tokens_clean = [
+                        token for token in predicted_tokens_flat
+                        if token != predictor.sos and token != predictor.eos and token != predictor.blank
+                    ]
+                    predicted_text = [predictor.tokenizer[token] for token in predicted_tokens_clean]
+    
+                    tokens_cpu_flat = []
+                    tokens_cpu = tokens.cpu().tolist() 
+                    for triplet in tokens_cpu[0]:
+                        tokens_cpu_flat.extend(triplet)
+                        tokens_cpu_flat += [predictor.space]
+                    # print(tokens_cpu_flat)
+                    gold_text = [predictor.tokenizer[token] for token in tokens_cpu_flat if token != predictor.blank]
+                    gold_text_str = ''.join(gold_text)
+                    gold_text_str = gold_text_str.replace(predictor.tokenizer[predictor.space], ' ')
+                    predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                    predicted_text_str = predicted_text_str.replace(predictor.tokenizer[predictor.space], ' ')
 
                 if config['training']['type'] == "phoneme":
                     predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
@@ -221,6 +287,7 @@ def main():
                 elif config['training']['type'] == "char":
                     predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
                     gold_text_str = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
+                
                 
                 
                 
