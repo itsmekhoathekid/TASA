@@ -5,7 +5,7 @@ training:
   train_path : "/home/anhkhoa/PhonoASR/data/train_phenom.json"
   dev_path : "/home/anhkhoa/PhonoASR/data/test_phenom.json"
   test_path : "/home/anhkhoa/PhonoASR/data/test_phenom.json"
-  vocab_path : "/home/anhkhoa/PhonoASR/data/vocab_phenon.json"
+  vocab_path : "/home/anhkhoa/PhonoASR/data/vocab_phenom.json"
   reload: False
   logg : "/home/anhkhoa/TASA/logs/SpeechTransformer.log"
   ctc_weight: 0.3
