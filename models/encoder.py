@@ -242,9 +242,7 @@ class TransformerEncoder(nn.Module):
     ) -> torch.Tensor:
         
         x = x.unsqueeze(1)  # [batch, channels, time, features]
-        # print("x shape before frontend:", x.shape)  # [batch, 1, time, features]
         x, mask = self.frontend(x, mask)  # [batch, channels, time, features]
-        # print("x shape after frontend:", x.shape)
         x = x.transpose(1, 2).contiguous()   # batch, time, channels, features
         x = x.reshape(x.shape[0], x.shape[1], -1) # [batch, time, C * features]
 
