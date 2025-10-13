@@ -202,7 +202,8 @@ class TransformerEncoder(nn.Module):
         d_model: int,
         ff_size: int,
         h: int,
-        p_dropout: float
+        p_dropout: float,
+        k: int = 3
     ):
         super().__init__()
         self.linear = nn.Linear(in_features=in_features, out_features=d_model)
@@ -234,6 +235,7 @@ class TransformerEncoder(nn.Module):
             norm=nn.BatchNorm2d,            
             dropout=0.1,
         )
+
 
     def forward(
         self,

@@ -33,7 +33,6 @@ class Transformer(nn.Module):
             p_dropout=config['p_dropout'],
             k = config['k']
         )
-        self.ctc_lin = nn.Linear(config['d_model'], vocab_size)
         self.model_name = config['model_name']
 
     def forward(self, src, tgt, src_mask, tgt_mask):
@@ -41,8 +40,7 @@ class Transformer(nn.Module):
         enc_input_lengths = torch.sum(mask, dim=1) # [B]
 
         dec_out = self.decoder(tgt, enc_out, mask, tgt_mask)
-        enc_out = self.ctc_lin(enc_out)  # [B, T, vocab_size]
-        enc_out = enc_out.log_softmax(dim=-1) 
+
         return enc_out, dec_out, enc_input_lengths 
     
     def encode(self, src, src_mask):
