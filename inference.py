@@ -65,18 +65,18 @@ class GreedyMPStackPredictor:
         self.sos = vocab.get_sos_token()
         self.eos = vocab.get_eos_token()
         self.blank = vocab.get_blank_token()
-        self.space = vocab.get_space_token()
+        self.space = vocab.get_blank_token()
         self.tokenizer = vocab.itos
         self.device = device
         self.max_len = max_len
     def greedy_decode(self, src, src_mask):
         enc_out, src_mask = self.model.encode(src, src_mask)
         decoder_input = torch.tensor([[[self.sos, self.sos, self.sos]]], dtype=torch.long).to(self.device)
-        
+        prev_initial_tokens = None
+        prev_rhyme_tokens = None
+        prev_tone_tokens = None
         for _ in range(self.max_len):
             decoder_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
-            # print("decoder mask : ", decoder_mask.shape)
-            # print("enc out shape : ", enc_out.shape)
             dec_out = self.model.decode(decoder_input, enc_out, src_mask, decoder_mask)
             initial = dec_out[0][:, -1, :]  # [B, vocab_size]
             rhyme = dec_out[1][:, -1, :]  # [B, vocab_size]
@@ -87,8 +87,12 @@ class GreedyMPStackPredictor:
             _, tone_tokens =  torch.max(tone, dim=1)  # [
 
             # if next_token not in [self.sos, self.eos, self.blank]:
-            next_token_tensor = torch.tensor([[[initial_tokens.item(), rhyme_tokens.item(), tone_tokens.item()]]], dtype=torch.long).to(self.device)
-            decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+            if initial_tokens.item() != prev_initial_tokens or rhyme_tokens.item() != prev_rhyme_tokens or tone_tokens.item() != prev_tone_tokens:
+                next_token_tensor = torch.tensor([[[initial_tokens.item(), rhyme_tokens.item(), tone_tokens.item()]]], dtype=torch.long).to(self.device)
+                decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+                prev_initial_tokens = initial_tokens.item()
+                prev_rhyme_tokens = rhyme_tokens.item()
+                prev_tone_tokens = tone_tokens.item()
 
             if self.eos in [initial_tokens, rhyme_tokens, tone_tokens]:
                 break

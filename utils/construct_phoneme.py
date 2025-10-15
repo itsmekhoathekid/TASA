@@ -135,3 +135,19 @@ process_data("workspace/dataset/test.json",
              "workspace/dataset/test_phoneme.json")
 
 print("Unprocessed words:", unprocossed)
+
+
+# vocab, unprocossed = create_vocab("/home/anhkhoa/transformer_transducer_speeQ/data/train.json", wrong2correct)
+# save_data(vocab, "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_phoneme.json")
+
+# process_data("/home/anhkhoa/transformer_transducer_speeQ/data/train.json",
+#              vocab,
+#              "/mnt/d/voices/voices",
+#              "/home/anhkhoa/transformer_transducer_speeQ/data/train_phoneme.json")
+
+# process_data("/home/anhkhoa/transformer_transducer_speeQ/data/test.json",
+#              vocab,
+#              "/mnt/d/voices/voices",
+#              "/home/anhkhoa/transformer_transducer_speeQ/data/test_phoneme.json")
+
+# print("Unprocessed words:", unprocossed)
