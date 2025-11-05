@@ -2,10 +2,10 @@ training:
   epochs: 100
   batch_size: 16
   save_path: "/home/anhkhoa/TASA/saves"
-  train_path : "/home/anhkhoa/PhonoASR/data/train_phenom.json"
-  dev_path : "/home/anhkhoa/PhonoASR/data/test_phenom.json"
-  test_path : "/home/anhkhoa/PhonoASR/data/test_phenom.json"
-  vocab_path : "/home/anhkhoa/PhonoASR/data/vocab_phenon.json"
+  train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train_w2i.json"
+  dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_w2i.json"
+  test_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_w2i.json"
+  vocab_path : "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_w2i.json"
   reload: False
   logg : "/home/anhkhoa/TASA/logs/SpeechTransformer.log"
   ctc_weight: 0.3

@@ -121,33 +121,33 @@ wrong2correct = {
 }
 
 
-vocab, unprocossed = create_vocab("workspace/dataset/train.json", wrong2correct)
-save_data(vocab, "workspace/dataset/vocab_phoneme.json")
+# vocab, unprocossed = create_vocab("workspace/dataset/train.json", wrong2correct)
+# save_data(vocab, "workspace/dataset/vocab_phoneme.json")
 
-process_data("workspace/dataset/train.json",
-             vocab,
-             "workspace/dataset/voices",
-             "workspace/dataset/train_phoneme.json")
-
-process_data("workspace/dataset/test.json",
-             vocab,
-             "workspace/dataset/voices",
-             "workspace/dataset/test_phoneme.json")
-
-print("Unprocessed words:", unprocossed)
-
-
-# vocab, unprocossed = create_vocab("/home/anhkhoa/transformer_transducer_speeQ/data/train.json", wrong2correct)
-# save_data(vocab, "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_phoneme.json")
-
-# process_data("/home/anhkhoa/transformer_transducer_speeQ/data/train.json",
+# process_data("workspace/dataset/train.json",
 #              vocab,
-#              "/mnt/d/voices/voices",
-#              "/home/anhkhoa/transformer_transducer_speeQ/data/train_phoneme.json")
+#              "workspace/dataset/voices",
+#              "workspace/dataset/train_phoneme.json")
 
-# process_data("/home/anhkhoa/transformer_transducer_speeQ/data/test.json",
+# process_data("workspace/dataset/test.json",
 #              vocab,
-#              "/mnt/d/voices/voices",
-#              "/home/anhkhoa/transformer_transducer_speeQ/data/test_phoneme.json")
+#              "workspace/dataset/voices",
+#              "workspace/dataset/test_phoneme.json")
 
 # print("Unprocessed words:", unprocossed)
+
+
+vocab, unprocossed = create_vocab("/home/anhkhoa/transformer_transducer_speeQ/data/train.json", wrong2correct)
+save_data(vocab, "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_phoneme_flat.json")
+
+process_data("/home/anhkhoa/transformer_transducer_speeQ/data/train.json",
+             vocab,
+             "/mnt/d/voices/voices",
+             "/home/anhkhoa/transformer_transducer_speeQ/data/train_phoneme_flat.json", "falat")
+
+process_data("/home/anhkhoa/transformer_transducer_speeQ/data/test.json",
+             vocab,
+             "/mnt/d/voices/voices",
+             "/home/anhkhoa/transformer_transducer_speeQ/data/test_phoneme_flat.json", "flat")
+
+print("Unprocessed words:", unprocossed)

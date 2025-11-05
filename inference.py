@@ -37,27 +37,47 @@ class GreedyPredictor:
         self.tokenizer = vocab.itos
         self.device = device
         self.max_len = max_len
+    @torch.no_grad()
     def greedy_decode(self, src, src_mask):
+        B = src.size(0)
+        
+        # Encode
         enc_out, src_mask = self.model.encode(src, src_mask)
-        decoder_input = torch.tensor([[self.sos]], dtype=torch.long).to(self.device)
-        
+
+        # Init decoder input: [B, 1]
+        decoder_input = torch.full((B, 1), self.sos, dtype=torch.long, device=self.device)
+
+        # Track finished sequences
+        finished = torch.zeros(B, dtype=torch.bool, device=self.device)
+
         for _ in range(self.max_len):
-            decoder_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
-            # print("decoder mask : ", decoder_mask.shape)
-            # print("enc out shape : ", enc_out.shape)
-            dec_out = self.model.decode(decoder_input, enc_out, src_mask, decoder_mask)
-            prob = dec_out[0][:, -1, :]  # [B, vocab_size]
+            tgt_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
+            dec_out = self.model.decode(decoder_input, enc_out, src_mask, tgt_mask)
 
-            _, next_token = torch.max(prob, dim=1)  # [B]
+            # logits for next token: [B, vocab]
+            logits = dec_out[:, -1, :]
+            next_tokens = torch.argmax(logits, dim=-1)  # [B]
 
-            if next_token not in [self.sos, self.eos, self.blank]:
-                next_token_tensor = torch.tensor([[next_token.item()]], dtype=torch.long).to(self.device)
-                decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+            # Replace next_tokens with BLANK for finished ones (force pad)
+            next_tokens = next_tokens.masked_fill(finished, self.blank)
 
-            if next_token == self.eos:
-                break
+            # Update finished mask
+            finished |= (next_tokens == self.eos)
+
+            # only append tokens that are not {% sos, blank, eos %}
+            append_mask = ~next_tokens.isin(torch.tensor([self.sos, self.blank, self.eos], device=self.device))
+
+            # next tokens to append: [B, 1]
+            to_append = next_tokens[append_mask].unsqueeze(1)
+            if to_append.size(0) > 0:  # some batch samples still valid
+                # create empty placeholder and fill only positions to append
+                pad_col = torch.zeros(B, 1, dtype=torch.long, device=self.device)
+                pad_col[append_mask] = to_append
+                decoder_input = torch.cat([decoder_input, pad_col], dim=1)
+
+            if finished.all(): break
         
-        return decoder_input.squeeze(0).cpu().numpy()
+        return decoder_input.cpu().numpy()
 
 class GreedyMPStackPredictor:
     def __init__(self, model, vocab, device, max_len=100):
