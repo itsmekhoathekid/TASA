@@ -1,0 +1,3044 @@
+Gold: trở nên thụ động
+Pred: trở nên thử động
+WER: 0.2500, CER: 0.0625
+==================================================
+Gold: cũng khiến cho họ dè <unk>
+Pred: cũng khiến cho hỏi chuyện làm
+WER: 0.5000, CER: 0.4231
+==================================================
+Gold: chị <unk> hỏi anh thề sống thề chết là không có
+Pred: chứ chẳng hỏi âm thời sống thể chết đã không có
+WER: 0.5455, CER: 0.2979
+==================================================
+Gold: điện thoại <unk> nhưng ta cũng phải nhấc máy đúng không
+Pred: liệu thể lên dâm ta cũng phải đất máy đúng không
+WER: 0.4545, CER: 0.3091
+==================================================
+Gold: cũng thuộc loại dày đặc nhất trong hệ mặt trời
+Pred: cũng thuộc loại dày đặc nhất trong hệ mặc chờ
+WER: 0.2000, CER: 0.0870
+==================================================
+Gold: các vụ tham nhũng và bê bối kinh tế
+Pred: các vũ tham nhũng và quê hương tâm tới
+WER: 0.5556, CER: 0.4000
+==================================================
+Gold: chúng cứ cố lùi lại mặc dù vướng víu gông <unk>
+Pred: chúng cứ cố rồi lại mặc dù uống yếu bóng chuyền
+WER: 0.4545, CER: 0.2979
+==================================================
+Gold: bọn buôn dự án chạy chọt bày ra các dự án để kiếm chác
+Pred: bọn buôn dự án chỉ trò bài ra cái gì cá để kiếm chế
+WER: 0.5000, CER: 0.2593
+==================================================
+Gold: tất cả mọi thứ đều kỳ lạ một cách phi thường
+Pred: rất cảm giác về kỳ mệt vì là một cách phi thường
+WER: 0.7273, CER: 0.3864
+==================================================
+Gold: các chương trình ca nhạc phần lớn đều không đột phá
+Pred: các chương trình ca nhạc phần lớn đều không đột ngột
+WER: 0.0909, CER: 0.0784
+==================================================
+Gold: rồi chạy sang gõ cửa phòng ba le hai <unk> <unk>
+Pred: ngồi chảy sang vỏ cửa phòng bao lên hai giám núi
+WER: 0.6364, CER: 0.3542
+==================================================
+Gold: để trả trở lại đại dương
+Pred: để trở trở lại thấy dưới
+WER: 0.5000, CER: 0.3333
+==================================================
+Gold: nàng có đôi mắt to sâu và vầng trán rộng mênh mông
+Pred: nàng có đôi mắt to sau và phình chế rộng minh mong
+WER: 0.4167, CER: 0.2200
+==================================================
+Gold: tôi tự hỏi phải chăng đó là do <unk> còn quá trẻ
+Pred: tôi hỏi phải chăng chân đó là cho gian còn quá chỉ đến vậy
+WER: 0.5833, CER: 0.5417
+==================================================
+Gold: ủy ban châu âu kêu gọi những quốc gia phát triển còn lại
+Pred: ý ba châu âu chơi gọi những quốc gia phát triển còn lại
+WER: 0.2308, CER: 0.1250
+==================================================
+Gold: và khi chúng ta sao <unk> công việc của mình
+Pred: những khi chúng ta sơn ngả công việc của mình
+WER: 0.3000, CER: 0.2500
+==================================================
+Gold: có thể lành lặn mà không để lại vết sẹo
+Pred: có thể làm lặn mà không bị gã bất cứ thế
+WER: 0.6000, CER: 0.3846
+==================================================
+Gold: muốn đẹp phải ghè làm sao cho các bó cơ chân nổi bật lên
+Pred: muốn đẹp phải dè làm sao cho các bó cơ chân nổi bật lên
+WER: 0.0714, CER: 0.0357
+==================================================
+Gold: y tế bình hưng hòa bị hư hỏng
+Pred: y tế bình hưng hòa bị hư hỏng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: cô cứ nhè ngay cái nọng cá trê
+Pred: cô cứ nhè cái ngốc cái chết
+WER: 0.5000, CER: 0.4333
+==================================================
+Gold: nếu tưởng tượng bảy tám năm nữa
+Pred: nếu tưởng tượng bảy tám năm nữa
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: ông chủ tịch tuyên bố như thế nào
+Pred: ông chủ tịch đi bộ như thế nào
+WER: 0.2500, CER: 0.1818
+==================================================
+Gold: khiến hai cha con cậu
+Pred: chuyến hai cha con cảm
+WER: 0.4000, CER: 0.2381
+==================================================
+Gold: làm đẹp không đúng cách
+Pred: làm đẹp không ứng cá
+WER: 0.4000, CER: 0.1739
+==================================================
+Gold: mỗi khi xe rác đi ngang qua đánh kẻng mới đem ra đổ
+Pred: mỗi khi xe lớp tuy nhiên qua tấn công mới đem ra độ
+WER: 0.4615, CER: 0.3137
+==================================================
+Gold: thay vì bốn giờ như trước đây
+Pred: thay vì bốn giờ như trước đây
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hầu hết nang này có nguồn gốc từ gân cơ chân <unk>
+Pred: hầu hết trang này có nguồn gốc vì rừng cơ chân động
+WER: 0.3333, CER: 0.2200
+==================================================
+Gold: tiếng mã tấu sắc lạnh chạm nhau và cả tiếng rên rỉ
+Pred: ví mở đấu sắc lạnh nâu nhau và cả biến doanh ngữ
+WER: 0.5833, CER: 0.4000
+==================================================
+Gold: có hẳn một loạt bài viết chuyên đề về quản trị thương hiệu
+Pred: có hẳn một loạt bài viết chuyên đề về quản chỉ thư hiệu
+WER: 0.1538, CER: 0.1034
+==================================================
+Gold: hợp với hương vị đầu xuân
+Pred: hoặc với hướng về đầu sân
+WER: 0.6667, CER: 0.2800
+==================================================
+Gold: ổng nói ở sài gòn ổng đã làm ông hội đồng như thế nào
+Pred: ổng nói ở sài gòn ông bỏ làm ông hồi đồng như thế nào
+WER: 0.2143, CER: 0.0755
+==================================================
+Gold: bà quảng vẫn đang bận rộn
+Pred: bao quảng vẫn đang bận rộn
+WER: 0.1667, CER: 0.0800
+==================================================
+Gold: mày dám chơi vợ tao tao phải giết mày
+Pred: mày dám chơi vợ ra ba chỉnh giết này
+WER: 0.4444, CER: 0.2432
+==================================================
+Gold: tống cổ hắn đi không được để hắn vào đây nữa
+Pred: đón cổ hắn đi không được để hắn vào đây nữa
+WER: 0.0909, CER: 0.0682
+==================================================
+Gold: hắn chơi vợ anh thì sao anh không chơi vợ hắn
+Pred: thanh chơi vội ăn vì cho ăn không chơi vỡ ăn
+WER: 0.7273, CER: 0.3556
+==================================================
+Gold: tháng trước chồng về mấy ngày mình nằm ngủ thấy ấm kinh khủng
+Pred: tháng trước chồng về máy ngày mình nằm vũ thấy ấm viên cũng
+WER: 0.3077, CER: 0.1639
+==================================================
+Gold: cho em góp một viên gạch
+Pred: cho em cướp một viên gạch
+WER: 0.1667, CER: 0.1250
+==================================================
+Gold: đi kiểm tra lại bác sĩ khuyên nên mổ nội soi
+Pred: đi kiểm tra lại bác sĩ khuyên nên bỏ đối phó
+WER: 0.2727, CER: 0.1591
+==================================================
+Gold: hôm nay em có tới năm khách
+Pred: hôm nay em có tới năm khác
+WER: 0.1429, CER: 0.0370
+==================================================
+Gold: anh bị đẩy từ hà nội vào sài gòn
+Pred: anh bị đẩy tư hà nội và sài gòn
+WER: 0.2222, CER: 0.0625
+==================================================
+Gold: phù hợp cho mọi cân nặng
+Pred: phù hợp cho những nạn
+WER: 0.5000, CER: 0.3750
+==================================================
+Gold: âm thầm chắt <unk> nuôi tôi khôn lớn
+Pred: ông không chấp chưa nuôi tôi khôn lớn
+WER: 0.5000, CER: 0.3889
+==================================================
+Gold: vì bạn có thể <unk> cò từng phát một
+Pred: vì bản có thể lấy còn tình phát một
+WER: 0.4444, CER: 0.2500
+==================================================
+Gold: vai trò của chế độ dinh dưỡng
+Pred: vai trò của chế độ dinh dưỡng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: không hiểu sao
+Pred: không hiểu sao
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: khiến phụ huynh hiểu nhầm
+Pred: khiến cuộc khuynh hiểu nhầm
+WER: 0.4000, CER: 0.2000
+==================================================
+Gold: mỗi khi cơn gió đến
+Pred: mỗi khi cơn do đến
+WER: 0.2000, CER: 0.1579
+==================================================
+Gold: này bón cho con thương đỡ yếu đau còi cọc
+Pred: này bóng cho con thương đổi yếu đau còi cọc
+WER: 0.2000, CER: 0.0732
+==================================================
+Gold: trong tư thế phi ngựa chồm lên
+Pred: trong tư thấy phi ngữ trong lên
+WER: 0.4286, CER: 0.3000
+==================================================
+Gold: mà cũng đầy thanh khiết
+Pred: mà cũng đầy thanh khiếu
+WER: 0.2000, CER: 0.0435
+==================================================
+Gold: một vụ chập điện đã khiến ngọn lửa bùng lên
+Pred: một vụ trộm biển đã khiến ngọn lửa buồn lên
+WER: 0.3000, CER: 0.2093
+==================================================
+Gold: bà con <unk> xóm
+Pred: và con chùm sớm
+WER: 0.7500, CER: 0.5000
+==================================================
+Gold: đây là mức lãi suất thấp nhất qua các phiên đấu thầu
+Pred: đây là mức lãi suất lấy qua các phim đấu thầu
+WER: 0.2500, CER: 0.1923
+==================================================
+Gold: dọc hai bên sông ngàn sâu
+Pred: dọc hai bên sông ngàn sâu
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nhưng oái ăm thay
+Pred: nhưng ông ấy ông có
+WER: 1.0000, CER: 0.6471
+==================================================
+Gold: sau cải cách
+Pred: sau cải cách
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: một kế hoạch tương tự được áp dụng ở anh
+Pred: một kế hoạch tương tự được áp dụng ở ăn
+WER: 0.1000, CER: 0.0500
+==================================================
+Gold: <unk> ngựa đi thi
+Pred: cởi ngữ đi thi
+WER: 0.5000, CER: 0.4118
+==================================================
+Gold: ôi dào
+Pred: ngôi giàu
+WER: 1.0000, CER: 0.8333
+==================================================
+Gold: không một chiếc xe lạ nào có thể <unk> men vào được
+Pred: không một chiếc xe lại nào có thể mong an vào được
+WER: 0.2500, CER: 0.1373
+==================================================
+Gold: rồi đi khắp nơi tìm thầy chữa bệnh cho anh
+Pred: rồi đi khắp nơi tìm thầy chứ vẫn cho anh
+WER: 0.2000, CER: 0.1190
+==================================================
+Gold: bên trong trái vả khi bổ ra sẽ rỗng chứ không đặc như trái sung
+Pred: bên trong cái vả khi bộ ra sẽ rộn chứ không đặt như trái sung
+WER: 0.2667, CER: 0.0952
+==================================================
+Gold: nên hai <unk> cầu bị <unk> đất khiến lối đi bộ quá nguy hiểm
+Pred: nên hai múa cầu bị sụt đất thiết kế bộ quái bộ quái nguy hiểm
+WER: 0.5000, CER: 0.3500
+==================================================
+Gold: luôn ổn định và các xe trấu khá nặng
+Pred: luôn ổn định và các xe trâu khác đang
+WER: 0.3333, CER: 0.1111
+==================================================
+Gold: và khi họ vạch tóc ra
+Pred: và khi họ và tóc ra
+WER: 0.1667, CER: 0.1429
+==================================================
+Gold: của chính sách đối với quy mô của thị trường
+Pred: của chính sách đối với qui mô của thị trường
+WER: 0.1000, CER: 0.0227
+==================================================
+Gold: sương mù đã đọng thành những hạt giá băng
+Pred: xương mù đã động hình những hạt giá văn
+WER: 0.4444, CER: 0.1463
+==================================================
+Gold: chứ không phải tài năng thiên bẩm nào
+Pred: chứ không phải tài năng thiên bóng nào
+WER: 0.1250, CER: 0.0811
+==================================================
+Gold: là tiếng trống lân tùng <unk> vui tai
+Pred: là tiếng trống với cùng sản vui tai
+WER: 0.3750, CER: 0.2162
+==================================================
+Gold: một chuyến du lịch dã ngoại tại bò cạp vàng
+Pred: một chuyến du lịch giả ngoại tại bò cặp vàng
+WER: 0.2000, CER: 0.0930
+==================================================
+Gold: ghép cành mai <unk> vào thân cổ thụ cho hoa cánh lớn
+Pred: ghép cầm may dạo vào thân của thủ cho hoa cánh lớn
+WER: 0.4167, CER: 0.2308
+==================================================
+Gold: để chọn máy in cho phù hợp
+Pred: để chống máy in cho phù hợp
+WER: 0.1429, CER: 0.0769
+==================================================
+Gold: bác vẫn chưa trả tiền cho tôi đây nhé
+Pred: ban vẫn chưa có trả lãi tôi lấy nhé
+WER: 0.5556, CER: 0.3514
+==================================================
+Gold: tôi đang bận họp
+Pred: tôi đang bận học
+WER: 0.2500, CER: 0.0625
+==================================================
+Gold: cướp đầy đường công an chỉ lo hạch sách
+Pred: cướp đầy đường công an chỉ lo hạch sách
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: mẹ ơi có mua đồ cho con không
+Pred: mẹ ơi có mua đồ cho con không
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: con chó lủi thủi đi theo chủ nó
+Pred: con chó nổi bật đi theo chủ nó
+WER: 0.2500, CER: 0.1935
+==================================================
+Gold: trong phim có nhiều cảnh chém giết
+Pred: trong phim có nhiều cảnh chém giết
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: diễn viên chính đứng như khúc gỗ
+Pred: những vi chứng đứng như khúc gỗ
+WER: 0.4286, CER: 0.2500
+==================================================
+Gold: bác đang suy nghĩ gì thế
+Pred: ở đây xin nghĩ gì thế
+WER: 0.5000, CER: 0.3750
+==================================================
+Gold: khi trẫm khỏi bệnh thì sẽ chém đầu
+Pred: khi trẫm khó vĩnh thì sẽ chém đầu
+WER: 0.2500, CER: 0.1176
+==================================================
+Gold: việc một quyển tiểu thuyết như thế
+Pred: việc mọc quyển tiểu thuyết như thế
+WER: 0.1429, CER: 0.0588
+==================================================
+Gold: những cơn gió mạnh và mưa đóng băng gây trơn trợt
+Pred: những cơn gió mạnh và mưa đóng băng gây trơn chợt
+WER: 0.0909, CER: 0.0408
+==================================================
+Gold: não bộ chúng ta phát triển những rung động yêu thương
+Pred: nở bỏ chúng ta phát triển những gương động yêu thương
+WER: 0.2727, CER: 0.1132
+==================================================
+Gold: trừ khi bạn biết tôn trọng bản thân mình
+Pred: trừ khi bán viết tôn trọng bản thân mình
+WER: 0.2222, CER: 0.0500
+==================================================
+Gold: những con đường ngắn ngủn như những nhát cắt
+Pred: những con đường ngắn này như những nhát cắt rách
+WER: 0.2222, CER: 0.1818
+==================================================
+Gold: hiện ra tận phía xa
+Pred: hiện ra tận phía xa
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: xin được chân khuân vác
+Pred: xin được chân khung vác
+WER: 0.2000, CER: 0.0870
+==================================================
+Gold: nhưng khi tiến gần vào vịnh thì mặt biển bị rạn vỡ
+Pred: nhưng khi tiếng gần vào vĩnh hiền mặt biển bị rạn vỡ
+WER: 0.2500, CER: 0.1200
+==================================================
+Gold: một bà ngoại giặt đồ thuê
+Pred: một vào ở giặt đồ hôi
+WER: 0.5000, CER: 0.3600
+==================================================
+Gold: đôi bàn tay em không được mềm mại và nõn nà
+Pred: tôi bàn tay em không được miền mới và nón nào
+WER: 0.4545, CER: 0.1395
+==================================================
+Gold: tây giang vẫn còn khắc khoải không thể vào xã a nông
+Pred: tây giang vẫn còn cấp khỏi không khói vào xã a nông
+WER: 0.2500, CER: 0.1731
+==================================================
+Gold: những dự định cần phải được biến thành hiện thực
+Pred: những dự định cần phá được biến thành hiện thực
+WER: 0.1000, CER: 0.0417
+==================================================
+Gold: để tàu không phải cưỡi cầu tàu
+Pred: thế tạo không phải cưỡi cầu tàu
+WER: 0.2857, CER: 0.1667
+==================================================
+Gold: bàn chổi sơn bằng bông mềm rất phổ biến
+Pred: bàn chổi sơn bằng bông mềm rất phổ biến
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: thật sự mà là bởi lòng hận thù
+Pred: thật sự mà là bởi lòng hận thù
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: việc quy tội để bùng nổ loại sách này là do
+Pred: việc quy tội để bùng nổ rõ loại sách này ra do
+WER: 0.1818, CER: 0.1163
+==================================================
+Gold: di tích có bảy phỗng ông và hai phỗng bà được làm bằng gỗ mít
+Pred: di tích có bảy phỗng ông và hai phóng và được làm bằng gỗ mứt
+WER: 0.2000, CER: 0.0492
+==================================================
+Gold: các chú cũng thoải mái phóng uế giữa chốn đông người mà không sợ
+Pred: các chú cũng hỏi mái phóng hơi giữa chốn đông người mà không sợ
+WER: 0.1429, CER: 0.0938
+==================================================
+Gold: tiếng cọc cạch khựng lại của những khớp sắt
+Pred: tuyến cọc cạch cần là cô những cấp sách
+WER: 0.6667, CER: 0.3953
+==================================================
+Gold: người ta nói
+Pred: người ta nói
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: cũng lên tiếng ủng hộ các kiến nghị này
+Pred: cũng lên tiếng ủng hộ cách ký nghề này
+WER: 0.3333, CER: 0.1282
+==================================================
+Gold: anh phú chưa bú được sữa mẹ lần nào
+Pred: anh phú chưa vú được sữa mẹ lần nào
+WER: 0.1111, CER: 0.0286
+==================================================
+Gold: ngọn lửa bạo động ở trung đông và phá vỡ lộ trình hòa bình
+Pred: ngọn lửa bạo động ở trung đông và phá vỡ lộ chín nổ bình
+WER: 0.1429, CER: 0.1207
+==================================================
+Gold: và rất sáng tạo
+Pred: và rất sáng tạo
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nhưng giấc ngủ chập chờn
+Pred: nhưng giấc ngủ chập chờn
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: giám đốc sở giáo dục đào tạo ninh thuận cho biết
+Pred: giám đốc sở giáo dục đào tạo nên thuận cho biết
+WER: 0.0909, CER: 0.0417
+==================================================
+Gold: đèn bị hư rồi ba
+Pred: đèn bị hư vô ba
+WER: 0.2000, CER: 0.1875
+==================================================
+Gold: trưởng công an xã chạy sang can ngăn cũng bị tuyến đánh tiếp
+Pred: trưởng công an xã chạy sang can ngăn cũng bị tuyến đánh tiếp
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nghe chúng tôi hỏi điều này chị ngát rân rấn nước mắt
+Pred: nghe chúng tôi hỏi điều này chị ngát gần gấp nước mắt
+WER: 0.1667, CER: 0.0755
+==================================================
+Gold: công văn đề nghị tỉnh con tum xây dựng cửa khẩu
+Pred: công văn đề nghị tính con tum xây dựng cửa khẩu
+WER: 0.0909, CER: 0.0213
+==================================================
+Gold: nhưng tình yêu vẫn nồng nàn và say đắm như buổi ban đầu
+Pred: nhưng tình yêu vẫn nồng nàn và say đắm như buổi ban đầu
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: do chính phủ mỹ tiến hành ở việt nam
+Pred: do chính phủ mỹ tiến hành ở việt nam
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tỉnh quảng trị đã phê duyệt
+Pred: tỉnh quảng chỉ trở về dịp
+WER: 0.6667, CER: 0.4815
+==================================================
+Gold: nhưng tôi thích xem bộ phim truyện phát ngay sau chương trình này
+Pred: nhưng tôi thích xem bộ phim truyện phát ngay sau chương trình này
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: cũng chưa biết nữa
+Pred: cũng chưa biết nữa
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: xuân này em không về
+Pred: xuân này em không về
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chắc sắp tới thu xếp đi du lịch thôi
+Pred: chăm sóc tớ hôi xếp đi du lịch thôi
+WER: 0.4444, CER: 0.2222
+==================================================
+Gold: nó trốn mất tiêu rồi còn đâu
+Pred: nó trốn mất tiêu gọi còn đâu
+WER: 0.1429, CER: 0.0714
+==================================================
+Gold: thằng đó có cái miệng như đàn bà
+Pred: thằng đó có cái miệng như rằng bao
+WER: 0.2500, CER: 0.1562
+==================================================
+Gold: bà nói
+Pred: bà nói
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: con nhỏ mở cái túi gút đeo trên cổ
+Pred: con nhỏ mở cái vui lúc đeo trên cổ
+WER: 0.2222, CER: 0.1176
+==================================================
+Gold: cũng chẳng còn xúng xính quần áo mới
+Pred: cũng chính còn xuống giữ sức cuộc áp mới
+WER: 0.7500, CER: 0.4167
+==================================================
+Gold: trẻ em đâu có chướng ngại vật
+Pred: trên đầu có trước lại vật
+WER: 0.7143, CER: 0.3793
+==================================================
+Gold: tôi không nỡ làm cô bé thất vọng
+Pred: tôi không ở làm cô bé tóc phận
+WER: 0.3750, CER: 0.2812
+==================================================
+Gold: rất nhiều gửi gắm và kỳ vọng vào ông
+Pred: rất nhiều lý giống và kỳ vọng vô ông
+WER: 0.3333, CER: 0.2500
+==================================================
+Gold: đang thảo luận về đề xuất
+Pred: đăng thôi luận việc địa suất
+WER: 0.8333, CER: 0.3600
+==================================================
+Gold: chủ tịch nước đã đến kiểm tra tiến độ thi công
+Pred: trước chỉnh nước đã đánh kiểm tra chính đổ thi công
+WER: 0.4545, CER: 0.3478
+==================================================
+Gold: nghĩa là kém cỏi nam tính hay sao
+Pred: nghĩa là kiếm có năm tính thay so
+WER: 0.6250, CER: 0.2121
+==================================================
+Gold: một cô gái váy ngắn cũn <unk> chạy lên hỏi
+Pred: một cô gái và ngán cũng cẩn chạy lên hóa
+WER: 0.5000, CER: 0.2381
+==================================================
+Gold: sẽ không khiến bạn trông gầy như những trang phục một màu
+Pred: sẽ không khí bằng trong gậy như những trong sụt một màu
+WER: 0.5000, CER: 0.1930
+==================================================
+Gold: cô chỉ mới vào lưới nhặt bóng hai lần
+Pred: cua chỉ mới vào lưới nhạc bóng hai lần
+WER: 0.2222, CER: 0.1081
+==================================================
+Gold: hoặc chỉ biểu hiện bằng các rối loạn co bóp
+Pred: hoặc chiếc biểu hiện bằng cắt rối loạn có vóc
+WER: 0.4000, CER: 0.1860
+==================================================
+Gold: nhằm tạo ra sự hấp dẫn
+Pred: nhằm tạo ra sự hấp dẫn
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: thứ âm thanh không chỉ cảm nhận bằng thính giác
+Pred: trước ông không chỉ chấp nhận bằng chính bản tính chất
+WER: 0.8000, CER: 0.5319
+==================================================
+Gold: từ nỗi cô đơn của một cô bé bị cha mẹ bỏ quên
+Pred: từ nữ của đơn của một cô bác bị cho mẹ bỏ quen
+WER: 0.3846, CER: 0.1778
+==================================================
+Gold: chính bà cũng là người nung nấu niềm đam mê diễn xuất của cô con gái
+Pred: chứng bệnh cũng là người nung nón niềm đam mê diễn xuất của cô con gái
+WER: 0.1875, CER: 0.1029
+==================================================
+Gold: đó cũng là động lực thúc đẩy tôi
+Pred: đó cũng là động lực trúc để tôi
+WER: 0.2500, CER: 0.0938
+==================================================
+Gold: nhóm sinh viên tại trường cùng họp mặt ăn tết chung
+Pred: nhóm sinh viên tại trường cùng học mặt ăn tích chung
+WER: 0.1818, CER: 0.0784
+==================================================
+Gold: vì tối đó
+Pred: vì tới đó
+WER: 0.3333, CER: 0.1111
+==================================================
+Gold: đôi khi bạn cũng có thể làm những điều đó
+Pred: đôi khi bạn cũng có thể làm những điều đó
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: rạch bàu mớp
+Pred: rạch làm mứt
+WER: 0.6667, CER: 0.3333
+==================================================
+Gold: gí hòn than vào rơm
+Pred: dưới hòn thôn vào góc
+WER: 0.6000, CER: 0.4211
+==================================================
+Gold: cháu sốt nên rẹo <unk> suốt đêm
+Pred: cháu sốt năm bảy phút xuất đem
+WER: 0.7143, CER: 0.4194
+==================================================
+Gold: và tôi thấy hoa vạn thọ vàng ươm
+Pred: và tôi thấy qua phận thỏa vọng ước
+WER: 0.6250, CER: 0.3125
+==================================================
+Gold: tay kia xách một tay gióng mang chiếc vịm lớn
+Pred: tay chia sách một thực giống ăn chiếc trống
+WER: 0.7000, CER: 0.3778
+==================================================
+Gold: ngủ trên nệm không phù hợp
+Pred: ưu trang niệm không phù hợp
+WER: 0.5000, CER: 0.2308
+==================================================
+Gold: những ngày đầu vắng bóng ba việt cứ thừ người nghĩ ngợi
+Pred: những ngày đầu vắng bóng ba mươi lăm thư người như ý nữa
+WER: 0.5000, CER: 0.2727
+==================================================
+Gold: bị các cô gái bao vây ráo riết
+Pred: bị kết cù gái bao vây ráo rít
+WER: 0.3750, CER: 0.2000
+==================================================
+Gold: trơ trọi giữa đồng cái nhìn khắc khoải
+Pred: cho tại giữa đồng cây nhìn khắc khoải
+WER: 0.3750, CER: 0.1842
+==================================================
+Gold: ngoài việc phát hiện kẻ thù
+Pred: ngoài dịp phát hiện cái thù
+WER: 0.3333, CER: 0.2593
+==================================================
+Gold: một là gặp lại tất cả các em phò
+Pred: một là gặp lại tất cả các em phò
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: những sai lầm khi đi chọn khách sạn
+Pred: những sai lầm khi đi chọn khách sạn
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: anh đi công tác cần thơ tuần sau mới về
+Pred: anh đi công tác cần thơ tuần sau mối việc
+WER: 0.2000, CER: 0.1026
+==================================================
+Gold: có trả tiền cho bố không thì bảo
+Pred: có trả tiền cho bố không thì báo
+WER: 0.1250, CER: 0.0312
+==================================================
+Gold: cam sành lột vỏ còn chua
+Pred: công sành lập võ cùng chua
+WER: 0.6667, CER: 0.3333
+==================================================
+Gold: anh khen em đẹp em chê anh già
+Pred: anh khen em đẹp em chỉ ăn già
+WER: 0.2500, CER: 0.1000
+==================================================
+Gold: nhận được tin này gọi lại cho tôi gấp
+Pred: những được tin này vào lại cho tôi gấp
+WER: 0.2222, CER: 0.1351
+==================================================
+Gold: ba này chỉ giỏi bốc phét
+Pred: ba này chỉ giỏi bốc xuất
+WER: 0.1667, CER: 0.1250
+==================================================
+Gold: cho tôi nhắn đại tin nào cũng được
+Pred: cho tôi nhắn đại tin đầu cũng được
+WER: 0.1250, CER: 0.0882
+==================================================
+Gold: hãy tưởng tượng rằng bạn là là giám đốc dự án trong một công ty lớn
+Pred: hãy tưởng từ rằng bạn là giám đốc dự án trong một công ty lớn
+WER: 0.1250, CER: 0.1045
+==================================================
+Gold: của những thế lực hùng mạnh
+Pred: của những thế là không mạnh
+WER: 0.3333, CER: 0.1481
+==================================================
+Gold: ông nhặt nó lên
+Pred: ông nhắc nói lên
+WER: 0.5000, CER: 0.2000
+==================================================
+Gold: nguyên thứ trưởng mai văn dâu đã bị bắt
+Pred: nguyên thứ trưởng may văn châu đã bị bắt
+WER: 0.2222, CER: 0.0769
+==================================================
+Gold: nhưng mức án tử hình đối với các bị cáo là tương xứng
+Pred: nhưng mức án tự hình đối với các bị cáo là tương xứng
+WER: 0.0769, CER: 0.0189
+==================================================
+Gold: những người sống thì tha thẩn trong nhà ngoài ngõ
+Pred: những người sống thì tha thẳng trong nhà ngoài ngõ
+WER: 0.1000, CER: 0.0408
+==================================================
+Gold: cả không gian nhuốm màu tro bếp
+Pred: cả không gian để ngồi cho biết
+WER: 0.5714, CER: 0.4194
+==================================================
+Gold: trán <unk>
+Pred: trạng dừa
+WER: 1.0000, CER: 0.7000
+==================================================
+Gold: thu chạm ngõ rất hiền
+Pred: thua chạm ngỡ rất hiền
+WER: 0.4000, CER: 0.0952
+==================================================
+Gold: trông một cô nàng đổ người lên lưng anh người yêu gầy còm
+Pred: trong một cô nàng đổ người lên anh lưng anh người yêu gầy tên
+WER: 0.2308, CER: 0.1404
+==================================================
+Gold: doanh nghiệp tuyển dụng lao động nước ngoài
+Pred: doanh nghiệp tuyển dùng lao động đất ngoài
+WER: 0.2500, CER: 0.1163
+==================================================
+Gold: thời hạn sử dụng và loại sản phẩm bột
+Pred: thời hạn sử dụng vào lại sản phẩm độc
+WER: 0.3333, CER: 0.1081
+==================================================
+Gold: mà còn bị những bộ mặt lạnh <unk> kia <unk> <unk>
+Pred: mà còn bị những bồ mặt lành tế kia hoàn hoàng
+WER: 0.4545, CER: 0.3469
+==================================================
+Gold: nhưng mùi hôi vẫn xộc vào tận óc
+Pred: nhưng mùi hôi vẫn sống vào tặng áo
+WER: 0.3750, CER: 0.2500
+==================================================
+Gold: đang làm việc không ngừng nghỉ
+Pred: đang làm việc không ngừng nghĩ
+WER: 0.1667, CER: 0.0333
+==================================================
+Gold: thu hút rất là nhiều loài chim
+Pred: thu hút rất là nhiều loài chim
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: khi cô thể hiện không mấy thành công ở lễ khai mạc
+Pred: khi cô thể hiện không máy thành công ở lễ khai mạc
+WER: 0.0833, CER: 0.0200
+==================================================
+Gold: ra hiệu cho tôi im lặng
+Pred: ra hiệu cho tôi im lặng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nhỏ đưa tay ra cào hết bùn khô trên cổ tớ
+Pred: nhỏ đưa tay ra cả hết buồn khô trên cổ tớ
+WER: 0.1818, CER: 0.0976
+==================================================
+Gold: ngồi chồm chồm cách chỉ mấy mét
+Pred: ngồi trên cả một cách chỉ máy
+WER: 0.7143, CER: 0.4194
+==================================================
+Gold: nửa vòng trái đất hơn bảy năm
+Pred: nửa vòng trái đất thường bảy năm
+WER: 0.1429, CER: 0.1379
+==================================================
+Gold: chậm nắm bắt xu hướng phát triển công nghệ mới
+Pred: trầm nắm bắt su hướng phát triển công nghệ mới
+WER: 0.2000, CER: 0.0870
+==================================================
+Gold: mà mường tượng ra hình bóng mẹ
+Pred: mà mừng tưởng ra hình bóng mẹ
+WER: 0.2857, CER: 0.1000
+==================================================
+Gold: mỗi người một số phận em à
+Pred: mỗi người một số phận nga màn
+WER: 0.2857, CER: 0.1923
+==================================================
+Gold: lần lữa mãi mới gặp được tuyên
+Pred: lần nữa mãi mới gặp được tuyên
+WER: 0.1429, CER: 0.0333
+==================================================
+Gold: làm đường dây để nối các mảnh đời
+Pred: làm đường dây để nói các mảnh đời
+WER: 0.1250, CER: 0.0303
+==================================================
+Gold: chị hai chủ quán nghe bàn tán <unk> rả cũng ra góp chuyện
+Pred: chị hai chủ quán nghe bàn tán run rã cũng ra góc chuyện
+WER: 0.2308, CER: 0.0877
+==================================================
+Gold: tức khắc <unk> về kéo mọi người thứ trở lại thời hoang sơ
+Pred: tích khách trung về kéo mọi người thứ trở lại thời hoang sơ
+WER: 0.2308, CER: 0.1404
+==================================================
+Gold: tên gọi tại địa phương là trắc thối
+Pred: tên gọi tại địa phương là cách thối
+WER: 0.1250, CER: 0.1143
+==================================================
+Gold: bốn chiếc trống đại <unk> la
+Pred: bốn chiếc trống đại phạt la
+WER: 0.1667, CER: 0.1786
+==================================================
+Gold: một cú ngoặt không chính xác
+Pred: một cú hoặc không chính xác
+WER: 0.1667, CER: 0.1071
+==================================================
+Gold: mới đây nhất là các tiểu vương quốc ả rập thống nhất
+Pred: mới đây nhất là các tiểu vương quốc đã gặp thống nhất
+WER: 0.1667, CER: 0.0769
+==================================================
+Gold: cộng đồng người mê toán học trên toàn thế giới
+Pred: cộng đồng người mê toán học trên toàn thế giới
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tôi nghĩ thủ tướng sẽ không né tránh bất cứ câu hỏi nào
+Pred: tôi nghĩ thủ tướng sẽ không bé tranh bất cứ câu hỏi nào
+WER: 0.1538, CER: 0.0364
+==================================================
+Gold: bọn buôn lậu ma túy và vũ khí
+Pred: bọn buôn lậu ma túy và vũ khí
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: lại quay ra tập viết báo rồi gửi vu vơ
+Pred: lại quay ra tập viết báo rồi gửi vô với
+WER: 0.2000, CER: 0.0789
+==================================================
+Gold: nghe tiếng <unk> <unk> xa xa thì đoán trúng phóc là hút hầm cầu
+Pred: nghe tuyển sinh dịch xa sai thì đoán cũng pháp là nhằm cầu
+WER: 0.5714, CER: 0.3968
+==================================================
+Gold: chưa rục rịch gì
+Pred: chưa rõ rực vì
+WER: 0.7500, CER: 0.3125
+==================================================
+Gold: thế nhưng khi giá <unk> thép thế giới cao dần
+Pred: thế nhưng khi giá vui thế giới cao dần
+WER: 0.2000, CER: 0.2000
+==================================================
+Gold: làm hỏng các thiết bị của tên lửa
+Pred: làm hổng các thiết bị của tên lửa
+WER: 0.1250, CER: 0.0303
+==================================================
+Gold: đơn giản là tán gẫu với nhau
+Pred: đơn giản là táng độ với nhau
+WER: 0.2857, CER: 0.1429
+==================================================
+Gold: mà do lối sống chui <unk> của chúng
+Pred: mà do lối sống chui nổi của chúng
+WER: 0.1250, CER: 0.1143
+==================================================
+Gold: râu ria đã ba ngày không cạo
+Pred: rau liêu đã bao ngày không cảm
+WER: 0.5714, CER: 0.2500
+==================================================
+Gold: một đường hướng chuyên nghiệp
+Pred: một đường hướng riêng nghiệp
+WER: 0.2000, CER: 0.1724
+==================================================
+Gold: lính cứu hỏa khó tiếp cận hiện trường
+Pred: đứng cứu hỏa khó tiếp cận hiện trường
+WER: 0.1250, CER: 0.0811
+==================================================
+Gold: những người trên ghe của công an đã nhắm thẳng vào ghe anh chủ
+Pred: những người trên ghế của công an đã nhắm thẳng vào ghê anh chủ
+WER: 0.1429, CER: 0.0323
+==================================================
+Gold: đừng buồn vì tự <unk> vặt mình nữa
+Pred: đừng buồn vì tự răn vặt mình nữa
+WER: 0.1250, CER: 0.1176
+==================================================
+Gold: và hít vào mũi làm chất này loãng ra
+Pred: và hết vào buổi làm chất này lãng ra
+WER: 0.3333, CER: 0.1389
+==================================================
+Gold: đang hấp dẫn các tập đoàn phân phối đa quốc gia
+Pred: đang hấp dẫn các tạp phân phối đau quốc gia
+WER: 0.2727, CER: 0.1489
+==================================================
+Gold: dù là đậu sức mạnh hoặc cải bông khủng long
+Pred: dù là đầu sức mạnh hoặc cải bông cũng long
+WER: 0.2000, CER: 0.0930
+==================================================
+Gold: vì nó không nhắc đến những cuộc tấn công nhắm vào người do thái
+Pred: vì nó không nhắc đến những cuộc tấn công nhắm vào người do thái
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: rồi <unk> <unk> đôi câu vọng cổ với chân chuột
+Pred: rời hà đôi câu chuyện cổ với chân chuột
+WER: 0.4000, CER: 0.3913
+==================================================
+Gold: ở lớp nấu ăn gia đình
+Pred: ở lớp nấu ăn gia đình
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: mà bạn có thể tham khảo để làm đẹp gian bếp
+Pred: mà bạn có thể tham khảo để làm đẹp gian bếp
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: cái vị chát chát và đắng ngắt của cà phê nguyên chất
+Pred: cái vị cha chắc và nắng ngắt nhất của cà phê nguyên chắc
+WER: 0.4167, CER: 0.2308
+==================================================
+Gold: các em nhỏ sẽ không còn phải đi trên những chuyến đò nguy hiểm
+Pred: các em nhỏ sẽ không còn phải đi trên điện chiến đòn nguy hiểm
+WER: 0.2143, CER: 0.1129
+==================================================
+Gold: làm cô nàng <unk> <unk> thức trắng cả đêm
+Pred: làm cô nàng rõ ràng thức trắng cả đêm
+WER: 0.2222, CER: 0.2195
+==================================================
+Gold: giải quyết khối ung nhọt này phải cần đến một cuộc đại phẫu nghiêm túc
+Pred: giải quyết khói ông ngọc này phải cần đến một cuộc đầy phẫu tốt
+WER: 0.4000, CER: 0.2143
+==================================================
+Gold: thậm chí càng giống áo quí nàng càng mốt
+Pred: thậm chí càng giống áo quý nền càng mốt
+WER: 0.2222, CER: 0.0750
+==================================================
+Gold: còn bộ khang hi từ điển
+Pred: còn bộ khăn hi từ điển
+WER: 0.1667, CER: 0.0870
+==================================================
+Gold: đôi môi mẹ <unk> son <unk> máy một lời ca hoang <unk>
+Pred: đôi môi mẹ pha sông mốc máy một lời ca hoang hỏi
+WER: 0.3333, CER: 0.3208
+==================================================
+Gold: số khác suy đoán rằng anh ta hành động ác tâm vậy
+Pred: số khác suy đón rằng anh ta hình động ác tâm vậy
+WER: 0.1667, CER: 0.0612
+==================================================
+Gold: làm khung
+Pred: làm khuôn
+WER: 0.5000, CER: 0.2222
+==================================================
+Gold: hoặc bạn sẽ đến đấy với một tâm trạng chán ngán vô cùng
+Pred: hoặc bạn sẽ đến đây với một tâm trạng cháy ngán vô cùng
+WER: 0.1538, CER: 0.0364
+==================================================
+Gold: phải được thực hiện trên cơ sở
+Pred: phải được thực hiện trên cơ sở
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hai mươi sáu hai mươi bảy
+Pred: hai mươi sáu hai mươi bảy
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: ba mươi ba mươi mốt
+Pred: ba mươi ba mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: năm mươi năm mươi mốt
+Pred: năm mươi năm mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tám mươi sáu tám mươi bảy
+Pred: tám mươi sáu tám mươi bảy
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tám mươi tám tám mươi chín
+Pred: tám mươi tám tám mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: một trăm một hai ba
+Pred: một trăm một hai ba
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: một ba năm bảy chín
+Pred: một ba năm bảy chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nói trước bước không qua
+Pred: nói trước bước không qua
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chẳng là mấy hôm nay tôi đau bụng quá
+Pred: chẳng là mấy hôm nay tôi đau bụng quá
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: sao kết quả ra tệ vậy
+Pred: sau kết quả ra tệ vậy
+WER: 0.1667, CER: 0.0476
+==================================================
+Gold: tôi chỉ muốn xem những đoạn hay mà thôi
+Pred: tôi chỉ muốn xem những đoạn hay mà thôi
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: công ty trách nhiệm hữu hạn ăn uống
+Pred: công ty trách nhiệm hữu hạn ăn uống
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: phí chuyển giao công nghệ là ba chục ngàn đồng
+Pred: phía chuyển giao công nghệ là ba chục ngàn đồng
+WER: 0.1000, CER: 0.0217
+==================================================
+Gold: lương ba cọc ba đồng thì nuôi được ai
+Pred: lương ba cọc ba đồng hiền nuôi được ai
+WER: 0.1111, CER: 0.1081
+==================================================
+Gold: cô ấy đã quá chén
+Pred: cô ấy đã quá chén
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hằng năm chúng ta thải ra hàng tỉ thiết bị điện tử
+Pred: hằng năm chúng ta phải ra hàng tỷ thiết bị điện tử
+WER: 0.1667, CER: 0.0400
+==================================================
+Gold: cho những chuyến dã ngoại của du khách
+Pred: cho những chiếc giữa ở của du khách
+WER: 0.3750, CER: 0.2895
+==================================================
+Gold: những nhược điểm của mình
+Pred: những điều điểm của mình
+WER: 0.2000, CER: 0.2000
+==================================================
+Gold: vì đó mới chính là thứ bạn cần
+Pred: vì đó mới chính là thứ bạn cần
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: gió trời không thể thông <unk> thổi vào khai trung
+Pred: góp trời không thể không thích của vào khai trung
+WER: 0.4000, CER: 0.2400
+==================================================
+Gold: bởi cơ quan chuyên môn hoặc thuê tổ chức kiểm toán độc lập
+Pred: bởi cơ quan chuyên môn hoặc thuê cổ chức kiểm soát độc lập
+WER: 0.1538, CER: 0.0517
+==================================================
+Gold: hoặc cho vào <unk> muối để lợn ăn dần
+Pred: hoặc cho vào phải muối để lượng ăn dần
+WER: 0.2222, CER: 0.1892
+==================================================
+Gold: cứ chụm các đầu ngón tay lại một chỗ
+Pred: cứ trịnh các đầu có cây lại một chỗ
+WER: 0.3333, CER: 0.2778
+==================================================
+Gold: đã có dự án để xây dựng một cái cầu từ đất liền
+Pred: đã có dự án để xây dựng một các cầu từ đất liền
+WER: 0.0769, CER: 0.0213
+==================================================
+Gold: chạm vào phần thóp mềm trên đầu bé
+Pred: chạm vào phần thép mềm trên đầu bếp
+WER: 0.2500, CER: 0.0882
+==================================================
+Gold: thì bỗng nghe thấy tiếng <unk> <unk> từ vạt rừng phi lao
+Pred: thì bỗng nghe tiếng ác xuất từ vệt rừng phi lao
+WER: 0.3333, CER: 0.2679
+==================================================
+Gold: phục vụ cho mùa thi đại học đang đến sát sạt
+Pred: phục vụ cho mùa thi đại học đang đến sắc sẽ
+WER: 0.1818, CER: 0.0909
+==================================================
+Gold: trận chiến xích bích
+Pred: cẩn chí sức bất động
+WER: 1.2500, CER: 0.8000
+==================================================
+Gold: nguyên thứ trưởng bộ đại học và giáo dục chuyên nghiệp cũ
+Pred: nguyên thứ trưởng bộ đại học và giáo dục chuyên nghiệp cũ
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: vào cơ quan là anh hót giống hệt <unk> mới lột lưỡi vậy
+Pred: vào cơ quan là anh hốt giống trong nhường với luật nữ và
+WER: 0.5385, CER: 0.3818
+==================================================
+Gold: <unk> chừng đã ngoại bảy mươi
+Pred: án chừng đã ngoại bảy mươi
+WER: 0.1667, CER: 0.1379
+==================================================
+Gold: có hai tác dụng tích cực
+Pred: có hai các dũng tích cực
+WER: 0.3333, CER: 0.0833
+==================================================
+Gold: tham gia giảng dạy là lực lượng đoàn viên
+Pred: tham gia giảng dạy là lực lượng đoàn viên
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: đó hẳn là một món quà
+Pred: đó là một món quà tặng
+WER: 0.3333, CER: 0.4286
+==================================================
+Gold: và khi thấy tôi vẫn kiên định trả lời <unk> <unk>
+Pred: và khi thấy tôi vẫn kiên định trả lời trước ý
+WER: 0.1818, CER: 0.2041
+==================================================
+Gold: rô bót thông minh
+Pred: loại bom thông minh
+WER: 0.5000, CER: 0.3529
+==================================================
+Gold: đầu tiên là bà con mình vật vã làm ăn
+Pred: đầu tiên là bà con mình vật vỡ làm ăn
+WER: 0.1000, CER: 0.0270
+==================================================
+Gold: mà cho đến lúc đó được xem là của tư nhân
+Pred: mà cho đến lúc đó được xem là của cư dân
+WER: 0.1818, CER: 0.0732
+==================================================
+Gold: như lần này được nếm món giò thủ hoàn toàn làm từ tai heo
+Pred: như luận này được đếm món giò thủ hoàn toàn làm từ tay theo
+WER: 0.2857, CER: 0.0877
+==================================================
+Gold: những người hoài nghi nói rằng giữ được vật treo lủng lẳng trên người
+Pred: những người hồi ghi nói rằng giữa đường và treo lũng trên người
+WER: 0.5000, CER: 0.2174
+==================================================
+Gold: <unk> chít gợi tình mẹ con sum họp
+Pred: chứ chiếc gợi tình mẹ con xung quanh
+WER: 0.5000, CER: 0.4706
+==================================================
+Gold: nơi có mấy tên trông rất gấu
+Pred: nơi có mấy tên trong rất điện dấu
+WER: 0.4286, CER: 0.2500
+==================================================
+Gold: nhiều người cho biết
+Pred: nhiều người cho biết
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nhiều trụ đá di tích nằm nghiêng ngả và vỡ nát
+Pred: nhiều chủ đá như tích nằm nhiên ngọc vào vở đá
+WER: 0.6364, CER: 0.3043
+==================================================
+Gold: họ cũng luôn tránh xa những tình huống có thể gây hại cho họ
+Pred: họ cũng luôn tránh xa những tình muốn có thể gây hại cho họ
+WER: 0.0714, CER: 0.0333
+==================================================
+Gold: trong cuộc sống của tôi chúng không dùng để kiếm ra lợi nhuận
+Pred: trong cuộc sống của tôi chúng không dùng để kiếm ra lợi nhuận
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hai mươi bốn hai mươi lăm
+Pred: hai mươi bốn hai mươi lăm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hai mươi tám hai mươi chín
+Pred: khai tám cao chết hết sức
+WER: 1.0000, CER: 0.7308
+==================================================
+Gold: năm mươi hai năm mươi ba
+Pred: năm mươi hai năm mươi ba
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: sáu mươi tám sáu mươi chín
+Pred: sáu mươi tám sáu mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: bảy mươi tám bảy mươi chín
+Pred: bảy mươi tám bảy mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chín mươi tám chín mươi chín
+Pred: chín mươi tám chín mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: buổi sáng thành phố ô nhiễm hơn buổi trưa
+Pred: buổi sáng thành phố ô nhiễm hôn buổi trưa
+WER: 0.1111, CER: 0.0244
+==================================================
+Gold: nóng giận tôi đã lăng mạ anh
+Pred: nóng giận tôi đã lăng mà anh
+WER: 0.1429, CER: 0.0357
+==================================================
+Gold: chủ tàu cho biết sẽ tiếp tục thương thuyết về số chi phí này
+Pred: chủ cầu cho biết sẽ tiếp tục thương với về số chi phí này
+WER: 0.1429, CER: 0.1333
+==================================================
+Gold: đừng để con sâu ăn
+Pred: đừng để con sâu ăn
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: cây cổ thụ ấy bất chợt bị bệnh tật quật ngã
+Pred: cây cổ thụ ấy bất chợt bị bệnh tật quật ngã
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: và nếu bạn trót làm lộn xộn màn hình nền
+Pred: và nếu bạn có làm thuận lộn mà hình nền
+WER: 0.4000, CER: 0.2250
+==================================================
+Gold: đạo diễn trẻ này có nhiều điều ngẫm ngợi về nghề
+Pred: đạo diễn kể này có nhiều ngắm ngờ về nghề
+WER: 0.3636, CER: 0.2292
+==================================================
+Gold: sẽ không khiến bạn trông gầy như những trang phục một màu
+Pred: sẽ không khí bạn trong gầy như những trang phục một màu
+WER: 0.1667, CER: 0.0702
+==================================================
+Gold: bởi cơ quan chuyên môn hoặc thuê tổ chức kiểm toán độc lập
+Pred: bởi cơ quan chuyên môn hoạt thuê tổ chức kiểm toán độc lập
+WER: 0.0769, CER: 0.0345
+==================================================
+Gold: nó lật đật đạp chiếc xe cà tàng băng ngay ra đầu đường
+Pred: nó lật cây đập chiếc xe cà tàn văn nga ra đầu đường
+WER: 0.3846, CER: 0.1481
+==================================================
+Gold: hoặc chỉ biểu hiện bằng các rối loạn co bóp
+Pred: hoặc chỉ tiêu hiện bằng các rõ luận ca bớt
+WER: 0.5000, CER: 0.2093
+==================================================
+Gold: khi tôi là con bé lớp bốn thì cây vả đã cao quá nóc nhà
+Pred: khi tôi là con bé lúc bốn thì kê quả là quá bắc nhà
+WER: 0.4000, CER: 0.2727
+==================================================
+Gold: buổi đầu thật khó khăn theo đuổi chương trình học
+Pred: buổi đầu lực khó khăn theo đuổi chương trình học
+WER: 0.1000, CER: 0.0816
+==================================================
+Gold: việc đưa tín hiệu truyền hình trực tiếp bằng hệ thống cáp quang
+Pred: việc đưa tính hiểu rằng hình trực tiếp bằng hệ thống cấp qua
+WER: 0.3846, CER: 0.1587
+==================================================
+Gold: vì không có tiền đóng học phí
+Pred: vì không quá tiền đóng học phí
+WER: 0.1429, CER: 0.1034
+==================================================
+Gold: thì bỗng nghe mấy tiếng <unk> <unk> từ vạt rừng phi lao
+Pred: thì bỗng nghe máy tiến quá hát từ vệt rừng phi lao
+WER: 0.4167, CER: 0.2182
+==================================================
+Gold: hay đảm bảo rằng ngày nào chúng cũng được đi những đôi tất sạch
+Pred: hai đảm bảo rằng nghề nào chúng cũng được đi những nơi tích giặt
+WER: 0.3571, CER: 0.1905
+==================================================
+Gold: về việc mang đến cho các em niềm vui học
+Pred: về việc mang đến các em niệm vui học
+WER: 0.2000, CER: 0.1250
+==================================================
+Gold: có lẽ phải mất nhiều thời gian
+Pred: có lẽ phải mất nhiều thời gian
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: nước gỗ trên chiếc đồng hồ đã bắt lên màu <unk> bóng <unk>
+Pred: nước gỗ trên chiếc đồng hồ ở bắt lên màu vụ môn hóa
+WER: 0.3077, CER: 0.2586
+==================================================
+Gold: khi sức ép biến mất chúng trở lại tình trạng mềm dẻo bình thường
+Pred: khi xuất ép biến mất chúng ra lại tình trạng mình dễ bình thường
+WER: 0.2857, CER: 0.1719
+==================================================
+Gold: tham gia giảng dạy là lực lượng đoàn viên
+Pred: tham gia sản giải là lực lượng động viên
+WER: 0.3333, CER: 0.2439
+==================================================
+Gold: và vải hoặc <unk> nhiều màu
+Pred: và phải hoặc có nhiều màu
+WER: 0.3333, CER: 0.2593
+==================================================
+Gold: với người mẹ ở xóm chài long biên
+Pred: với người mẹ ở sân trà long biên
+WER: 0.2500, CER: 0.1818
+==================================================
+Gold: chương trình đã tạo được hiệu ứng tốt từ phía khán giả nhí
+Pred: chương trình đã tạo được tổ chức từ phía khán giả nghe
+WER: 0.3077, CER: 0.2241
+==================================================
+Gold: dịch vụ kiểm tra sức khỏe định kỳ là một ý kiến hay
+Pred: dịch vụ kiểm tra sức cạnh kệ là một ý kiến hai
+WER: 0.3077, CER: 0.1765
+==================================================
+Gold: chính sự lên sàn ồ ạt đó
+Pred: chính sự lên sàn ở đó
+WER: 0.2857, CER: 0.1667
+==================================================
+Gold: kết quả chỉ có vỏn vẹn ba người còn biết dệt
+Pred: kết quả chỉ có bóng vàng ba người còn biết trẻ
+WER: 0.2727, CER: 0.1818
+==================================================
+Gold: là tương đối có hiệu quả
+Pred: đã tương đối có hiệu quả
+WER: 0.1667, CER: 0.0833
+==================================================
+Gold: phần lớn học sinh giàu có người nước ngoài
+Pred: phần lớn học sinh dọc có người nước ngoài
+WER: 0.1111, CER: 0.0952
+==================================================
+Gold: không một hai ba bốn
+Pred: không một hai ba bốn
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hai mươi hai hai mươi ba
+Pred: hai mươi nghe hai ba
+WER: 0.3333, CER: 0.3750
+==================================================
+Gold: hai mươi sáu hai mươi bảy
+Pred: hay cháu hay bại tật
+WER: 1.0000, CER: 0.5600
+==================================================
+Gold: ba mươi bốn ba mươi lăm
+Pred: bao gồm ba mươi lăm
+WER: 0.5000, CER: 0.3478
+==================================================
+Gold: năm mươi năm mươi mốt
+Pred: năm mươi năm mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: năm mươi bốn năm mươi lăm
+Pred: năm mươi bốn năm mươi lăm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: bảy mươi hai bảy mươi ba
+Pred: bảy nghe bảy mươi ba
+WER: 0.3333, CER: 0.2917
+==================================================
+Gold: nói thật đấy à
+Pred: ơi thắp à
+WER: 0.7500, CER: 0.5714
+==================================================
+Gold: quá tốt rồi
+Pred: quá tốt rồi
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tôi chết cùng với ánh trăng
+Pred: tôi chết cùng với anh khen
+WER: 0.3333, CER: 0.1852
+==================================================
+Gold: đàn ông có hai thứ để buồn
+Pred: đàn ông ai thứ để buồn
+WER: 0.2857, CER: 0.1538
+==================================================
+Gold: giàu đổi bạn sang đổi vợ
+Pred: giàu đổi bạn sang đôi vợ
+WER: 0.1667, CER: 0.0417
+==================================================
+Gold: án mạng trên toa tàu tốc hành
+Pred: án mạng trên toa tàu tốc hàm
+WER: 0.1429, CER: 0.0690
+==================================================
+Gold: làm <unk> rợp biển mây lau lách phất phơ
+Pred: làm ròng cọc bị may lâu lấp xuất phơi
+WER: 0.8889, CER: 0.4500
+==================================================
+Gold: trứng mực quyến rũ các ngư dân
+Pred: chứng bệnh quyến rượu các người dân
+WER: 0.5714, CER: 0.3667
+==================================================
+Gold: bạn có thể khiển trách người lái xe
+Pred: bạn có thể hiện chất người lái xe
+WER: 0.2500, CER: 0.2000
+==================================================
+Gold: <unk> thoáng trăn trở <unk> thoáng buồn vui
+Pred: non thoáng trở long chở non buồn vui
+WER: 0.6250, CER: 0.4186
+==================================================
+Gold: phòng trà khiêu vũ cánh quạt cối xay đỏ
+Pred: phòng trà vũ khí vũ cánh và có say đỏ
+WER: 0.5556, CER: 0.3333
+==================================================
+Gold: thịt ngọt lừ ấy lại mang theo trùng <unk> gây bệnh
+Pred: thật ngọt lừa ấy lại mang tùng xá ngay bệnh
+WER: 0.5455, CER: 0.3000
+==================================================
+Gold: hiện trong nhiều loại tỏi có mặt trên thị trường
+Pred: hiện trong nhiều loại tội khó mặc cho thị trường
+WER: 0.4000, CER: 0.1667
+==================================================
+Gold: ngày căn bậc hai chỉ diễn ra chín lần trong một thế kỷ
+Pred: ngày căn bậc hai chỉ diễn ra chính là trong một thế kỷ
+WER: 0.1538, CER: 0.0556
+==================================================
+Gold: rồi rơm rạ khô theo thân hình gầy <unk>
+Pred: rồi thôi ra hô theo thân hình ngày nghỉ ngắn
+WER: 0.6667, CER: 0.4103
+==================================================
+Gold: để có thể vận hành chúng được hiệu quả hơn
+Pred: để khó thể phần hành chơi chúng được hiệu quả hơn
+WER: 0.3000, CER: 0.2381
+==================================================
+Gold: được mỹ ráo riết tung ra
+Pred: được mỹ ra hết tôn ra
+WER: 0.5000, CER: 0.2500
+==================================================
+Gold: vì lượng ca khúc mới quá nhiều
+Pred: vì luận ca khúc mới quá nhiều
+WER: 0.1429, CER: 0.1000
+==================================================
+Gold: nước chảy quá mạnh
+Pred: nước chảy quá mạnh
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: khiến cả hai phải giận hờn vô lý
+Pred: khiến cả hai phải giặt thần vô lý
+WER: 0.2500, CER: 0.1250
+==================================================
+Gold: rồi chìm <unk> một thời gian
+Pred: rồi truyền ném một thời gian
+WER: 0.3333, CER: 0.3214
+==================================================
+Gold: khi miệng vẫn ngậm bầu vú <unk> queo
+Pred: phiên miệng vẫn ngầm bầu vú qua
+WER: 0.5000, CER: 0.3333
+==================================================
+Gold: câu trả lời của ông ta rất khiếm nhã
+Pred: câu trả lời của ông tạm rất hiếm nhã
+WER: 0.2222, CER: 0.0833
+==================================================
+Gold: nếu chủ đầu tư không tự phá dỡ thì bị cưỡng chế
+Pred: nếu chủ đầu tư không tự pha thì bị chế thì bị chế
+WER: 0.4167, CER: 0.2766
+==================================================
+Gold: về chuyện đang theo dõi bọn gián điệp nước ngoài
+Pred: về chuyện đang thay đổi sang giấy việc nước ngoài nước
+WER: 0.6000, CER: 0.3333
+==================================================
+Gold: được cắt từ vỏ chăn bộ đội cũ của các ông bố ra
+Pred: được các từ bỏ chân bộ đội cũ của các ông bố ra
+WER: 0.2308, CER: 0.0851
+==================================================
+Gold: sợ nhất là mùa mưa sấm sét đùng đoàng trên núi
+Pred: sẽ nhất là mùa mới sống sát động gọi trên núi
+WER: 0.5455, CER: 0.2826
+==================================================
+Gold: tức lấy sụn lành từ nơi không phải chịu lực ghép vào nơi hư
+Pred: tích cóp đủ lành từ nên không phải chịu lực giá vào nơi thư
+WER: 0.4286, CER: 0.2373
+==================================================
+Gold: điều vô cùng quan trọng trong thời đại có quá nhiều hoạt động
+Pred: đều vô cùng quan trọng trong thời đại có nhiều hoặc đồng
+WER: 0.3077, CER: 0.1311
+==================================================
+Gold: thí sinh tự do cần quan tâm đến độ vênh kiến thức các môn
+Pred: thí sinh tự do cần quan tâm đến độ vinh khiến thức các môn
+WER: 0.1429, CER: 0.0351
+==================================================
+Gold: mỗi người chúng ta sẽ có những thứ khác nhau
+Pred: mọi người trung tâm sẽ khó những thứ khác nhau
+WER: 0.4000, CER: 0.1818
+==================================================
+Gold: và thậm chí bạn cũng không nên cố gắng
+Pred: và thậm chí bạn cũng không nên cô gái
+WER: 0.2222, CER: 0.1053
+==================================================
+Gold: trên bầu trời ánh trăng sáng vằng vặc
+Pred: trên bầu trời ánh trăng sáng phần hoặc
+WER: 0.2500, CER: 0.1622
+==================================================
+Gold: là tổ tiên của ông đặng lên đảm trách việc dẫn đường
+Pred: là tổ tiên của ông bạn nên đảm trách việc chẳng đường
+WER: 0.2500, CER: 0.1538
+==================================================
+Gold: tám chín mười mười một
+Pred: tám chín mười mười một
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: mười một mười hai mười ba
+Pred: thằng một bị bại ba
+WER: 0.6667, CER: 0.6400
+==================================================
+Gold: năm mươi năm mươi mốt
+Pred: năm mươi năm mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chín mươi tám chín mươi chín
+Pred: chín mươi tám chín mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: căn nhà đằng kia nghe nói có ma
+Pred: căn nhà đằng kỳ ngay nó của con mà
+WER: 0.7500, CER: 0.3548
+==================================================
+Gold: thú thật tui chưa từng chơi gái
+Pred: thủ thật tù chưa từng chơi gái
+WER: 0.2857, CER: 0.0968
+==================================================
+Gold: xuân này em không về
+Pred: xung này em hôn và
+WER: 0.6000, CER: 0.2500
+==================================================
+Gold: có còn hơn không
+Pred: khóa cổ phần thông
+WER: 1.0000, CER: 0.5000
+==================================================
+Gold: chắc sắp tới thu xếp đi du lịch thôi
+Pred: chật sách có thu xếp đi dù nhiều lật thôi
+WER: 0.6667, CER: 0.4722
+==================================================
+Gold: phương châm sống của tôi là người không vì mình trời tru đất diệt
+Pred: vui không sống của tôi là người không vì mạnh trò chủ rất dẹp
+WER: 0.5000, CER: 0.3077
+==================================================
+Gold: nó trốn mất tiêu rồi còn đâu
+Pred: nỗi trung quốc tìm và còn đâu
+WER: 0.7143, CER: 0.5000
+==================================================
+Gold: thế nào là hoàn hảo
+Pred: thế nào làm hoàn hảo
+WER: 0.2000, CER: 0.0526
+==================================================
+Gold: khi bị công an <unk> cổ khẩn cấp
+Pred: thì bị công an học cổ thẳng cấp
+WER: 0.3750, CER: 0.3125
+==================================================
+Gold: sau khi đọc những thông tin trên báo
+Pred: sau thì lộc những thông tin trên báo
+WER: 0.2500, CER: 0.1111
+==================================================
+Gold: nga khi ấy càng <unk> nết na
+Pred: nghe thì ấy càng nhìn chí nha
+WER: 0.7143, CER: 0.4643
+==================================================
+Gold: việc áp dụng cả bàn vá lỗi và công cụ quét
+Pred: việc áp dụng cả bàn vai hỏi và công cụ quế
+WER: 0.2727, CER: 0.1429
+==================================================
+Gold: ngoài trời mưa cứ lay <unk> rắc hạt
+Pred: ngoài trời mưa tử lại vài trăm gạch
+WER: 0.6250, CER: 0.4286
+==================================================
+Gold: nuôi mô hình tinh hoàn rồi tạo ra tinh hoàn với đầy đủ hình hài
+Pred: ngây mua hình tin ngoài ngồi tạo ra kinh hoàng với đề chủ hình hạn
+WER: 0.6667, CER: 0.3016
+==================================================
+Gold: có thể giúp ta quên đi những nỗi ưu phiền
+Pred: có thể giúp cao quên đi những nỗ ưu phiền
+WER: 0.2000, CER: 0.0732
+==================================================
+Gold: mà dung <unk> nhé cầm tay đất trời
+Pred: mà dùng dây nghĩa cầm ca đất trời
+WER: 0.5000, CER: 0.3235
+==================================================
+Gold: tôi lớn lên trong sự ghẻ lạnh của người mẹ kế
+Pred: tôi lớn lên trong sự gái làm cũng người mẹ cái
+WER: 0.3636, CER: 0.2444
+==================================================
+Gold: khung răng hàm trên khum
+Pred: hùng ngành hàm trên hùng
+WER: 0.6000, CER: 0.4167
+==================================================
+Gold: thế nhưng tôi không ân hận khi trở thành đả nữ
+Pred: thế nhưng tôi không bằng thuận khi trở thành bảng ngữ
+WER: 0.3636, CER: 0.1957
+==================================================
+Gold: với một tốc độ mà chúng ta không thể đi đến tận cùng của nó
+Pred: với một cấp sổ mà chúng ta hồng nghĩ ly lớn cần cũng vẫn ăn ngon
+WER: 0.7333, CER: 0.4407
+==================================================
+Gold: tôi thấy đồng lương của mình năm năm rồi vẫn đứng nguyên
+Pred: từ thấy lòng đường của mình năm năm gọi vẫn hứng nguyên
+WER: 0.4167, CER: 0.1607
+==================================================
+Gold: để chấm dứt nạn bạo hành trong gia đình
+Pred: đẩy cấm giấc nghẹn bảo hằng trong da
+WER: 0.8889, CER: 0.5128
+==================================================
+Gold: làm đường sá ngập <unk> <unk> quanh năm suốt tháng
+Pred: làm đường sẽ gặp sách khách qua năm suốt tháng
+WER: 0.5000, CER: 0.3000
+==================================================
+Gold: vừa được trao tặng giải thưởng nhà nước
+Pred: vừa trò chẳng giải hữu dễ dàng nó
+WER: 0.8750, CER: 0.5897
+==================================================
+Gold: cái khó là
+Pred: thôi à
+WER: 1.0000, CER: 0.8000
+==================================================
+Gold: điều này đúng với mọi cấp độ và trong mọi lĩnh vực của đời sống
+Pred: điều ngày thường với mỗi cấp cụ và trong mọi lĩnh vực của lời sống
+WER: 0.3333, CER: 0.1429
+==================================================
+Gold: cao <unk> <unk>
+Pred: cao ngọc ngọc
+WER: 0.6667, CER: 0.6667
+==================================================
+Gold: chàng trai lồm cồm bò dậy mặt mày xanh lét như tàu lá chuối
+Pred: tràn trai hay chim phượng vật mà sành phần nét như tàu đã chú
+WER: 0.7857, CER: 0.5085
+==================================================
+Gold: chính phủ đồng thời cũng lập thêm cục xúc tiến tiêu thụ dầu cọ
+Pred: chính phủ đồng thời cũng lập đia cục xuất ký tiêu thụ đủ nhu cầu có
+WER: 0.5000, CER: 0.3065
+==================================================
+Gold: cũng là tin vui cho tất cả những ai
+Pred: cũng là kinh vui cho tất cả những nghệ
+WER: 0.2222, CER: 0.1714
+==================================================
+Gold: <unk> đã còn phải điều chỉnh
+Pred: thượng đã còn phải yêu cầu chính
+WER: 0.6667, CER: 0.4643
+==================================================
+Gold: trong tình thế ấy chỉ đám trẻ ven sông
+Pred: trong trận thấy ấy chỉ lắm trẻ quen song
+WER: 0.5556, CER: 0.2632
+==================================================
+Gold: nếu đi tiếp nha trang
+Pred: nếu y tế ngạt trang
+WER: 0.6000, CER: 0.3333
+==================================================
+Gold: tức chanh có thể trị được bệnh
+Pred: tích cóp có thể chỉ được bệnh
+WER: 0.4286, CER: 0.3000
+==================================================
+Gold: chỉ muốn làm một hơi cho đã cái miệng
+Pred: chỉ muốn làm một hơi trò lạ cây miệng
+WER: 0.3333, CER: 0.1892
+==================================================
+Gold: hai mươi tám hai mươi chín
+Pred: hai mươi tám hai mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: ba mươi ba mươi mốt
+Pred: ba mươi ba mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: sáu mươi sáu mươi mốt
+Pred: sáu mươi sáu mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: bảy mươi bốn bảy mươi lăm
+Pred: bảy mươi bốn bảy mươi lăm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tám mươi bốn tám mươi lăm
+Pred: tám mươi bốn tám mươi lăm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chín mươi sáu chín mươi bảy
+Pred: chín mươi sáu chín mươi bảy
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: một trăm một hai ba
+Pred: một trăm một hai ba
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: không hai bốn sáu tám
+Pred: hồng hằng bốn sáu tám
+WER: 0.4000, CER: 0.2381
+==================================================
+Gold: tiền điện tháng này bao nhiêu
+Pred: tiền nghĩ tháng này bao nhiêu
+WER: 0.1667, CER: 0.1379
+==================================================
+Gold: thua xa tiệm tạp hoá nhà tao
+Pred: thua xe đảm trách hóa nhà cao
+WER: 0.7143, CER: 0.3929
+==================================================
+Gold: từ trên nóc nhà nhìn xuống có khác
+Pred: từ trên góc nhà nhìn xuống có khác
+WER: 0.1250, CER: 0.0294
+==================================================
+Gold: tội nghiệp đứa nhỏ không ai chăm sóc
+Pred: tội nghiệp đứa nhỏ không ai chăm sóc
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: em sợ có một ngày anh gặp người con gái khác tốt hơn em rồi anh bỏ em
+Pred: em sợ có một ngày anh gặp người con gái khác tốt hơn em gọi anh bỏ em
+WER: 0.0556, CER: 0.0290
+==================================================
+Gold: nữ diễn viên xinh đẹp phạm băng băng
+Pred: nữ diễn viên xử đề phạm băng
+WER: 0.3750, CER: 0.2778
+==================================================
+Gold: sẽ làm giảm tình trạng ói ọc của trẻ
+Pred: sẽ làm tình trạng thoái học của trẻ
+WER: 0.3333, CER: 0.2778
+==================================================
+Gold: mà phải che chái ở tạm bên hông nhà cha ruột
+Pred: mà phải chê cháy ở tạm bên hông nhà cha quý
+WER: 0.2727, CER: 0.1136
+==================================================
+Gold: tôi có thể căm giận đủ thứ
+Pred: tôi có thể cầm nhận đủ thứ
+WER: 0.2857, CER: 0.1154
+==================================================
+Gold: mà phải chuyển qua hình thức giao dịch
+Pred: mà phải chuyển qua hình thức giao dịch
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: đừng bao giờ để cho bất kỳ ai nói với bạn rằng
+Pred: đừng bà lại để cho bất kỳ ai nói với bạn rằng
+WER: 0.1667, CER: 0.1087
+==================================================
+Gold: vàng óng đôi <unk> cao cổ của ngự lâm quân
+Pred: vàng ống đòi lạch cao cổ của người lâm cùng
+WER: 0.5000, CER: 0.3333
+==================================================
+Gold: nếu vì chúng tôi
+Pred: nếu phải chuẩn tôi
+WER: 0.5000, CER: 0.4375
+==================================================
+Gold: nếu bạn vẫn cảm thấy tội lỗi
+Pred: nếu bạn vẫn cảm thấy tội lỗi
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: <unk> dầu nắng gió trường sơn
+Pred: giải giàu nắng sau trường sơn
+WER: 0.5000, CER: 0.3793
+==================================================
+Gold: với trên là núi và dưới là sông
+Pred: với trần làm núi và dưới là xong
+WER: 0.3750, CER: 0.1290
+==================================================
+Gold: với sự xuất hiện của quái thú và rồng
+Pred: với sự xuất hiện của quá thú và trong
+WER: 0.2222, CER: 0.0811
+==================================================
+Gold: nét mặt họ không <unk> lên hạnh phúc của người mẹ
+Pred: nhắc mặt họ không ngại lên hạnh phúc của người mẹ
+WER: 0.1818, CER: 0.1633
+==================================================
+Gold: một số người cho rằng
+Pred: một số người cho rằng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: một sinh viên được vay vốn tín dụng học tập
+Pred: một sự việc được vay vốn kinh dòng học tập
+WER: 0.4000, CER: 0.2093
+==================================================
+Gold: mọi thứ đều được mổ xẻ lại
+Pred: mọi thứ đều được mỗi sẽ lại
+WER: 0.2857, CER: 0.1538
+==================================================
+Gold: không phải nắp khum
+Pred: không phải lắp không
+WER: 0.5000, CER: 0.2105
+==================================================
+Gold: các công ty du lịch phải xác định
+Pred: các công ty dù lập phải xác định
+WER: 0.2500, CER: 0.1212
+==================================================
+Gold: đi bộ leo núi đến <unk> chân
+Pred: đi bộ đầu buổi đêm nhiều trần
+WER: 0.7143, CER: 0.5714
+==================================================
+Gold: thì chủ đầu tư phải tự phá dỡ phần nội dung sai phép đó
+Pred: thì chủ đầu tư phải tự phá dỡ phần nội dung sai pháp đó
+WER: 0.0714, CER: 0.0182
+==================================================
+Gold: khi nhân viên cứu hộ cố gắng đưa nó lên sà lan
+Pred: thì nhận tiền của họ cô gắn đường no lên xà
+WER: 0.9167, CER: 0.4130
+==================================================
+Gold: những người này đều được đào tạo về hội họa
+Pred: những người này đều được đào tạo và hội họa
+WER: 0.1000, CER: 0.0233
+==================================================
+Gold: gắn lông chim hột đá lóng lánh hay bèo <unk> <unk> <unk> đầy cổ
+Pred: gần lòng tìm hộp đã lông lắm hàng bè dưới cù cù đầy cổ
+WER: 0.8571, CER: 0.4762
+==================================================
+Gold: ngụ ấp hòn ngang
+Pred: ngủ áp hòn nhắc
+WER: 0.7500, CER: 0.3750
+==================================================
+Gold: ít nhất ở hơn ba mươi trường thuộc các địa phương nói trên
+Pred: tiếp nhất ở hình ba mươi trường thuộc các địa phương nói trên
+WER: 0.1538, CER: 0.1034
+==================================================
+Gold: đặc điểm của phẩy trùng tả
+Pred: đặc điểm của phải trồng tả
+WER: 0.3333, CER: 0.1154
+==================================================
+Gold: vì ban đêm chị ngủ không ngon
+Pred: vì bạn đêm chỉ ngủ không ngon
+WER: 0.2857, CER: 0.0690
+==================================================
+Gold: lơ lửng trên đầu là những chiếc bẫy đá hàng trăm khối
+Pred: lời lẫn trên đầu lại những chiếc bảng đá hàng trăm khối
+WER: 0.3333, CER: 0.1698
+==================================================
+Gold: năm đầu tiên
+Pred: ngành đầu tiên
+WER: 0.3333, CER: 0.3333
+==================================================
+Gold: bảy mươi bốn bảy mươi lăm
+Pred: bảy mươi bốn bảy mươi lăm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chín mươi chín mươi mốt
+Pred: chín mươi chín mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chín mươi tám chín mươi chín
+Pred: chín mươi tám chín mươi chín
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: bây giờ cướp nhiều quá đi đường cũng thấy sợ
+Pred: bây giờ cướp nhiều quá đi đường cũng thấy sợ
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tìm hung thủ hiếp dâm bằng nước bọt nạn nhân
+Pred: tìm hung thủ hiếp dâm bằng nước bọt nạn nhân
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chúng tôi yêu nhau được hai năm thì gia đình tôi xảy ra chuyện
+Pred: chúng tôi yêu nhau được hai năm thì gia đình tôi xảy ra chuyện
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: trọng tài phạt thẻ đỏ
+Pred: trọng tài phạt thẻ đỏ
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: kiểu này chắc phải cắt giảm biên chế
+Pred: kiểu ngày chắc phải cắt giảm đi chế
+WER: 0.2500, CER: 0.1111
+==================================================
+Gold: thôi thì cứ sắp xếp như vậy
+Pred: thời thì cứ sắp xếp như vậy
+WER: 0.1429, CER: 0.0370
+==================================================
+Gold: theo phó chủ tịch ủy ban an toàn giao thông quốc gia
+Pred: theo phó chủ tịch ủy ban an toàn giao thông bất ca
+WER: 0.1667, CER: 0.1154
+==================================================
+Gold: chuẩn bị cho ngày khai trương cửa hàng đầu tiên
+Pred: chuẩn bị cho ngày khai trương cửa hàng đầu tiên
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: từ sự dư thừa quá mức của luồng tiền này
+Pred: từ sự thừa thừa qua mức của đồn tiền này
+WER: 0.3000, CER: 0.2000
+==================================================
+Gold: đó chứng tỏ rằng chúng ta đã già
+Pred: đôi chứng tỏ rằng chúng ta đã già
+WER: 0.1250, CER: 0.0625
+==================================================
+Gold: trả lại đất cho rừng
+Pred: trở lại đất cho rằng
+WER: 0.4000, CER: 0.1000
+==================================================
+Gold: các loại cây trồng ở rừng này toàn cây kém giá trị
+Pred: các đội kỳ trồng ở rừng này toàn cây kem giá trị
+WER: 0.2500, CER: 0.1400
+==================================================
+Gold: thiếu sự quan tâm đúng mức từ các cơ quan chức năng
+Pred: thiếu sự và tầm đúng mức từ các cơ quan chức năng
+WER: 0.1667, CER: 0.0980
+==================================================
+Gold: tại chợ cá
+Pred: tội chở cá
+WER: 0.6667, CER: 0.2000
+==================================================
+Gold: không phải vì tôi không coi trọng chất lượng
+Pred: không phải vì tôi không còn trọng chất lượng
+WER: 0.1111, CER: 0.0455
+==================================================
+Gold: thì đọc được hồi ký không thể chuộc lỗi trên báo tuổi trẻ
+Pred: thì đọc được hồi ký không thể chuộc lỗi trên báo tuổi trẻ
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: thiếu tướng phạm quý ngọ cho biết
+Pred: thiếu tướng phòng quý ngọ cho biết
+WER: 0.1429, CER: 0.0909
+==================================================
+Gold: không một chút trầy trụa mà đền cái gì
+Pred: không một chút trầy rượu mà đền cây gì
+WER: 0.2222, CER: 0.1579
+==================================================
+Gold: nó được đặt trong một hộp đựng trang sức bọc da đỏ
+Pred: nó được đặt trồng một hoạt đừng càng sức bọc da đỏ
+WER: 0.3333, CER: 0.1600
+==================================================
+Gold: nhóm thanh long trẻ diễn tiểu phẩm hài hắc bạch tranh hùng
+Pred: nhóm thần lòng trẻ diễn tiểu phòng hoài khách bắp trần hùng
+WER: 0.5833, CER: 0.2586
+==================================================
+Gold: tớ đi kiếm nhà trọ rồi nhưng khó quá
+Pred: tối bị kỹ nhà trọ rồi rồi nhường quá
+WER: 0.5556, CER: 0.4444
+==================================================
+Gold: xanh cỏ mượt mà ven đường
+Pred: sành cổ một mà về đường
+WER: 0.6667, CER: 0.2800
+==================================================
+Gold: chính thức đã lây lan ra bên ngoài
+Pred: chính thức bảo chất đã làng gà bình ngoài
+WER: 0.7500, CER: 0.4706
+==================================================
+Gold: phụ huynh và học sinh đang phải è cổ vì sách giá cao
+Pred: phụ huynh và học sinh đàn phải à cổ vì sách giá cao
+WER: 0.1538, CER: 0.0577
+==================================================
+Gold: khi chính phủ lúc đầu đề nghị ân xá cho những người nổi dậy
+Pred: thì chính phủ lúc đầu đời nghị ông xã cho những người nổi dậy
+WER: 0.2857, CER: 0.1186
+==================================================
+Gold: dưới ánh đèn mờ mờ ảo ảo
+Pred: dưới ánh đèn mờ mờ ảo ảo
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: trong cuộc bỏ phiếu tại hội đồng bảo an hai ngày trước đó
+Pred: trong cuộc bỏ phiếu tài hội đồng bảo an hai ngày trước đó
+WER: 0.0769, CER: 0.0175
+==================================================
+Gold: hầu hết những vấn đề xảy ra trên thế giới
+Pred: hầu hết những vấn đề xảy ra trường thời giới
+WER: 0.2000, CER: 0.1220
+==================================================
+Gold: ông được nhiều người biết đến
+Pred: được nhiều người biết đến xem
+WER: 0.3333, CER: 0.2759
+==================================================
+Gold: trả lời tôi biết
+Pred: trả lại đòi biết
+WER: 0.5000, CER: 0.1875
+==================================================
+Gold: ịch gã to béo ục ịch
+Pred: cà phê thôi thúc buồn sâu
+WER: 1.0000, CER: 0.9500
+==================================================
+Gold: áo rách lươm bươm
+Pred: áo rách ở đường buồn
+WER: 0.7500, CER: 0.5294
+==================================================
+Gold: đối với những phản ứng khác biệt đó
+Pred: đôi với những phản ứng khác biệt đó
+WER: 0.1250, CER: 0.0286
+==================================================
+Gold: và đã hiến máu ba lần
+Pred: và đã thiên máu ba lần
+WER: 0.1667, CER: 0.0952
+==================================================
+Gold: tiếng hét đồng thanh của mấy chục con người
+Pred: tiếng hát đồng hình của mấy chục còn người
+WER: 0.3333, CER: 0.0930
+==================================================
+Gold: trang thứ hai của tờ báo
+Pred: càng thư hài của tờ báo
+WER: 0.5000, CER: 0.2083
+==================================================
+Gold: sau đó bà hàng xóm tính tình xởi lởi chạy qua kể với tôi
+Pred: sau đó bà hàng xóm tính tuần xoay lỗi chạy qua kể với tôi
+WER: 0.2143, CER: 0.1250
+==================================================
+Gold: ba mươi hai ba mươi ba
+Pred: và mì hài bà mươi ba
+WER: 0.6667, CER: 0.3182
+==================================================
+Gold: năm mươi hai năm mươi ba
+Pred: năm mươi hai năm mươi ba
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: năm mươi bốn năm mươi lăm
+Pred: ông nguyễn bốn năm mươi lăm
+WER: 0.3333, CER: 0.3600
+==================================================
+Gold: sáu mươi sáu mươi mốt
+Pred: sau mùi sáu chín mươi mốt
+WER: 0.6000, CER: 0.3810
+==================================================
+Gold: bảy mươi bảy mươi mốt
+Pred: bảy mươi bảy mươi mốt
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chín mươi bốn chín mươi lăm
+Pred: chín mươi bốn chín mươi lăm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: một ba năm bảy chín
+Pred: một năm bảy chín còn
+WER: 0.4000, CER: 0.3684
+==================================================
+Gold: bà con rang trí cành đào để chuẩn bị đón tết
+Pred: và còn càng phải cầm đầu để chuẩn bị đó tết
+WER: 0.6364, CER: 0.3182
+==================================================
+Gold: tôi không thấy gì là đúng khi tăng giá xe vào các dịp tết
+Pred: tôi không thấy gì là đúng khi toàn giao xe vào các dịp tết
+WER: 0.1429, CER: 0.0877
+==================================================
+Gold: du lịch sẽ trở thành ngành kinh tế mũi nhọn
+Pred: dù sẽ trở trở thành ngầm tình tới mũi nhọn
+WER: 0.6000, CER: 0.3488
+==================================================
+Gold: từ khi chồng qua đời vì bệnh tật
+Pred: từ khi trồng qua đời vì bệnh tật
+WER: 0.1250, CER: 0.0625
+==================================================
+Gold: đơn vị mình không nghe ai nói gì chưa hẳn đã tốt
+Pred: đơn vị mình không nghe ai nói gì chưa hẳn đã tớ
+WER: 0.0833, CER: 0.0417
+==================================================
+Gold: không ai được ngược đãi các em vì các em học chậm
+Pred: không ai được ngược đã các em về các em học chậm
+WER: 0.1667, CER: 0.0408
+==================================================
+Gold: già làng nguyễn mạnh tường trả lời phỏng vấn báo giới ảnh trung dân
+Pred: và làng nguyễn mạnh từ trả lời phỏng báo với báo lớn ảnh trung dân
+WER: 0.3571, CER: 0.2239
+==================================================
+Gold: đó là giai đoạn thời tiết ít biến động và nhiệt độ không quá thấp
+Pred: đó là giai đoạn thời tiết mục biến động và nhiệt độ không quá tháp
+WER: 0.1333, CER: 0.0615
+==================================================
+Gold: nhưng sau nghe con nói ra nói vào lại ác cảm với em
+Pred: những sau nghe con nói ra nói vào lại ác cảm với em
+WER: 0.0769, CER: 0.0196
+==================================================
+Gold: những điếu thuốc vô ý đốt cháy vài chỗ trên chiếc sô pha bọc vải
+Pred: những đứa thuốc vui ý đốt cháy và chỗ trên chiếc sô pha vật lại
+WER: 0.3333, CER: 0.1719
+==================================================
+Gold: bạn có thể tắt chương trình đó đi và thực hiện thao tác cuối cùng
+Pred: bạn có thể tách chương trình đó đi và thực hiện khâu tác cuối cùng
+WER: 0.1333, CER: 0.0923
+==================================================
+Gold: khắp nơi quanh chúng tôi vương vãi xác chết của người dân vô tội
+Pred: khắp nơi quanh chúng tôi vương vải sát chế của người dân vô tội
+WER: 0.2143, CER: 0.0625
+==================================================
+Gold: những chiếc lồng đèn đồ chơi việt vẫn lặng lẽ mang hồn việt xuống phố
+Pred: những chiếc lồng đèn đường chơi vì vẫn lặng lẽ mang hồn việc xuống phố
+WER: 0.2000, CER: 0.1159
+==================================================
+Gold: nhà văn nguyên ngọc sinh viên có quyền hoài nghi và tranh cãi
+Pred: nhà văn nguyên ngọc sinh ở văn mỹ ngọc xin liên hệ hoài nghi và tranh cả
+WER: 0.6154, CER: 0.3770
+==================================================
+Gold: cuộc thi còn có hai giải nhì ba giải ba và bốn giải khuyến khích
+Pred: cuộc thi còn có hai giải nhạy ba giải ba và bốn giải quyết định
+WER: 0.2000, CER: 0.1406
+==================================================
+Gold: hầu như các phản ứng phụ nặng nề là rất hiếm gặp
+Pred: hầu như các phản ứng phụ nặng nề là rất hiếm gặp
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: số tiền quá lớn khiến gia đình hương phạm và lê choáng váng
+Pred: số tiền quá lớn khiến gia đình hương phạm và lê trang bán
+WER: 0.1538, CER: 0.1017
+==================================================
+Gold: nhóc đỏ mặt tía tai nhóc thua chị một tuổi thôi đấy
+Pred: nhóc đỏ mặt tiếng tai nhất rõ hoặc tiếp tay nhắm thua chỉ một tuổi thôi đấy
+WER: 0.6667, CER: 0.5490
+==================================================
+Gold: cảm giác được chia sẻ với bạn đời cùng sở thích thú vị lắm
+Pred: cảm giác được chia sẻ với bạn đời cùng sở thích thú vị lắm
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tôi vào quầy giải khát đầu tiên và gọi một cốc nước cam
+Pred: tôi vào quyền khác được tin và gọi một góc nước kem
+WER: 0.5385, CER: 0.2727
+==================================================
+Gold: mẹ lần tay trong ví và lấy ra chiếc phong bì
+Pred: mẹ lần tay trong ví và lấy ra chiếc không bị
+WER: 0.1818, CER: 0.0682
+==================================================
+Gold: tiêu như phong chạy trốn khỏi kinh thành để tìm hung thủ thật sự
+Pred: tiêu phong độ phong chảy chốn kinh thành để tìm hôn thủ thật sự
+WER: 0.4286, CER: 0.2656
+==================================================
+Gold: có ngày các bác sĩ điều dưỡng mổ mắt cho hàng trăm người mù nghèo
+Pred: có ngày các bác sĩ đều dự một mắt cho hàng chăng người mù
+WER: 0.3333, CER: 0.2615
+==================================================
+Gold: không ai muốn có tiêu cực cả và cũng đừng tuyệt đối hóa vấn đề
+Pred: không ai muốn có tiêu cực cả và cũng đừng tuyệt đối hóa vấn đề
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: vợ hắn thị ngần mang lưới ra vá để chiều thả
+Pred: vợ hắn thị ngừng mang lưới ra quá để chịu thoại
+WER: 0.3636, CER: 0.2045
+==================================================
+Gold: hiện cơ quan chức năng đang tiếp tục điều tra vụ việc
+Pred: hiện cơ quan chức năng đang tiếp tục bị cha vũ vị
+WER: 0.3333, CER: 0.1887
+==================================================
+Gold: khi bị phát hiện họ đã trả lời như thế nào
+Pred: khi bị phát hiện họ đã trả lời như thế
+WER: 0.0909, CER: 0.0952
+==================================================
+Gold: rà soát chất lượng công trình xây dựng trên cả nước
+Pred: là sát chất lượng công trình xây dựng trên cả nữ
+WER: 0.2727, CER: 0.0980
+==================================================
+Gold: không nản nghĩa tin rằng sẽ có một giải pháp nào đó
+Pred: không bản nghĩa tinh rằng sẽ có một giải pháp nào đó
+WER: 0.1667, CER: 0.0392
+==================================================
+Gold: mẹ cũng đã từng thống khổ tuyệt vọng và cô đơn như vậy
+Pred: mẹ cũng đã từng thống khổ tuyệt vọng và cô đơn như vậy
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hai loại văn này nên được coi trọng như nhau trong các kỳ thi
+Pred: hai loại văn này nên được coi trọng như nhau trong các kỳ thi
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: vậy mới có mục tiêu để mà phấn đấu nên người có ý thức
+Pred: vậy mới có mục tiêu để mà phân đấu nên người có ý thường
+WER: 0.1429, CER: 0.0926
+==================================================
+Gold: tại đây có một ông trưởng phòng nhân sự công ty
+Pred: tại đây có một ông chữ phòng nhân sự công ty
+WER: 0.0909, CER: 0.1277
+==================================================
+Gold: chỉ một điều đơn giản vậy mà anh ấy không bao giờ thực hiện được
+Pred: chỉ một điều đơn giản vậy mà anh ấy không bao giờ thực hiện được
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chẳng cần nhìn về phương tây quê hương của hàng hiệu
+Pred: chẳng cần nhìn về phương tây quê hương của hàng hiểu
+WER: 0.0909, CER: 0.0192
+==================================================
+Gold: mùa đông cả cánh đồng chuyển sang một màu vàng rực
+Pred: đồng chí cảnh đầu chuyển sang hộ màu vàng rực rực
+WER: 0.6364, CER: 0.3400
+==================================================
+Gold: tôi học cùng với các anh chị làm việc chuyên về sản xuất phần mềm
+Pred: tôi học cùng với các anh chị làm việc kiên về sản xuất phần mềm
+WER: 0.0667, CER: 0.0615
+==================================================
+Gold: có lẽ đây là lời quảng cáo không công hay nhất cho du lịch lào
+Pred: có lẽ đây là lời quản cao không công hay nhất cho du lịch nào
+WER: 0.2000, CER: 0.0484
+==================================================
+Gold: từ đó đến nay gia đình chị vẫn sống trong căn nhà <unk> <unk>
+Pred: từ đó đến nay gia đình chị vẫn sống trong căn nhà lật sổ
+WER: 0.1429, CER: 0.1639
+==================================================
+Gold: bạn cần trung thực với nhân viên của mình trong mọi hoàn cảnh
+Pred: bạn cần thực với nhân viên của mình trong mọi hàng
+WER: 0.2308, CER: 0.1967
+==================================================
+Gold: một số điểm nước phun đến đâu bay hơi hết đến đó
+Pred: một số địa nước phân đến đâu vài vài hơi hết tính đó
+WER: 0.4167, CER: 0.2917
+==================================================
+Gold: do vậy vấn đề khu trú khống chế bệnh tả hiện nay rất khó
+Pred: do vậy vấn đề của chú không chế bệnh cả hiện nay rất khó
+WER: 0.2857, CER: 0.1250
+==================================================
+Gold: đó là câu hỏi mà đến nay vẫn chưa có câu trả lời
+Pred: đó là câu hỏi mà đến nay vẫn chưa có cao trải lan
+WER: 0.2308, CER: 0.1042
+==================================================
+Gold: hà nội mở rộng khu vực hồ tây sông hồng nên là khu vực tĩnh
+Pred: hà nội mở rộng khu vực hồ tây song hồng nên là khu vực tận
+WER: 0.1333, CER: 0.0508
+==================================================
+Gold: biên chế này nhà thanh gọi là an nam quốc nhạc
+Pred: biên chế này nhà thanh loại lạ lại ác xuất nhẹ
+WER: 0.5455, CER: 0.3261
+==================================================
+Gold: hơn là dẫn dắt các em theo chủ ý của giáo viên
+Pred: hơn là dẫn dắt các em theo chủ ý của giáo viên
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: bạn có thể tham khảo một sơ yếu lý lịch điện tử sau đây
+Pred: bạn có thể tham khảo một số sơ ý đi lịch điện tử sau đây
+WER: 0.2143, CER: 0.1273
+==================================================
+Gold: nhạc sĩ la hối với ca khúc xuân và tuổi trẻ
+Pred: nhạc sĩ lao ơi với ca khúc xuân và chuỗi trẻ
+WER: 0.2727, CER: 0.1395
+==================================================
+Gold: vậy ai sẽ chịu trách nhiệm về những trường hợp này
+Pred: vậy ai sẽ chỉ trách nhiệm về những trường hợp này
+WER: 0.0909, CER: 0.0400
+==================================================
+Gold: tuy phía trước còn vô và khó khăn đối với con
+Pred: tuy kết trước còn mua và khó khăn đối với con
+WER: 0.1818, CER: 0.1556
+==================================================
+Gold: bốn năm trời bị câm một mình với bóng mình nhiều <unk> òa khóc
+Pred: bốn năm trời bị can một mình với bóng mình nhiều phe mẹ khóc
+WER: 0.2143, CER: 0.1452
+==================================================
+Gold: em sợ mất anh ấy nhưng lại cảm thấy mình bị xúc phạm
+Pred: em sợ mất anh ấy nhìn lại cảm thêm mình bị xúc phạm
+WER: 0.1538, CER: 0.0769
+==================================================
+Gold: trò đùa đối với thầy nhưng lại là chân thật chân thật với một người
+Pred: trò đùa đối với thầy nhưng lại là chân thật chân thật với một hồi
+WER: 0.0667, CER: 0.0597
+==================================================
+Gold: đó là nhận xét chung của nhiều tổng giám đốc điều hành ngày nay
+Pred: đó là nhận xét chung của nhiều tổng giám đốc đều hằng ngày này
+WER: 0.2143, CER: 0.0635
+==================================================
+Gold: người pháp đã đồng ý với cách quản lý lĩnh vực dành riêng
+Pred: người pháp đã đồng ý với cách quản lý vĩnh luật dành riêng
+WER: 0.1538, CER: 0.0877
+==================================================
+Gold: hắn thay đổi lầm lì sau khi theo gia đình đến xứ người
+Pred: hắn thay đổi làm lời sau khi nghe hề định đến xứ người
+WER: 0.3846, CER: 0.1852
+==================================================
+Gold: yếu tố hấp dẫn mới thu hút đầu tư nước ngoài vào việt nam
+Pred: yếu tố hấp dẫn mới thủ hút đầu tư nước ngoài và việt nam
+WER: 0.1429, CER: 0.0351
+==================================================
+Gold: vậy mà giờ đây nó không đợi được đến lúc huy về
+Pred: lẽ này nhờ đây nó không đợi được đến lúc phi về
+WER: 0.3333, CER: 0.2128
+==================================================
+Gold: một góc câu cá trên cầu sài gòn ảnh mai vinh
+Pred: một góc câu cá ảnh cầu sài gòn ảnh may vinh
+WER: 0.1818, CER: 0.1136
+==================================================
+Gold: một vài người trong bọn họ đưa mắt nhìn mảnh giấy
+Pred: một vài người trong bọn đưa mắt nhìn mảnh giấy
+WER: 0.0909, CER: 0.0612
+==================================================
+Gold: nhưng trước đây nhìn từ bên ngoài nơi này không khác một căn nhà hoang
+Pred: trước đây nhìn từ bên ngoài nơi này không khác như một căn nhà hoang
+WER: 0.1333, CER: 0.1429
+==================================================
+Gold: có nhưng phải là thuốc đặc trị của pháp hiếm và cực kỳ đắt
+Pred: có nhân phải là thuốc đặt chị của pháp hiến vật kỳ đất
+WER: 0.5000, CER: 0.2069
+==================================================
+Gold: một số bạn trẻ cũng có ý nghĩ như cao cường
+Pred: một số bạn chỉ chỉ cần có ý nghĩ như cao cường
+WER: 0.2727, CER: 0.2093
+==================================================
+Gold: tôi đã có thời gian tuyệt vời khi chơi cho đội tuyển
+Pred: tôi đã có thời gian tuyệt vời khi chơi trò đổi tỉnh
+WER: 0.2500, CER: 0.1538
+==================================================
+Gold: thỉnh thoảng con đi qua dừng lại dựng xe ngồi hút thuốc
+Pred: thỉnh thoảng còn đi qua dừng lại dựng xe ngựa sắt khúc
+WER: 0.3333, CER: 0.1455
+==================================================
+Gold: chú bộ đội qua những câu chuyện của ông mới gần gũi làm sao
+Pred: chua vội độ qua những câu chuyện của ông mới làm vũ làn rằng
+WER: 0.5000, CER: 0.2542
+==================================================
+Gold: ăn cá <unk> cá thu và cá mòi với rau trộn
+Pred: cho các người có thu và cả mời với rau chỗ
+WER: 0.6364, CER: 0.3902
+==================================================
+Gold: có bằng thạc sĩ những ngành trên là một lợi thế
+Pred: có bằng thạc sỹ nhưng ngành trên là một loại thế
+WER: 0.2727, CER: 0.0851
+==================================================
+Gold: minh nhật hồng quân vũ công thành sưu tầm từ báo nước ngoài
+Pred: minh hồng hào quân của công thành sự tập từ báo nước ngoài
+WER: 0.3846, CER: 0.2373
+==================================================
+Gold: muốn có bằng lái phải qua một đợt thi rất khắt khe
+Pred: muốn có bằng hỏi phải qua một đợt thi rất khát khao
+WER: 0.2500, CER: 0.1000
+==================================================
+Gold: yêu nhau khoảng vài tháng thì chúng tôi đã có quan hệ tình dục
+Pred: yêu nhau khoảng vài tháng thì chúng tôi đã có văn nghệ thuật
+WER: 0.2857, CER: 0.1774
+==================================================
+Gold: khó sao duyên dám cho anh uống rượu trong đám cưới
+Pred: khó tài diện dám chậm của trong đám cưới
+WER: 0.5455, CER: 0.4000
+==================================================
+Gold: ông dương đức lân phó tổng cục trưởng tổng cục dạy nghề
+Pred: ông dương đức gần phó tổng cục trưởng tộc cũng chỉ nghe
+WER: 0.4167, CER: 0.2182
+==================================================
+Gold: đối xử với bạn như người yêu cũ của bạn đã từng làm
+Pred: đối xử với bạn như người yêu cũ của bạn đã từng làng
+WER: 0.0769, CER: 0.0392
+==================================================
+Gold: tham gia thiết kế lăng chủ tịch hồ chí minh thì có nhiều người
+Pred: tham gia thiết kế tăng chủ tịch hồ chí minh thì có nhiều người
+WER: 0.0714, CER: 0.0161
+==================================================
+Gold: vì vậy công ty b phải có trách nhiệm bồi thường
+Pred: vì vậy công ty phải có trách nhiệm bội thường
+WER: 0.1818, CER: 0.0638
+==================================================
+Gold: nông dân trồng mía than cứ một vụ được lại ba vụ thất
+Pred: nông dân trồng miếng hàng cứ một vội lại được bao vũ thất thoát
+WER: 0.6154, CER: 0.4528
+==================================================
+Gold: thì người xem cũng được nâng cao kiến thức về địa lý
+Pred: thì người xem cũng được nâng cao kiến thức về địa lý
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: ngày xưa các cụ làm bìa sách là minh hoạ cho cuốn sách đó
+Pred: ngày xưa các cụ làm bị sách làm minh họa cho cuốn sách đó
+WER: 0.2143, CER: 0.0877
+==================================================
+Gold: tôi đã nhiều lần phản đối quyết liệt việc nước thải tuồn ra ngoài
+Pred: hơi đã nhiều lần khoảng đó quyết liệt việc nước thải cùng đau ngoài
+WER: 0.3571, CER: 0.2000
+==================================================
+Gold: nhiều gia đình hiện nay thích tự giới thiệu chương trình
+Pred: nhiều gia lành hiện nay thích tự giới thiệu chương trình
+WER: 0.0909, CER: 0.0357
+==================================================
+Gold: tôi là một người miền tây đang là nghiên cứu sinh ở mỹ
+Pred: tôi là một người miền tây đàn nguyên của cuốn sách nổi mỹ
+WER: 0.4615, CER: 0.3333
+==================================================
+Gold: càng đi sâu vào bên trong cảnh trí thiên nhiên càng hùng vĩ
+Pred: kệ đi sâu và bên trong cảnh chí khi nhiên càng hùng vẽ
+WER: 0.3846, CER: 0.1864
+==================================================
+Gold: mong bạn bình tâm suy nghĩ và chọn được cách giải quyết tốt nhất
+Pred: mong bạn bình tâm suy nghĩ và chọn được cách dễ quyết tốt nhất
+WER: 0.0714, CER: 0.0625
+==================================================
+Gold: điều này khó hơn khi bạn vào bàn tiệc toàn người xa lạ
+Pred: điều này hơn chia bạn vào bạn tuyệt tuyệt vời của người xa lạ
+WER: 0.5385, CER: 0.4074
+==================================================
+Gold: cũng đều trong tư thế ngõ nhỏ phố nhỏ phở tôi ở đó
+Pred: cũng đều trong tư thế gian ông phố nhỏ tôi ở đó
+WER: 0.2308, CER: 0.2200
+==================================================
+Gold: thành một chiếc lồng đèn khổng lồ tại công viên ở thủ đô bắc kinh
+Pred: thầy mỗi chết lồng đèn không lộ tại công viên ở thượng đôi mắt kiên
+WER: 0.6000, CER: 0.2769
+==================================================
+Gold: câu chuyện của quá khứ ông kể không biết bao nhiêu lần
+Pred: câu trình của quá khứ ông kể không biết bao nhân làm
+WER: 0.2500, CER: 0.2037
+==================================================
+Gold: màu son trông thật tuyệt trên bất kì màu da nào
+Pred: một số trong thực kia chưa mất kỳ màu ra nào
+WER: 0.8182, CER: 0.4043
+==================================================
+Gold: ông ăn chay mà nghĩ mặn thì ăn chay làm chi
+Pred: không anh trai mạnh thì anh cái làm khi làm khi
+WER: 0.9091, CER: 0.6047
+==================================================
+Gold: trên cơ sở đó những hành vi vi phạm sẽ được xử lý nghiêm
+Pred: trên cơ sở đã nhưng hàng vi phạm sẽ được sự lý nghiêm
+WER: 0.3571, CER: 0.1429
+==================================================
+Gold: một cơ quan chính thức để khách hàng khiếu nại tham khảo và tin tưởng
+Pred: môn cơ quan chức đã khác hàng khéo năm khả tham khảo và tiên tượng
+WER: 0.6667, CER: 0.3043
+==================================================
+Gold: một tình huống ứng xử sư phạm tôi làm bộ tỉnh <unk> được cô duyệt
+Pred: một tiếng bày ảnh sự sư phạm tôi làm bộ tiện rượu được cô sẽ
+WER: 0.4667, CER: 0.3846
+==================================================
+Gold: chẳng lẽ ăn cơm nhà người mà lại không chăm chú lắng nghe người nói
+Pred: chẳng anh cơm nhà người mà lại không chăm chủ năng người nổi
+WER: 0.4000, CER: 0.1940
+==================================================
+Gold: nghĩa là nếu bạn đang làm việc dưới quyền một giám sát viên
+Pred: nghĩa là não bạn đang làm việc sử dụng bộ sản xuất viện
+WER: 0.5385, CER: 0.3559
+==================================================
+Gold: kẽm có nhiều trong gan sò thịt đỏ cá óc trứng
+Pred: cám có nhiều trong công ca thịt cá áo ôm vai
+WER: 0.6364, CER: 0.4000
+==================================================
+Gold: ung thư từ một cơ quan khác di căn vào hệ thống hạch bạch huyết
+Pred: ung thư từ bộ cơ quan khác suy ca vào hải thảo bài riết
+WER: 0.5333, CER: 0.3651
+==================================================
+Gold: cuộc thi tự hào sử việt đã hết giai đoạn i
+Pred: cuộc thi tự hào sự việc đã hai sai đỏ
+WER: 0.5455, CER: 0.2619
+==================================================
+Gold: cuộc biểu tình của áo đỏ có thể sẽ biến thành bạo lực
+Pred: cùng đều tiền của đội đội cửa tài sản biên bảo lực
+WER: 0.8462, CER: 0.5283
+==================================================
+Gold: trên thực tế một cuộc điều tra đã được tiến hành
+Pred: trên thực tế một cuộc đều tra đã được tuyển hàng
+WER: 0.2727, CER: 0.1042
+==================================================
+Gold: trải dài hàng chục cây số đều thu gọn vào tầm mắt
+Pred: trải sài hàm chuộc cây suối đều thua ngoại vào tờ máy
+WER: 0.6667, CER: 0.3265
+==================================================
+Gold: thản nhiên giá đó thì chỉ có thể làm vậy thôi
+Pred: thảm như xã đó thì chỉ có thể làm vậy thôi
+WER: 0.2727, CER: 0.1556
+==================================================
+Gold: bắt đầu cuộc chạy đua mùa kinh doanh tết giữa bánh nội và bánh ngoại
+Pred: bắt đầu cuộc chạy đua mua kẻ gian tết trở bạn nối bạn tích hòa
+WER: 0.6000, CER: 0.3676
+==================================================
+Gold: cái nhà hát bị đập tan tành ông khoái lắm à
+Pred: cái nhà hết bị đập tâm tiền ông hà làm à
+WER: 0.4545, CER: 0.2558
+==================================================
+Gold: mâm cơm vẫn thanh đạm tủ áo của vợ cũng chỉ vài bộ đơn sơ
+Pred: mong cơm vẫn thanh đạt tổ nội vào cũng chỉ vài nơi hồ nước sơn
+WER: 0.6667, CER: 0.4035
+==================================================
+Gold: hình thức kỷ luật nào cũng chỉ có tính định hướng răn đe
+Pred: hiện trước nghĩa luật nào cũng chỉ có tiếng đèn hương ra
+WER: 0.6154, CER: 0.3929
+==================================================
+Gold: hiện nay bà đang bị nhiều bệnh và sống dưới mức nghèo khổ
+Pred: hiện nay bà đang bị nhờ bạc và sớm sửa mức nào khổ
+WER: 0.3846, CER: 0.2807
+==================================================
+Gold: nằm trên giường gần cả tháng bất giác tôi cảm thấy mình thật cô độc
+Pred: nằm trên giường gần cả thảm bớt trà tôi cảm thấy miền thịt cô độc
+WER: 0.3333, CER: 0.1791
+==================================================
+Gold: nhảm nhí khi giờ học chán phèo buồn ngủ quá ờ buồn ngủ
+Pred: nhà nhiên khi giờ học cảm theo mình ngủ quá ở bên ngủ
+WER: 0.5385, CER: 0.3148
+==================================================
+Gold: nói chuyện một hồi ông làm bộ để tay lên tay em trên cần số
+Pred: nội bộ hồi rồi ông làm bộ đã tây nên tay em trên cầm số
+WER: 0.5333, CER: 0.2542
+==================================================
+Gold: còn anh trai tôi trong nhật ký của mình cũng linh cảm điều đó
+Pred: còn anh chết tôi trong nhạc thị cùng miền cũ của mình đều đỏ
+WER: 0.7143, CER: 0.4426
+==================================================
+Gold: sáng chúng tôi tạm biệt thung nai và những chủ nhân mến khách mộc mạc
+Pred: sản chúng tôi tạm biệt thông đây và nhớ và nhớ bán khác đột mà
+WER: 0.6667, CER: 0.3043
+==================================================
+Gold: mấy ngày đầu thúy hà phải nhờ kim dẫn đi giới thiệu trường
+Pred: mấy ngày đầu thủy hà phải nhờ kim sản đi xử lý sử trường
+WER: 0.3846, CER: 0.2069
+==================================================
+Gold: họ thích nghi với văn hóa công ty như thế nào
+Pred: họ thiết nghe về văn hòa công ty như thế nào
+WER: 0.3636, CER: 0.1556
+==================================================
+Gold: mô hình cấu trúc chức năng và khoa học xã hội mang tính giáo dục
+Pred: mua hiền ở trước đây và khoa học xã hội ban tiếng cháu sụt
+WER: 0.6667, CER: 0.4375
+==================================================
+Gold: và bạn cần có việc làm ổn định với thu nhập cao
+Pred: là tạm kèm cổ vé làm cuộn để với thu nhập cao
+WER: 0.5833, CER: 0.3404
+==================================================
+Gold: đây là tháng có số đăng ký thấp nhất từ đầu năm đến nay
+Pred: đây là anh còn số đăng ký hết nhắc từ đầu năm để may mắn
+WER: 0.5000, CER: 0.3273
+==================================================
+Gold: thật ra thì cũng không thể làm cầu kì như ở nhà được
+Pred: thật ra gì cũng không thể làm cầu vì như ở nhà đội
+WER: 0.2308, CER: 0.1154
+==================================================
+Gold: vả lại theo quy chế đây là trách nhiệm của mỗi thí sinh
+Pred: vợ lại như qui chế đây là các giảm cổ nổi tiên xem
+WER: 0.6923, CER: 0.4000
+==================================================
+Gold: công nhân đang thi công hai nhánh cầu rạch chiếc ảnh thuận thắng
+Pred: công danh đang nghe công hai nhánh cầu và chiếc ảnh thuận
+WER: 0.3077, CER: 0.2656
+==================================================
+Gold: họ không biết chơi phòng ngự là gì trừ khi bị đối thủ vây ép
+Pred: họ không biết chơi phòng ngừa là từ khi trừ khi bị rượu với ác
+WER: 0.4667, CER: 0.3167
+==================================================
+Gold: cuối cùng họ dẫn nhau về nhà với thúng làn không
+Pred: tuổi cùng họ giải nhau về nhà với thông làm thôn
+WER: 0.4545, CER: 0.2083
+==================================================
+Gold: phim mới của trương nghệ mưu sự trở lại dòng phim nghệ thuật
+Pred: khi mới của chương ngã mưa sự trở lại còn phim nghệ thuật
+WER: 0.3846, CER: 0.1500
+==================================================
+Gold: còn hàng trăm chiếc khác đã bán thì ông không nhớ hết
+Pred: còn nằm trong chiếc hát đã bán thì ông không nhớ hết
+WER: 0.2500, CER: 0.1698
+==================================================
+Gold: cùng vợ ăn vội chén cơm thành lại lo ôn bài làm bài tập
+Pred: cùng vợ ăn vội chén cơm thành lại lo môn bài cảm bài tập ăn vội
+WER: 0.2857, CER: 0.1818
+==================================================
+Gold: đội nào thành tích càng cao thì quản lý càng khó
+Pred: đội nào thành tích càng cao thì quản lý càng khó
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: phải chăng xây dựng niềm tin vào tình yêu khó thế
+Pred: phải chăng xây dựng niềm tin vào tình yêu khó thế
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: còn ba cầu thủ văn trương bật hiếu và hải lâm thì sao thưa ông
+Pred: còn ba cầu thủ văn thương bạch hiếu và hải lâm thì sau thương vong
+WER: 0.3333, CER: 0.1613
+==================================================
+Gold: tháng bảy nhiều người con khóc nên trời buồn và khóc theo
+Pred: tháng bảy nhiều người con khóc nên trời buồn và khóc theo
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: ca khúc được khán giả yêu thích nhất bà tôi nguyễn vĩnh tiến
+Pred: ca khúc được khán giả yêu thích nhất bà tôi nguyễn vĩnh tiến
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: đầu tư tiêu dùng và xuất khẩu đều sẽ tăng mạnh
+Pred: đầu tư tiêu dùng và xuất khẩu đều sẽ tăng mạnh
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: đồ cổ không công khai nguồn gốc phải bị coi là hàng giả
+Pred: đồ cổ không công khai nguồn gốc phải bị coi là hàng giả
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: từng là chủ tế hàng trăm lễ an táng mộ gió
+Pred: từng là chủ tế hàng trăm lẻ an táng bộ gió
+WER: 0.1818, CER: 0.0476
+==================================================
+Gold: hình như không có cả một trong hai tài và đức
+Pred: hình như không có cả một trong hai tài và đất
+WER: 0.0909, CER: 0.0444
+==================================================
+Gold: bên cạnh đó chúng tôi còn làm hàng loạt việc khác như
+Pred: bên cạnh đó chúng tôi còn làm hàng ngoài việc khác như xong
+WER: 0.1667, CER: 0.1698
+==================================================
+Gold: chúng nó yêu nhau rất tự nhiên ghét nhau cũng rất tự nhiên
+Pred: chúng đã yêu nhau rất tự nhiên các nhau cũng rất tự nhiên
+WER: 0.1538, CER: 0.1034
+==================================================
+Gold: tất cả để cho người bệnh và thân nhân hài lòng khi đến bệnh viện
+Pred: tất cả để cho người bệnh và thân nhân hài lòng khi đến bệnh viện
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: tôi khẽ <unk> mắt và thầm cầu nguyện xin chúa giúp con
+Pred: tôi kể chất mắt và thăm cầu nguyện xin trú giúp con
+WER: 0.3333, CER: 0.2037
+==================================================
+Gold: lúc hưng phấn nói chuyện phóng lao chẳng có chi phức tạp
+Pred: lúc hơn phấn nó chuyền phóng lao chẳng có chi phức tạp
+WER: 0.2500, CER: 0.0714
+==================================================
+Gold: sẽ làm chúng ta ngủ không đủ không đúng quy luật
+Pred: sẽ làm chứng khoán ngủ không đủ không đủ không qui luật
+WER: 0.4545, CER: 0.2500
+==================================================
+Gold: có bao giờ ông gặp tình huống không trả lời được câu hỏi của dân
+Pred: có bao giờ ông gặp tình huống không trả lời được câu hỏi của dân
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: cả đời chưa bao giờ tôi có cảm giác sung sướng như vậy
+Pred: cả đời chưa bao giờ tôi có cảm giác xung quanh chứ như vậy
+WER: 0.2308, CER: 0.1667
+==================================================
+Gold: ít có cơ hội sống sót cho các hành khách trên máy bay
+Pred: ít có cô hộ sống sót cho các hành khách trên máy bay
+WER: 0.1538, CER: 0.0377
+==================================================
+Gold: trung quốc đưa ra hình phạt cụ thể đối với tội tham nhũng
+Pred: trung quốc đưa ra hình phải cụ thể đưa với tội tham nhũng
+WER: 0.1538, CER: 0.0702
+==================================================
+Gold: hai cháu ngạc nhiên đón khách lạ sung sướng ôm cặp mới
+Pred: hai cháu ngạc nhiên đón khách họ sung sức ông gặp mới
+WER: 0.3333, CER: 0.1667
+==================================================
+Gold: nhưng cô quyết chứng minh người mù không phải vô dụng
+Pred: nhưng cô quyết chứng minh người mù không phải vô dụng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: họ đã trao nhau lời hẹn ước nên duyên chồng vợ
+Pred: họ đã trao nhau là hiện ước nên nhiên chồng vào
+WER: 0.3636, CER: 0.1957
+==================================================
+Gold: nếu thỉnh thoảng có vài ngày nghỉ người thụy điển thường ra đảo chơi
+Pred: nếu thỉnh thoảng có vài ngày nghỉ người thì bị thường ra chơi
+WER: 0.2143, CER: 0.1471
+==================================================
+Gold: những người cô lập mình có thể gặp phải chứng trầm cảm hoặc lo lắng
+Pred: những người cô lập mình có thể gặp phải chứng trầm cảm hoặc lo lắng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: thực tế vai trò của bạn và người phỏng vấn đối chiếu nhau
+Pred: thực tế vai trò của bạn và người phỏng vấn đối chiếu nhau
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: sự giúp đỡ của bà là vô cùng quí báu cho chúng tôi
+Pred: sự giúp đỡ của bà là vô cùng quý báo cho chúng tôi
+WER: 0.1538, CER: 0.0400
+==================================================
+Gold: nhà trường đột ngột hủy đề tài khiến tôi mất phương hướng
+Pred: nhà trường đột máy đề tài khiến tôi mất phương hướng
+WER: 0.1667, CER: 0.1228
+==================================================
+Gold: các phật tử hưởng ứng lời kêu gọi của thầy như thế nào
+Pred: các phật tự vượng ứng là kêu gọi của thầy như thế nào
+WER: 0.2308, CER: 0.0926
+==================================================
+Gold: vậy những đối tượng này sẽ được giải quyết như thế nào
+Pred: phải những đối tượng này sẽ được giải quyết như thế nào
+WER: 0.0833, CER: 0.0741
+==================================================
+Gold: xen kẽ giữa những màn biểu diễn là những phút vui chơi tập thể
+Pred: xen kẽ giữa những màn bị diễn là những phúc vui chơi tập thể
+WER: 0.1429, CER: 0.0645
+==================================================
+Gold: sáng ra thấy dân tình xúm quanh con tê giác khổng lồ đã chết
+Pred: sáng ra thấy dân tình sống quân con tây che chắn luôn đã chết
+WER: 0.4286, CER: 0.3000
+==================================================
+Gold: và một điều sâu xa là mình đã thật sự yêu bạn
+Pred: và một điều sâu xa làm mình đã thực sự yêu bạn
+WER: 0.1667, CER: 0.0667
+==================================================
+Gold: nhiều hôm mưa gió bán ế gánh chè nặng trĩu trên vai mẹ
+Pred: nhiều hơn mưa chó bán vé gánh chè nặng chủ trên vai mẹ
+WER: 0.3077, CER: 0.1852
+==================================================
+Gold: phía dưới và xung quanh kệ là nước bẩn lênh láng chảy qua
+Pred: phía dưới và xung quanh kể là nước bẩn lên tiếng chạy qua
+WER: 0.3077, CER: 0.1053
+==================================================
+Gold: tôi đứng trước hai lối rẽ và tôi chọn con đường ít người đi hơn
+Pred: tôi đứng trước hai lối rễ và tôi chọn con được hợp người đi hơn
+WER: 0.2000, CER: 0.1111
+==================================================
+Gold: chúng tôi đã điều tra những trường hợp có nghi vấn gian dối
+Pred: chúng tôi đã điều tra những trường hợp có ghi vấn ghi nhớ
+WER: 0.2308, CER: 0.1186
+==================================================
+Gold: vậy chừng nào mới tới xin lỗi nhân dân tập cuối
+Pred: vậy chừng nào mới tới xin lỗi nhân dân tập cuối
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: hôm nào tan ca sớm hạnh được giao nhiệm vụ đi chợ cho bữa tối
+Pred: hôm nào tăng ca sớm hành được giao nhiệm vụ đi trò chơi buổi tối
+WER: 0.3333, CER: 0.1803
+==================================================
+Gold: vào được nhà anh đấy sửa cửa đi nguy hiểm đấy
+Pred: vào được nhà anh đấy sự cửa đi hiểm đấy
+WER: 0.1818, CER: 0.1556
+==================================================
+Gold: rồi mặc dù biết là <unk> ngẩn tôi cứ nói ra
+Pred: rồi mặc dù biết là ngó ngỡ tôi cứ nói ra
+WER: 0.1818, CER: 0.1395
+==================================================
+Gold: riêng ông nguyễn văn ba bị gỗ đè dập sọ não chết ngay tại chỗ
+Pred: kiên ông nguyễn văn ba bị lỗ đề dọc sổ tạo chết ngay tại chỗ
+WER: 0.4000, CER: 0.1475
+==================================================
+Gold: mỗi người nở một nụ cười với những ý nghĩa khác nhau
+Pred: mỗi người nổ một nụ cười với những ý nghĩa khác nhau
+WER: 0.0833, CER: 0.0192
+==================================================
+Gold: do vậy sẽ ảnh hưởng tới việc thu sóng vô tuyến
+Pred: do vậy sẽ ảnh hưởng tới việc thu sống mua tuyến
+WER: 0.1818, CER: 0.0870
+==================================================
+Gold: phim chiếu nguyên bản tiếng pháp có phụ đề tiếng việt
+Pred: phiên chiếu nguyên bản tiến pháp của đề tiến vế tiếng việt
+WER: 0.5455, CER: 0.2642
+==================================================
+Gold: bóng màu xanh là vùng tâm bão có thể đi qua
+Pred: bóng mồ xanh là vùng tâm bảo có thể đi qua
+WER: 0.1818, CER: 0.0698
+==================================================
+Gold: sau một ngày lao động căng mệt bạn ưu tiên chọn
+Pred: sau một ngày lao động căn mờ bạn ưu tiên chọn
+WER: 0.1818, CER: 0.0638
+==================================================
+Gold: hà cũng chẳng nhớ mình có nói hay không để cãi lại ông ấy
+Pred: hà cũng chẳng nhớ mình có nói hay không để cả lại ông ấy
+WER: 0.0714, CER: 0.0351
+==================================================
+Gold: bản thân tôi cũng tham gia một vai rất nhỏ nữa
+Pred: bản thân tôi cũng tham gia một vai giúp nhỏ nữa
+WER: 0.0909, CER: 0.0870
+==================================================
+Gold: hôm sau mở máy thấy cái truyện đã tự hoàn chỉnh rồi
+Pred: hôm sau mở máy thấy các chuyện đã tự hoàn chỉnh rồi
+WER: 0.1667, CER: 0.0588
+==================================================
+Gold: bây giờ thì đáng được khen là thông minh chứ hả
+Pred: vi giờ thì đáng được khen là thông minh chứ hạ
+WER: 0.1818, CER: 0.0851
+==================================================
+Gold: chị tìm nhà cho em ở trọ ngay cổng trường chị học
+Pred: chỉ tìm nhà cho em ở chọn ngay cộng trường chỉ học
+WER: 0.3333, CER: 0.1224
+==================================================
+Gold: đến đà lạt bạn phải chuẩn bị đôi chân để đi bộ
+Pred: đến là lạc bộ phải chuẩn bị đôi chân để đi bộ
+WER: 0.2500, CER: 0.0870
+==================================================
+Gold: họ được bọn đầu nậu những tay trùm thuê với giá rẻ mạt
+Pred: họ được bọn đầu nội bộ những tây y như nhau rễ mảng
+WER: 0.6923, CER: 0.4444
+==================================================
+Gold: một bà sang trọng đến gặp bác sĩ trẻ khám bệnh bác sĩ hỏi
+Pred: một bà sang trọng đến gặp bác sĩ trẻ khám bệnh bắt sĩ hỏi
+WER: 0.0714, CER: 0.0351
+==================================================
+Gold: nhân lực ngành thiết kế đồ họa đắt giá và khan hiếm
+Pred: nhưng lịch ngành viết kế độ họa giá và an và can hiếm
+WER: 0.6667, CER: 0.3333
+==================================================
+Gold: sau đó bản thân học sinh phải làm đơn xin học bổng
+Pred: sau đó bản thân học sinh phải làm đơn xin học bổng
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: chỉ có thực phẩm mới giúp bạn làm được việc này
+Pred: chỉ có thực phẩm mới giúp bạn làm được việc này
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: với các <unk> màu cà phê sữa không cần điều trị
+Pred: với các giác màu cà phê sửa không cần điều trị
+WER: 0.1818, CER: 0.1277
+==================================================
+Gold: họ bảo tôi giống người hàn thì tôi lại thấy họ giống người việt
+Pred: họ bảo tôi giống như người nghiện thì tôi lại thấy hỏi giống người việc
+WER: 0.2857, CER: 0.1746
+==================================================
+Gold: và đội tuyển pháp đang là đội chiếm ưu thế hơn so với thụy sĩ
+Pred: và đội tuyển pháp đang là đổi chiếm ưu thế hôn sau với thạc sĩ
+WER: 0.2667, CER: 0.0984
+==================================================
+Gold: trình độ chuyên môn của cô khiến cô quá thừa tư cách
+Pred: trình độ chuyên môn của cô khiến cô quá thường tư cấp
+WER: 0.1667, CER: 0.1346
+==================================================
+Gold: những câu hỏi trên sẽ giúp bạn làm được điều này
+Pred: những câu hỏi trên sẽ giúp bạn làm được điều này
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: vẫn còn nhưng bạn không dám chắc họ có hạnh phúc hay không
+Pred: vẫn còn nhưng bạn không dám chắc họ có hạnh phúc hay không
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: đó cũng là sự tiếp xúc gần gũi nhất của bọn em
+Pred: đó cũng là sự tiếp xúc gần gũi nhất của bọn em
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: em hãy tỉnh táo mà tìm những định hướng tốt hơn cho tương lai
+Pred: em hãy tỉnh táo mà tìm những thứ tốt hơn cho tương lai
+WER: 0.1429, CER: 0.1475
+==================================================
+Gold: nhưng chẳng có điểm sản xuất nào dùng bạt phủ che chắn
+Pred: nhưng chẳng có biển sản xuất nào dùng bạc thủ chia chăng
+WER: 0.4167, CER: 0.1481
+==================================================
+Gold: có mấy người đụng phải nó suýt ngã chúi xuống đường
+Pred: có máy người đủ phải nó chiếc làm chú xuống đường
+WER: 0.4545, CER: 0.2549
+==================================================
+Gold: đoàn đi thuyền đến một khu làng dân tộc thiểu số
+Pred: đàn đi thuyền đến một khu làng nhưng tập thủy số
+WER: 0.3636, CER: 0.2083
+==================================================
+Gold: thì hợp đồng thế chấp này cũng không có giá trị pháp lý
+Pred: thì hợp đồng thế chấp này cũng không có giá trị pháp lý
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: ba tôi hãnh diện nói chuyện với số học sinh cùng lên xe đò
+Pred: ba tôi ảnh diễn nói chuyện với số học trên cùng lên xe đò
+WER: 0.2143, CER: 0.1207
+==================================================
+Gold: một anh trai tuấn đang ngồi tù vì tội giết người
+Pred: một anh trai tuấn đang ngồi tù vì tội giết người
+WER: 0.0000, CER: 0.0000
+==================================================
+Gold: được bày trên những bệ thờ bên cạnh những bó sen huệ thơm nức
+Pred: được bài trên những vẻ thờ bên cạnh những mối xen khỏe thông phức bức
+WER: 0.5714, CER: 0.3115
+==================================================
+Gold: các bước sau đây sẽ giúp bạn tìm ra ứng cử viên thích hợp
+Pred: các mức mức sẽ giúp bạn tìm ra ứng cử cổ viên thích hợp
+WER: 0.2857, CER: 0.2281
+==================================================
+Gold: vì chúng có thể làm răng của bạn dễ bị <unk> vàng
+Pred: vì chúng có thể làm tăng của bạn dễ bị ô vàng
+WER: 0.1667, CER: 0.1224
+==================================================
+Gold: giải nhất huy chương vàng thuộc về nhà nhiếp ảnh của cộng hòa séc
+Pred: giải nhất khi chưa vàng thuộc về nhà nhất mạnh của cộng hòa xếp
+WER: 0.3571, CER: 0.2154
+==================================================
+Gold: để xin thị thực công tác về cơ bản bạn phải có
+Pred: để xin thị thực công tác về cơ bản phải có
+WER: 0.0833, CER: 0.0870
+==================================================
+Gold: tôi nắm bàn tay xưa ba tôi từng thương yêu đau xót cầm giữ
+Pred: tôi nắm bàn tay xưa ba tôi từng thương tôi và đau xót cầm dựa
+WER: 0.2143, CER: 0.1552
+==================================================
+Gold: trong dòng thác người chỉ nhìn được mắt kính và khẩu trang
+Pred: trong dòng thác người chỉ nhìn được mắc kính và hỗ trang
+WER: 0.1667, CER: 0.0690
+==================================================
+Gold: khai mạc triển lãm quy mô lớn về tranh sơn mài việt nam
+Pred: hai mẹ triển lãm vi mua lớn về tranh sơn vài việt nam
+WER: 0.3846, CER: 0.1636
+==================================================
+Gold: không nên chỉ dựa vào bài viết của bạn để thuyết minh thêm
+Pred: không nên chỉ giỏi vào bài viết của bạn để các nhưng thêm
+WER: 0.2308, CER: 0.2414
+==================================================
+Gold: và giáo dục con người trở thành việc luyện trí nhớ
+Pred: và để dùng con người trở thành việc viện chỉ nhớ
+WER: 0.3636, CER: 0.2600
+==================================================
+Gold: tuy nhiên hợp đồng này chỉ có giá trị trong những ngày bình thường
+Pred: nguyên nhân hùng này chỉ gọi là chị cho những ngày bình thường
+WER: 0.5714, CER: 0.3485
+==================================================
+Gold: vấn đề đặt ra ở đây là làm thế nào để
+Pred: vẫn đề đặt ra ở đây là làm thị nào để
+WER: 0.1818, CER: 0.0541
+==================================================
+Gold: nhưng nhiều du khách thấy thất vọng khi lên đến nơi
+Pred: nhưng nhiều như khác vẫn thể tách trọng khi lên đỉnh nơi
+WER: 0.6364, CER: 0.3137
+==================================================
+Gold: trên mặt ai cũng có khăn tay khẩu trang che miệng
+Pred: trên mảnh ai cùng có anh tay rượu chăng cha mẹ
+WER: 0.6364, CER: 0.3878
+==================================================
+Gold: càng ngày mình càng nghĩ nhiều về công việc giảng dạy
+Pred: ca ngày càng cần ủy nhiều việc công việc sản rằng
+WER: 0.6364, CER: 0.4151
+==================================================
+Gold: tất nhiên hóa đơn tiền nước cũng kèm luôn khoản tiền
+Pred: tất nhiên họ đơn tìm nước cũng kèm theo luôn hoàn tiền
+WER: 0.3636, CER: 0.2308
+==================================================
+Gold: chúc bạn đọc có thật nhiều thời gian thư giãn thoải mái
+Pred: bạn đọc có thật nhiều thời gian thư giãn thoải mái
+WER: 0.0833, CER: 0.0909
+==================================================
+Gold: hàng chân mày đen và xếch không lẫn vào đâu được
+Pred: thằng trên này đêm vào sách không lạnh vào đâu được
+WER: 0.6364, CER: 0.2708
+==================================================
+Gold: cả ngày trời không nắng gió lạnh nên thưa vắng du khách
+Pred: ngày trời không nắng đó lại nên thưa văn chương vẫn chưa khách
+WER: 0.5833, CER: 0.4000
+==================================================
+Gold: làm được hết khối công việc ấy là một nỗ lực rất lớn
+Pred: được khác của công việc ấy làm một nỗ lực lượng rất lớn
+WER: 0.3846, CER: 0.3462
+==================================================
+Gold: người ăn xin thưa bà ngày thường thì bà cho gì cũng được
+Pred: người anh xin đưa bà ngày thường thì bà cho gì cũng được
+WER: 0.1538, CER: 0.0714
+==================================================
+Gold: bạn không bao giờ ra ngoài mà không dùng kem lót
+Pred: bạn không bao giờ ra ngoài mà không dùng kem nói
+WER: 0.0909, CER: 0.0417
+==================================================
+Gold: vài lần triển lãm tranh tượng không lời như thế hắn sẽ nhận ra
+Pred: và làm chuyện làm tranh luận không lôi như thế hạnh sẽ chiến ra
+WER: 0.5714, CER: 0.3065
+==================================================
+Gold: người đàn ông trên giường thình <unk> rên lên một tiếng rồi mở mắt
+Pred: người đàn ông trên giường thuyền về quê lên ngược tiếng rồi mở mắt
+WER: 0.2857, CER: 0.2576
+==================================================
+Gold: tối qua người ta đến bắt tôi giữa đêm hôm khuya khoắt
+Pred: tụi con người ta điện bắt tôi giữa đêm hôn khuya khách
+WER: 0.4167, CER: 0.1887
+==================================================
+Gold: bảo thằng quyết nó bắt con gà sống nâu mà thịt
+Pred: tội thằng thậm chí nằm bất con gà chẳng lâu mà kịp
+WER: 0.7273, CER: 0.4565
+==================================================
+Gold: vị bác sĩ hiền lành ấy có những lý thuyết trồng cây thật thú vị
+Pred: việc bác sĩ dần làm ở những lý thuyết chồng cây thịt thủ viện
+WER: 0.6000, CER: 0.3175
+==================================================
+Gold: những kiểu vết thương mà trẻ thường mang theo có thể là gì
+Pred: kiểu riết gương mà trẻ thường manh theo có vẻ là gì
+WER: 0.3846, CER: 0.2414
+==================================================
+Gold: xin với mẹ cho đi cai tập trung sau một năm bạn trở về nhà
+Pred: khi về mẹ cho đi ca tập trung sau một năm bảy nhà
+WER: 0.4000, CER: 0.2586
+==================================================
+Gold: đầu tiên là một tấm âm bản sau đó mới đến dương bản
+Pred: đêm làm một tầm ông bạn sau đó mỹ để riêng bạn
+WER: 0.7692, CER: 0.3922
+==================================================
+Gold: mấy ngày nay chúng tôi đã tịch thu được khá nhiều gà chết
+Pred: khi nay dùng tôi đã tịch thu được ảnh nhiều gạch chết
+WER: 0.3846, CER: 0.2982
+==================================================
+Gold: hiển nhiên không ai muốn xuất hiện bên cạnh một người như vậy
+Pred: nhưng không ai mùi xuất hiện bên cạnh một người như vậy
+WER: 0.2308, CER: 0.1803
+==================================================
+Gold: hình ảnh quảng cáo điếu thuốc điện tử được công ty t
+Pred: hình ảnh còn cao điều thức điện tử được công ty
+WER: 0.4167, CER: 0.1923
+==================================================
+Gold: kiểu hài dung tục vẫn cứ lềnh <unk> ở một số tụ điểm
+Pred: kiểu hài dân chục tình cử lên hình ở một số đủ đủ biển
+WER: 0.6923, CER: 0.3846
+==================================================
+Gold: mời tham dự cuộc thi viết ngắn một giờ không điện
+Pred: hồi tâm dự cuộc thi viết về tâm trạng giờ không điện
+WER: 0.4545, CER: 0.2857
+==================================================
+Gold: lần đầu tiên một nhân viên người việt thách thức việc tác nghiệp của tôi
+Pred: làm được tiên một nên riêng người việt rất việt cách nghiệp của tôi
+WER: 0.5333, CER: 0.2917
+==================================================
+Gold: lúc đó chị tưởng làm như vậy cũng làm má vui
+Pred: lúc đó chỉ tưởng làm như vậy cũng là mà vui
+WER: 0.2727, CER: 0.0682
+==================================================
+Gold: ngồi nghe tiếng biển và thư thả đếm từng giọt đen rơi
+Pred: người nghe kiên điện và thứ tả điểm từng giặt đang rơi
+WER: 0.6667, CER: 0.2642
+==================================================
+Gold: muốn công nhận ngay pha bóng ấy thì phải sửa luật
+Pred: mụn công nhận ngay pháp bọn ấy thì phải sửa luật
+WER: 0.2727, CER: 0.1224
+==================================================
+Gold: quản lý nhà nước về giao thông vận tải đô thị
+Pred: còn lý nhà nước vì ra thôn vậy tại đôi thì
+WER: 0.7273, CER: 0.2667
+==================================================
+Gold: sau đó họ lân la sang chơi rồi đánh cắp đứa bé
+Pred: sau đó hỏi lên làm xăng chơi rồi đánh cắp đưa bé
+WER: 0.4167, CER: 0.1739
+==================================================
+Gold: anh nhơn bảo tôi về trước còn anh đi theo cô gái
+Pred: anh nên bảo tôi vì trước còn anh đi theo cô gái
+WER: 0.1667, CER: 0.0625
+==================================================
+Gold: trước hết bạn cần tìm hiểu thông tin quy hoạch khu đất
+Pred: trước hết bạn cần tìm hiểu thông tin khi hoạt khu đất
+WER: 0.1667, CER: 0.0926
+==================================================
+Gold: những sản phẩm giúp nở ngực và tan mỡ cấp tốc ảnh yến trinh
+Pred: những sản phẩm giúp nữa ngược và ta lợi cấp công tác ảnh hiện bị nhiễm trên
+WER: 0.7143, CER: 0.4746
+==================================================
+Gold: phóng sự ảnh những màn biểu diễn ngoạn mục trên bầu trời
+Pred: cổng sử ảnh những màn bị giải khát hoặc mua trên bầu trời
+WER: 0.5833, CER: 0.3393
+==================================================
+Gold: nhưng cuối cùng chẳng ai chịu nổi cái tính ham vui của tôi
+Pred: cuối cùng chẳng ai chịu nổi cả tình thăm vui của tôi
+WER: 0.3077, CER: 0.1897
+==================================================
+Gold: kiểm tra trung tâm này công an đã bắt giữ tới
+Pred: cha trung tâm này công anh đã bắt giữ tự
+WER: 0.3636, CER: 0.2222
+==================================================
+Gold: hoa phượng vẫn nở đỏ trời trong tiếng ve xao xác khôn <unk>
+Pred: hoa vườn vĩnh lửa chơi trong tiên nghe cuốn sách không mua
+WER: 0.8462, CER: 0.5085
+==================================================
+Gold: từ đó lại sa đà vào nhiều nghịch cảnh đáng tiếc
+Pred: tự đã pha đà lành nhiều như thầy nghịch cạnh đây biết
+WER: 0.9091, CER: 0.5319
+==================================================
+Gold: mong anh hãy hiểu cho em em thương nhớ và yêu anh nhiều
+Pred: mong anh này hiểu trai em thương nhớ và yêu anh nhiều
+WER: 0.2308, CER: 0.1455
+==================================================
+Gold: lên các cuộc hẹn phỏng vấn và thực hiện phỏng vấn
+Pred: lên các cuộc hẹn phòng bóng và thực hiện phòng bấm
+WER: 0.3636, CER: 0.1429
+==================================================
+Gold: xét ở khía cạnh này thì đúng là mất bò mới lo làm chuồng
+Pred: sẽ ở thiết cạnh này thì trực đúng là mặt bò mới lo làm chuồng
+WER: 0.2857, CER: 0.2321
+==================================================
+Gold: tuy nhiên tôi nghĩ cậu ta xứng đáng với chức vô địch
+Pred: tuy nhiên tôi nghĩ cậu tay sân đáng với chất vô địch
+WER: 0.2500, CER: 0.1154
+==================================================
+Gold: những biến dạng này thường thấy rõ khi dương vật cương
+Pred: những biến dạng này thường thấy rõ khi luôn vật cường
+WER: 0.1818, CER: 0.0926
+==================================================
+Gold: giỏi gì bác mình đẻ ra không nuôi thì ai nuôi
+Pred: giỏi thì bác mình để ra không nuôi thì bà nuôi
+WER: 0.2727, CER: 0.1111
+==================================================
+Gold: phù sa bồi đắp ruộng vườn cho xóm làng trù phú
+Pred: phường xa bò đất ruộng vườn ca xóm làm rửa vốn
+WER: 0.7273, CER: 0.4130
+==================================================
+Gold: ông nói chúng tôi hi vọng sẽ có những tin tức tốt lành
+Pred: ông nói chúng tôi hy vọng sẽ có những tin tức vóc làm
+WER: 0.2308, CER: 0.1111
+==================================================
+Gold: về nguyên tắc vào học là sinh viên phải đóng học phí
+Pred: về nguyên phát vào học là sinh viên phải đóng học phí
+WER: 0.0833, CER: 0.0769
+==================================================
+Gold: để những khó khăn và mâu thuẫn dần dần sẽ bị đẩy lui
+Pred: để những khách hàng và máu phỏng dành sẽ bị đẩy nuôi
+WER: 0.5385, CER: 0.3462
+==================================================
+Gold: chóng mặt còn có thể do tình trạng rối loạn nhịp tim nặng gây ra
+Pred: chống mạnh còn có thể giao ra tình trạng ra công phải ra
+WER: 0.6667, CER: 0.4844
+==================================================
+Gold: trong ngắn hạn thị trường vận hành như một cỗ máy bầu cử
+Pred: trong ngắn hạn thị trường vẫn học như một cổ máy bầu cũ
+WER: 0.3077, CER: 0.1071
+==================================================
+Gold: chương trình học bổng thanh niên châu á của nhật bản
+Pred: chương trình học bổng thanh niên châu á của nhập bạn
+WER: 0.1818, CER: 0.0385
+==================================================
+Gold: nhưng rồi cái tình với bà con cứ nắm níu không dứt ra được
+Pred: nhưng rồi cái bình với bà con cứ nắm nếu nắm không giấc ra được
+WER: 0.2857, CER: 0.1724
+==================================================
+Gold: số đơn vị tham gia hội chợ việc làm tăng đáng kể qua các năm
+Pred: số đơn vị thanh da hội chợ việc làm tăng đáng kể lại qua các năm
+WER: 0.2000, CER: 0.1333
+==================================================
+Gold: trang viết của họ hơn hẳn thời tuổi trẻ của tôi
+Pred: trang viết của họ hơn hạng thờ từ từ chị của tôi
+WER: 0.4545, CER: 0.2128
+==================================================
+Gold: khuyết điểm lớn của chúng ta là chưa có dân chủ thật sự
+Pred: khuyết điểm lớn của chúng ta là chưa cái dân chủ tịch sự
+WER: 0.1538, CER: 0.0909
+==================================================
+Gold: em có suy nghĩ thêm về việc tham dự hội chợ khoa học không
+Pred: em gái suy nghĩ thêm về việc thanh dự trọ hóa học không
+WER: 0.3571, CER: 0.2414
+==================================================
+Gold: họ chỉ thích những môn gì mạnh bạo bạo lực và kiếm ra tiền thôi
+Pred: họ chỉ bức những môn chị mạnh bảo lập và tiếng ra tìm thôi
+WER: 0.4667, CER: 0.3175
+==================================================
+Gold: những người trẻ ấy thật đáng phê phán đáng lên án
+Pred: những người ấy thực tế hoặc bán lên tiếng á
+WER: 0.7273, CER: 0.4898
+==================================================
+Gold: thông thường án kỷ luật nếu có thường ban hành vào cuối tuần
+Pred: thông thường án kỷ luật nam á thường ban hành vào buổi tuần
+WER: 0.2308, CER: 0.1000
+==================================================
+Gold: điều lạ là tôi vẫn không từ bỏ ý định trở thành tu sĩ
+Pred: điều lạ là tôi vẫn không từ bỏ ý định trở thành thu sĩ
+WER: 0.0714, CER: 0.0189
+==================================================
+Gold: các qui định của pháp luật không thể được ban hành theo kiểu đánh lén
+Pred: các qui định của pháp luật không thể được ban hành theo đánh lớn lao
+WER: 0.2000, CER: 0.1304
+==================================================
+Gold: nhanh quá đã là lần thứ ba xa nhà rồi đấy
+Pred: anh quá đã làm thứ ba sang nhà rồi đấy
+WER: 0.3636, CER: 0.2195
+==================================================
+Gold: đỗ đức thuần nguyên kế toán trưởng công ty tiếp thị đầu tư
+Pred: nỗi rất thuần nguyên các toán trưởng công ty tiếp thị đầu tư
+WER: 0.2308, CER: 0.1379
+==================================================
+Gold: người anh sau đó được phép thầu xây kênh này nhưng không tiến hành
+Pred: người anh sau đó được em phải kem này nhưng không tiến hầm tiếng hầm
+WER: 0.5000, CER: 0.3636
+==================================================
+Gold: nói cách khác cái được của châu á là cái mất của châu phi
+Pred: nói cách khác cái được đâu á là cái mắt của cháu phi
+WER: 0.2857, CER: 0.1404
+==================================================
+Gold: mắt tự nhiên hoa lên trí chụp một cái ly quật mạnh xuống sàn
+Pred: mắt nhiên hoa lên trí lẫn một cái lên vóc mạnh xuống sàn
+WER: 0.2857, CER: 0.2167
+==================================================
+Gold: từ đấy ông càng thông cảm sâu sắc tâm trạng của nguyễn thiếp
+Pred: từ đẩy ông can thông cảm thấy thôi sắc ông trạng của người viễn thiết
+WER: 0.6154, CER: 0.3667
+==================================================
+Gold: em hãy tìm cách tiếp cận để bày tỏ với mẹ
+Pred: em hay tìm cách viết cần để bày tỏ với mẹ
+WER: 0.2727, CER: 0.0976
+==================================================
+Gold: lúc đó nạn kẹt xe chắc sẽ kinh khủng gấp nhiều lần hôm nay
+Pred: lúc đó nàng kịp xe các vị kinh khủng gặp nhiều lần hôm nay
+WER: 0.3571, CER: 0.1552
+==================================================
+Gold: vợ lỡ có tật thế anh nên thay đổi cách tiếp cận
+Pred: bỏ lỡ cá mập nữa anh nên quay thay đổi cách hoàn
+WER: 0.5833, CER: 0.4255
+==================================================
+Gold: đây được xem là vai diễn thành công nhất của vương từ trước đến nay
+Pred: đầy được xem là vài diện thành công nhất của vương từ trước đến nay
+WER: 0.2000, CER: 0.0448
+==================================================
+Gold: nhưng nếu chỉ nói cái giỏi không thôi thì thật chưa đủ về chú tư
+Pred: nhưng đã chỉ nói cái giỏi không thôi thì thật sự đủ về đủ đủ thư
+WER: 0.3333, CER: 0.2031
+==================================================
+Gold: tích cực hơn với vấn đề liên quan đến kiều bào
+Pred: tích cực hơn với vấn đề liên quan đến kiều vào
+WER: 0.0909, CER: 0.0217
+==================================================
+Gold: để rồi chúng ta khao khát mãi trong vòng luân hồi nhân gian
+Pred: để rồi chúng ta khá mãi trong vòng luôn luôn hồi nhanh dưới gối
+WER: 0.5385, CER: 0.3559
+==================================================
+Gold: vấn đề nảy sinh từ cái câu hỏi dinh cu ấy
+Pred: vấn đề đẩy sinh từ cải câu hỏi dân cô ấy
+WER: 0.3636, CER: 0.1463
+==================================================
+Gold: chị nên đi khám bác sĩ và chọn phương pháp ngừa thai hiệu quả
+Pred: chị nên đi khám bác sĩ và chọn vương phát người thay hiệu quả
+WER: 0.2857, CER: 0.1148
+==================================================
+Gold: nợ một cuộc chiến chống tham nhũng vẫn chưa vào đâu
+Pred: nợ một cuộc khiến chống tham nhũng vẫn chưa và đâu
+WER: 0.1818, CER: 0.0392
+==================================================
+
+=== Tổng kết ===
+Total WER: 0.2999
+Total CER: 0.1733

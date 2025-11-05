@@ -34,30 +34,52 @@ class GreedyPredictor:
         self.sos = vocab.get_sos_token()
         self.eos = vocab.get_eos_token()
         self.blank = vocab.get_blank_token()
+        self.pad = vocab.get_pad_token()
         self.tokenizer = vocab.itos
         self.device = device
         self.max_len = max_len
+    @torch.no_grad()
     def greedy_decode(self, src, src_mask):
+        B = src.size(0)
+        
+        # Encode
         enc_out, src_mask = self.model.encode(src, src_mask)
-        decoder_input = torch.tensor([[self.sos]], dtype=torch.long).to(self.device)
+
+        # Init decoder input: [B, 1]
+        decoder_input = torch.full((B, 1), self.sos, dtype=torch.long, device=self.device)
+
+        # Track finished sequences
+        finished = torch.zeros(B, dtype=torch.bool, device=self.device)
 
         for _ in range(self.max_len):
-            decoder_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
-            # print("decoder mask : ", decoder_mask.shape)
-            # print("enc out shape : ", enc_out.shape)
-            dec_out = self.model.decode(decoder_input, enc_out, src_mask, decoder_mask)
-            prob = dec_out[:, -1, :]  # [B, vocab_size]
+            tgt_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
+            dec_out = self.model.decode(decoder_input, enc_out, src_mask, tgt_mask)
 
-            _, next_token = torch.max(prob, dim=1)  # [B]
+            # logits for next token: [B, vocab]
+            logits = dec_out[:, -1, :]
+            next_tokens = torch.argmax(logits, dim=-1)  # [B]
 
-            if next_token not in [self.sos, self.eos, self.blank]:
-                next_token_tensor = torch.tensor([[next_token.item()]], dtype=torch.long).to(self.device)
-                decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+            # Replace next_tokens with BLANK for finished ones (force pad)
+            next_tokens = next_tokens.masked_fill(finished, self.blank)
 
-            if next_token == self.eos:
-                break
+            # Update finished mask
+            finished |= (next_tokens == self.eos)
+
+            # only append tokens that are not {% sos, blank, eos %}
+            ignore = torch.tensor([self.sos, self.blank, self.eos], device=self.device)
+            append_mask = ~torch.isin(next_tokens, ignore)
+
+            # next tokens to append: [B, 1]
+            to_append = next_tokens[append_mask].unsqueeze(1)
+            if to_append.size(0) > 0:  # some batch samples still valid
+                # create empty placeholder and fill only positions to append
+                pad_col = torch.zeros(B, 1, dtype=torch.long, device=self.device)
+                pad_col[append_mask] = to_append
+                decoder_input = torch.cat([decoder_input, pad_col], dim=1)
+
+            if finished.all(): break
         
-        return decoder_input.squeeze(0).cpu().numpy()
+        return decoder_input.cpu().numpy()
 
 
 def main():
@@ -81,7 +103,7 @@ def main():
     )
     test_loader = torch.utils.data.DataLoader(
         test_dataset,
-        batch_size=1,
+        batch_size=config['training'].get('batch_size', 16),
         shuffle=False,
         collate_fn=speech_collate_fn
     )
@@ -101,46 +123,50 @@ def main():
                 src_mask = batch['fbank_mask'].to(device)
                 tokens = batch["tokens"].to(device)
                 predicted_tokens = predictor.greedy_decode(src, src_mask)
-    
-                predicted_tokens_clean = [
-                    token for token in predicted_tokens
-                    if token != predictor.sos and token != predictor.eos and token != predictor.blank
-                ]
-                predicted_text = [predictor.tokenizer[token] for token in predicted_tokens_clean]
-    
-                tokens_cpu = tokens.cpu().tolist() 
-                gold_text = [predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank]
-                gold_text_str = ' '.join(gold_text)
 
-                predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                batch_size = src.size(0)
 
-                if config['training']['type'] == "phoneme":
-                    predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
-                    space_token = vocab.get("<space>")
-                    predicted_text_str = predicted_text_str.replace(predictor.tokenizer[space_token], ' ')
+                for batch_idx in range(batch_size):
 
-                    gold_text = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
-                    gold_text_str = gold_text.replace(predictor.tokenizer[space_token], ' ')
-                elif config['training']['type'] == "char":
-                    predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
-                    gold_text_str = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
-                
-                
-                
-                all_gold_texts.append(gold_text_str)
-                all_predicted_texts.append(predicted_text_str)
-                print("Predicted text: ", predicted_text_str)
-                print("Gold Text: ", gold_text_str)
-                
-                wer_score = wer(gold_text_str, predicted_text_str)
-                cer_score = cer(gold_text_str, predicted_text_str)
-                print(f"WER: {wer_score:.4f}, CER: {cer_score:.4f}")
-                
-                # Ghi ra file
-                f_out.write(f"Gold: {gold_text_str}\n")
-                f_out.write(f"Pred: {predicted_text_str}\n")
-                f_out.write(f"WER: {wer_score:.4f}, CER: {cer_score:.4f}\n")
-                f_out.write("="*50 + "\n")
+                    predicted_tokens_clean = [
+                        token for token in predicted_tokens[batch_idx]
+                        if token != predictor.sos and token != predictor.eos and token != predictor.blank and token != predictor.pad 
+                    ]
+                    predicted_text = [predictor.tokenizer[token] for token in predicted_tokens_clean]
+        
+                    tokens_cpu = tokens.cpu().tolist() 
+                    gold_text = [predictor.tokenizer[token] for token in tokens_cpu[batch_idx] if token != predictor.blank and token != predictor.pad]
+                    gold_text_str = ' '.join(gold_text)
+
+                    predicted_text_str = ' '.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+
+                    if config['training']['type'] == "phoneme":
+                        predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                        space_token = vocab.get("<space>")
+                        predicted_text_str = predicted_text_str.replace(predictor.tokenizer[space_token], ' ')
+
+                        gold_text = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
+                        gold_text_str = gold_text.replace(predictor.tokenizer[space_token], ' ')
+                    elif config['training']['type'] == "char":
+                        predicted_text_str = ''.join([t for t in predicted_text if t != predictor.blank and t != predictor.eos])
+                        gold_text_str = ''.join([predictor.tokenizer[token] for token in tokens_cpu[0] if token != predictor.blank])
+                    
+                    
+                    
+                    all_gold_texts.append(gold_text_str)
+                    all_predicted_texts.append(predicted_text_str)
+                    print("Predicted text: ", predicted_text_str)
+                    print("Gold Text: ", gold_text_str)
+                    
+                    wer_score = wer(gold_text_str, predicted_text_str)
+                    cer_score = cer(gold_text_str, predicted_text_str)
+                    print(f"WER: {wer_score:.4f}, CER: {cer_score:.4f}")
+                    
+                    # Ghi ra file
+                    f_out.write(f"Gold: {gold_text_str}\n")
+                    f_out.write(f"Pred: {predicted_text_str}\n")
+                    f_out.write(f"WER: {wer_score:.4f}, CER: {cer_score:.4f}\n")
+                    f_out.write("="*50 + "\n")
             
             total_wer = wer(all_gold_texts, all_predicted_texts)
             total_cer = cer(all_gold_texts, all_predicted_texts)
