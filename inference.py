@@ -60,25 +60,18 @@ class GreedyPredictor:
             next_tokens = torch.argmax(logits, dim=-1)  # [B]
 
             # Replace next_tokens with BLANK for finished ones (force pad)
-            next_tokens = next_tokens.masked_fill(finished, self.blank)
-
-            # Update finished mask
+            next_tokens = next_tokens.masked_fill(finished | (next_tokens == self.sos) | (next_tokens == self.blank), self.blank)
+            
+            # Cập nhật finished
             finished |= (next_tokens == self.eos)
 
-            # only append tokens that are not {% sos, blank, eos %}
-            ignore = torch.tensor([self.sos, self.blank, self.eos], device=self.device)
-            append_mask = ~torch.isin(next_tokens, ignore)
+            # Thêm token vào input decoder
+            next_tokens = next_tokens.unsqueeze(1)  # [B, 1]
+            decoder_input = torch.cat([decoder_input, next_tokens], dim=1)
 
-            # next tokens to append: [B, 1]
-            to_append = next_tokens[append_mask].unsqueeze(1)
-            if to_append.size(0) > 0:  # some batch samples still valid
-                # create empty placeholder and fill only positions to append
-                pad_col = torch.zeros(B, 1, dtype=torch.long, device=self.device)
-                pad_col[append_mask] = to_append
-                decoder_input = torch.cat([decoder_input, pad_col], dim=1)
-
-            if finished.all(): break
-        
+            if finished.all():
+                break
+    
         return decoder_input.cpu().numpy()
 
 
