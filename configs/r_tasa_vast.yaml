@@ -1,16 +1,16 @@
 training:
   epochs: 100
-  batch_size: 64
+  batch_size: 1
   save_path: "/home/anhkhoa/TASA/saves"
-  train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train_w2i.json"
-  dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_w2i.json"
-  test_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_w2i.json"
-  vocab_path : "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_w2i.json"
+  train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train_char.json"
+  dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_char.json"
+  test_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_char.json"
+  vocab_path : "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_char.json"
   reload: False
   logg : "workspace/TASA/logs/r_tasa.log"
   ctc_weight: 0.3
-  result: "/home/anhkhoa/TASA/result_2.txt"
-  type: "word"
+  result: "/home/anhkhoa/TASA/tasa_char.txt"
+  type: "char"
 
 
 optim:

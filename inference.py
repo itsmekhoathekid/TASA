@@ -74,6 +74,38 @@ class GreedyPredictor:
     
         return decoder_input.cpu().numpy()
 
+# class GreedyPredictor:
+#     def __init__(self, model, vocab, device, max_len=100):
+#         self.model = model
+#         self.sos = vocab.get_sos_token()
+#         self.eos = vocab.get_eos_token()
+#         self.blank = vocab.get_blank_token()
+#         self.pad = vocab.get_pad_token()
+#         self.tokenizer = vocab.itos
+#         self.device = device
+#         self.max_len = max_len
+#     def greedy_decode(self, src, src_mask):
+#         enc_out, src_mask = self.model.encode(src, src_mask)
+#         decoder_input = torch.tensor([[self.sos]], dtype=torch.long).to(self.device)
+
+#         for _ in range(self.max_len):
+#             decoder_mask = causal_mask(src.size(0), decoder_input.size(1)).to(self.device)
+#             # print("decoder mask : ", decoder_mask.shape)
+#             # print("enc out shape : ", enc_out.shape)
+#             dec_out = self.model.decode(decoder_input, enc_out, src_mask, decoder_mask)
+#             prob = dec_out[:, -1, :]  # [B, vocab_size]
+
+#             _, next_token = torch.max(prob, dim=1)  # [B]
+
+#             if next_token not in [self.sos, self.eos, self.blank]:
+#                 next_token_tensor = torch.tensor([[next_token.item()]], dtype=torch.long).to(self.device)
+#                 decoder_input = torch.cat([decoder_input, next_token_tensor], dim=1)
+
+#             if next_token == self.eos:
+#                 break
+        
+#         return decoder_input.cpu().numpy()
+
 
 def main():
 

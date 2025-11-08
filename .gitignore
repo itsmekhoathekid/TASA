@@ -1,2 +1,6 @@
 saves/
 __pycache__/
+
+tasa_char.txt
+tasa_word.txt
+result.txt

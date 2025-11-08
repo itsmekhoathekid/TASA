@@ -58,15 +58,15 @@ def process_data(data_path, vocab, default_data_path, save_path):
     print(f"Data saved to {save_path}")
 
 
-vocab = create_vocab("workspace/dataset/train.json")
-save_data(vocab, "workspace/dataset/vocab_c2i.json")
+vocab = create_vocab("/home/anhkhoa/transformer_transducer_speeQ/data/train.json")
+save_data(vocab, "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_char.json")
 
-process_data("workspace/dataset/train.json",
+process_data("/home/anhkhoa/transformer_transducer_speeQ/data/train.json",
              vocab,
-             "workspace/dataset/voices",
-             "workspace/dataset/train_c2i.json")
+             "/mnt/d/voices/voices",
+             "/home/anhkhoa/transformer_transducer_speeQ/data/train_char.json")
 
-process_data("workspace/dataset/test.json",
+process_data("/home/anhkhoa/transformer_transducer_speeQ/data/test.json",
              vocab,
-             "workspace/dataset/voices",
-             "workspace/dataset/test_c2i.json")
+             "/mnt/d/voices/voices",
+             "/home/anhkhoa/transformer_transducer_speeQ/data/test_char.json")
