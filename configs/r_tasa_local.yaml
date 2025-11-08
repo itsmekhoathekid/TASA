@@ -2,10 +2,10 @@ training:
   epochs: 100
   batch_size: 2
   save_path: "/home/anhkhoa/TASA/saves"
-  train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train.json"
-  dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/dev.json"
-  test_path : "/home/anhkhoa/transformer_transducer_speeQ/data/dev.json"
-  vocab_path : "/home/anhkhoa/transformer_transducer_speeQ/data/vocab.json"
+  train_path : "/home/anhkhoa/transformer_transducer_speeQ/data/train_w2i.json"
+  dev_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_w2i.json"
+  test_path : "/home/anhkhoa/transformer_transducer_speeQ/data/test_w2i.json"
+  vocab_path : "/home/anhkhoa/transformer_transducer_speeQ/data/vocab_w2i.json"
   reload: False
   logg : "/home/anhkhoa/TASA/logs/r_tasa.log"
   ctc_weight: 0.4
@@ -25,13 +25,13 @@ scheduler:
 model:
   attention_type: "r_tasa" # "r_tasa" or "mha"
   in_features: 640
-  n_enc_layers: 1
-  n_dec_layers: 1
+  n_enc_layers: 6
+  n_dec_layers: 3
   d_model: 256
-  ff_size: 2048
+  ff_size: 1024
   h: 4
   p_dropout: 0.1
-  model_name: "r_tasa"
+  model_name: "d_tasa"
 
 # optim:
 #   type: sgd

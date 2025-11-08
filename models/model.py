@@ -6,14 +6,15 @@ import torch
 class Transformer(nn.Module):
     def __init__(self, config, vocab_size):
         super().__init__()
-        if config['attention_type'] == 'r_tasa':
+        if 'tasa' in config['attention_type']:
             self.encoder = TASA_encoder(
                 in_features=config['in_features'],
                 n_layers=config['n_enc_layers'],
                 d_model=config['d_model'],
                 d_ff=config['ff_size'],
                 h=config['h'],
-                p_dropout=config['p_dropout']
+                p_dropout=config['p_dropout'],
+                type_tasa = config.get('attention_type', 'r_tasa')
             )
         else:
             self.encoder = TransformerEncoder(

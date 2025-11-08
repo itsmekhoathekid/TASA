@@ -3,7 +3,7 @@ import torch.nn as nn
 import math
 
 class TASA_attention(nn.Module):
-    def __init__(self, d_model, h, dropout):
+    def __init__(self, d_model, h, dropout, layer_idx=1, type='r_tasa'):
         super().__init__()
         self.d_model = d_model
         self.h = h  
@@ -16,19 +16,29 @@ class TASA_attention(nn.Module):
         self.w_o = nn.Linear(d_model, d_model, bias=False)
         self.dropout = nn.Dropout(dropout)
 
+        if type == 'r_tasa':
+            self.aggregate_module = nn.Conv2d(
+                in_channels=h * 2,
+                out_channels=h,
+                kernel_size=(3, 3),
+                padding=1
+            )
+        else:
+            self.aggregate_module = nn.Conv2d(
+                in_channels=h * layer_idx,
+                out_channels=h,
+                kernel_size=(3, 3),
+                padding=1
+            )
+
         self.transmit_module = nn.Conv2d(
             in_channels=h, 
             out_channels=h,
             kernel_size=(3, 3),
             padding=1
         )
+        self.type_tasa = type
 
-        self.aggregate_module = nn.Conv2d(
-            in_channels=h * 2,
-            out_channels=h,
-            kernel_size=(3, 3),
-            padding=1
-        )
         self._init_conv_weights()
 
     def _init_conv_weights(self):
@@ -39,10 +49,19 @@ class TASA_attention(nn.Module):
     def attention(self, query, key, value, mask, dropout, previous_attention_scores):
         M = torch.matmul(query, key.transpose(-2, -1))  # [B, H, T , d] @ [B, H, d, T] --> [B, H, T, T]
 
-        if previous_attention_scores is not None:
-            Mt = self.transmit_module(previous_attention_scores)  # CNNᵗ
-            Ma_input = torch.cat((M, Mt), dim=1)  # [B, 2H, T, T]
-            Ma = self.aggregate_module(Ma_input)  # CNNᵃ
+        if previous_attention_scores is not None and previous_attention_scores != []:
+            if self.type_tasa == 'r_tasa':
+                Mt = self.transmit_module(previous_attention_scores)  # CNNᵗ
+                Ma_input = torch.cat((M, Mt), dim=1)  # [B, 2H, T, T]
+                Ma = self.aggregate_module(Ma_input)  # CNNᵃ
+            else:
+                attention_list = []
+                for attention_score in previous_attention_scores:
+                    Mt = self.transmit_module(attention_score)  # CNNᵗ
+                    attention_list.append(Mt)
+                attention_list.append(M)
+                M_cat = torch.cat(attention_list, dim=1)  # [B, layer_idx * H, T, T]
+                Ma = self.aggregate_module(M_cat)  # CNNᵃ
         else:
             Ma = M  # No aggregation in the first layer
 
@@ -60,6 +79,7 @@ class TASA_attention(nn.Module):
         A = A.softmax(dim=-1)  # [B, H, T, T]
         if dropout is not None:
             A = dropout(A)
+        
         return A
 
     def forward(self, q, k, v, mask=None, previous_attention_scores=None):
@@ -101,8 +121,7 @@ class MultiHeadAttentionBlock(nn.Module):
             # print("attention_scores shape:", attention_scores.shape)  # [B, h, T    , T]
             if mask.dim() == 2:
                 mask = mask.unsqueeze(1).unsqueeze(1)
-            if mask.dim() == 3:
-                mask = mask.unsqueeze(1)
+                
             attention_scores.masked_fill_(mask == 0, -1e9)
         attention_scores = attention_scores.softmax(dim=-1) # (batch, h, seq_len, seq_len) # Apply softmax
         if dropout is not None:

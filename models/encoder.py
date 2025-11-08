@@ -65,7 +65,7 @@ def get_mask_from_lens(lengths, max_len: int):
     return indices < lengths.unsqueeze(dim=1)
 
 class TASA_layers(nn.Module):
-    def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout):
+    def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout, type_tasa='r_tasa', layer_idx=1):
         super().__init__()
         self.in_features = in_features
         self.n_layers = n_layers
@@ -77,7 +77,9 @@ class TASA_layers(nn.Module):
         self.attention = TASA_attention(
             d_model=d_model,
             h=h,
-            dropout=p_dropout
+            dropout=p_dropout,
+            type=type_tasa,
+            layer_idx=layer_idx
         )
 
         self.ffn = FeedForwardBlock(
@@ -106,7 +108,7 @@ class TASA_layers(nn.Module):
 
 
 class TASA_encoder(nn.Module):
-    def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout):
+    def __init__(self, in_features, n_layers, d_model, d_ff, h, p_dropout, type_tasa='r_tasa'):
         super().__init__()
         self.in_features = in_features
         self.n_layers = n_layers
@@ -139,16 +141,18 @@ class TASA_encoder(nn.Module):
                     d_model=d_model,
                     d_ff=d_ff,
                     h=h,
-                    p_dropout=p_dropout
-                ) for _ in range(n_layers)
+                    p_dropout=p_dropout,
+                    type_tasa = type_tasa,
+                    layer_idx = i+1
+                ) for i in range(n_layers)
             ]
         )
-
+        self.type_tasa = type_tasa
         self.projection = nn.Linear(in_features, d_model)
         self.pe = PositionalEncoding(d_model)
 
     
-    def forward(self, x, mask=None, previous_attention_scores=None):
+    def forward(self, x, mask=None):
         x = x.unsqueeze(1)  # [batch, channels, time, features
         x, mask = self.frontend(x, mask)  # [batch, channels, time, features]
         x = x.transpose(1, 2).contiguous()   # batch, time, channels, features
@@ -158,11 +162,19 @@ class TASA_encoder(nn.Module):
         
         x = self.projection(x)  # [batch, time, d_model]
         x = self.pe(x)  # [batch, time, d_model]
+        
+        if self.type_tasa == 'r_tasa':
+            previous_attention_scores = None
+        else:
+            previous_attention_scores = None
+            previous_attention_scores_list = []
 
         for layer in self.layers:
             
             x, previous_attention_scores = layer(x, mask, previous_attention_scores)
-
+            if self.type_tasa != 'r_tasa':
+                previous_attention_scores_list.append(previous_attention_scores)
+                previous_attention_scores = previous_attention_scores_list
         return x , mask
 
 class TransformerEncoderLayer(nn.Module):
